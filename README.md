@@ -12,31 +12,23 @@ Humans should be able to ask in plain language.
 Agents should act within clear boundaries.
 If something breaks, the system should restore to the last known-good state.
 
-The chat should become the control tower!
+The chat should become the control tower.
 
 ## Why
 
 Coding agents can now write code, edit files, open pull requests, run CI, and deploy changes.
 
-That is powerful!
+That is powerful.
 
 But power alone is not enough.
 
-Humans still need to understand:
+For humans to believe in agent-driven development, they need to understand three things from the chat:
 
-* what the agent is about to do
-* which repository it will touch
-* whether the work is small, normal, risky, or urgent
-* what route it will take
-* what it will not do
-* where the work is saved
-* how to recover if something breaks
+* intent: what the human asked for, and how the agent understood it
+* route: what the agent will touch, what it will avoid, and when it must stop
+* recovery: where the save points are, and how to restore if something breaks
 
-Agent Human Layer exists to make chat-based agent development worthy of belief.
-
-Not by asking humans to blindly trust AI.
-
-By making the agent's route, scope, save points, stop conditions, and recovery path visible from the chat.
+Agent Human Layer exists to make chat-based agent development understandable, bounded, and recoverable.
 
 ## Belief
 
@@ -68,7 +60,7 @@ GitHub is excellent at showing who changed what, when, and how it moved through 
 
 Agent Human Layer does not bypass GitHub.
 
-It respects GitHub as a durable foundation.
+It respects GitHub as a durable foundation and adds a human-readable decision and recovery layer on top of it.
 
 But recovery is not always the same as Git history.
 
@@ -76,9 +68,7 @@ Sometimes the most trustworthy recovery is not a clever Git operation.
 
 Sometimes it is replacing the target folder with the last known-good snapshot.
 
-Agent Human Layer adds a human-readable decision and recovery layer on top of GitHub.
-
-Belief is earned in the chat when humans can understand the route, see the save points, and know how to restore.
+That is valid.
 
 ## The real problem
 
@@ -99,26 +89,6 @@ A tiny UI change can become a branch conflict, a cherry-pick problem, a CI failu
 Agent Human Layer exists to catch that gap before work begins.
 
 If the workflow becomes more complex than the request, the agent should stop and explain why.
-
-## Balance over ceremony
-
-Safety matters.
-
-Production matters.
-
-CI matters.
-
-But safety should not mean endless ceremony.
-
-A tiny UI fix, a README edit, a database migration, and payment logic should not follow the same route.
-
-The workflow must fit the risk.
-
-A smarter agent is not a substitute for a safer route.
-
-The best workflow is not the one an agent can eventually solve.
-
-The best workflow is the one that avoids unnecessary complexity in the first place.
 
 ## Example
 
@@ -161,23 +131,23 @@ Agent:
 > * Create a human-readable save point after work completes
 > * Use a folder snapshot if this touches a risky area
 
-## What this project is not
+## Non-goals
 
-Agent Human Layer is not:
+Agent Human Layer is not a replacement for GitHub, Git, CI, or repository rules.
 
-* a Git tutorial
-* a generic Git wrapper
-* a GitHub replacement
-* a CI dashboard
-* a way to bypass repository rules
-* a system for adding ceremony for its own sake
-* a tool that asks humans to memorize commit hashes
+It does not exist to bypass safety systems.
+
+It does not exist to teach humans to speak Git.
+
+It does not add ceremony for its own sake.
+
+It does not treat AI confidence as proof of safety.
 
 ## Project status
 
 This project is at the belief and design stage.
 
-The first goal is to define the language, decisions, save points, recovery paths, and stop conditions that allow humans to believe in agent-driven development.
+The first goal is to define the language, decisions, save points, recovery paths, stop conditions, and route principles that allow humans to believe in agent-driven development.
 
 Implementation comes later.
 
