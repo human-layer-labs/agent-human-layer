@@ -32,7 +32,11 @@ Humans still need to understand:
 * where the work is saved
 * how to recover if something breaks
 
-Agent Human Layer exists to make that visible from the chat.
+Agent Human Layer exists to make chat-based agent development worthy of belief.
+
+Not by asking humans to blindly trust AI.
+
+By making the agent's route, scope, save points, stop conditions, and recovery path visible from the chat.
 
 ## Belief
 
@@ -50,7 +54,7 @@ A person believes in an agent because it repeatedly:
 * stops when the route becomes unsafe
 * restores quickly when something goes wrong
 
-We do not ask humans to blindly believe in AI.
+We do not ask humans to believe in AI blindly.
 
 We define what AI must do to become worthy of belief.
 
@@ -58,9 +62,13 @@ We define what AI must do to become worthy of belief.
 
 GitHub is audit.
 Snapshot is recovery.
-Chat is belief.
+The chat is the control tower.
 
 GitHub is excellent at showing who changed what, when, and how it moved through branches, pull requests, CI, and deployment.
+
+Agent Human Layer does not bypass GitHub.
+
+It respects GitHub as a durable foundation.
 
 But recovery is not always the same as Git history.
 
@@ -68,9 +76,49 @@ Sometimes the most trustworthy recovery is not a clever Git operation.
 
 Sometimes it is replacing the target folder with the last known-good snapshot.
 
-Agent Human Layer does not bypass GitHub.
+Agent Human Layer adds a human-readable decision and recovery layer on top of GitHub.
 
-It respects GitHub as a durable foundation and adds a human-readable recovery and decision layer on top of it.
+Belief is earned in the chat when humans can understand the route, see the save points, and know how to restore.
+
+## The real problem
+
+A human may say:
+
+> Move this small tested change to production.
+
+But an agent may interpret that as:
+
+> Move everything currently sitting in development toward main.
+
+Those are not the same thing.
+
+A small request can accidentally become a complex release path.
+
+A tiny UI change can become a branch conflict, a cherry-pick problem, a CI failure, and a production risk.
+
+Agent Human Layer exists to catch that gap before work begins.
+
+If the workflow becomes more complex than the request, the agent should stop and explain why.
+
+## Balance over ceremony
+
+Safety matters.
+
+Production matters.
+
+CI matters.
+
+But safety should not mean endless ceremony.
+
+A tiny UI fix, a README edit, a database migration, and payment logic should not follow the same route.
+
+The workflow must fit the risk.
+
+A smarter agent is not a substitute for a safer route.
+
+The best workflow is not the one an agent can eventually solve.
+
+The best workflow is the one that avoids unnecessary complexity in the first place.
 
 ## Example
 
