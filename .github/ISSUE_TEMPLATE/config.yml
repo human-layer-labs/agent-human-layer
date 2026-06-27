@@ -1,0 +1,6 @@
+blank_issues_enabled: true
+contact_links:
+
+* name: Start with BELIEF.md
+  url: https://github.com/human-layer-labs/agent-human-layer/blob/main/BELIEF.md
+  about: Read the trunk of the project before opening a new issue.
