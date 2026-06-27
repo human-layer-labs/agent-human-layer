@@ -67,21 +67,15 @@ A Believe is not complete until the human can understand the result and the reco
 
 The human should not need to live inside GitHub.
 
-The chat should show:
+Agent Human Layer brings the agent workflow back into the chat.
 
-* what the human asked for
-* how the agent classified the work
-* which repository is being touched
-* whether the work is tiny, normal, risky, urgent, or recovery work
-* what route the agent will take
-* what the agent will not do
-* when the agent must stop
-* where the save points are
-* how to restore if something breaks
+The chat should make three things clear:
 
-Agent Human Layer exists to make chat-based agent development worthy of belief.
+* intent: what the human asked for, and how the agent understood it
+* route: what the agent will touch, what it will avoid, and when it must stop
+* recovery: where the save points are, and how to restore if something breaks
 
-The chat is where belief is earned.
+Belief is earned in the chat when the human can understand the route before the agent acts, see the boundaries while it acts, and know the recovery path if it fails.
 
 ## Humans should not have to speak Git
 
@@ -222,16 +216,17 @@ Agent Human Layer exists to catch that gap before work begins.
 
 ## Non-goals
 
-Agent Human Layer is not:
+Agent Human Layer is not a replacement for GitHub, Git, CI, or repository rules.
 
-* a Git tutorial
-* a generic Git wrapper
-* a GitHub replacement
-* a CI dashboard
-* a way to bypass repository rules
-* a system for adding ceremony for its own sake
-* a tool that asks humans to memorize commit hashes
-* a system that treats AI confidence as proof of safety
+It does not exist to bypass safety systems.
+
+It does not exist to teach humans to speak Git.
+
+It does not add ceremony for its own sake.
+
+It does not treat AI confidence as proof of safety.
+
+Its purpose is to make agent-driven development understandable, bounded, and recoverable from the chat.
 
 ## Project direction
 
