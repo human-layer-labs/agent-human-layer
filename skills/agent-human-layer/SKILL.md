@@ -51,7 +51,7 @@ Route:
 - Create a hotfix branch from main.
 - Change only the target UI file.
 - Open a pull request.
-- Wait for CI before merge or deploy.
+- Use the appropriate release gate before merge or deploy.
 
 Boundaries:
 - Do not touch development.
