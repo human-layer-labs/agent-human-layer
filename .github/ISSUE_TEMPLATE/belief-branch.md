@@ -1,11 +1,10 @@
 ---
-
 name: Belief branch
 about: Define a branch of the Agent Human Layer belief system
 title: "[Belief Branch] "
 labels: belief, design
 assignees: ""
--------------
+---
 
 ## Purpose
 
