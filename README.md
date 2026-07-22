@@ -143,12 +143,24 @@ It does not add ceremony for its own sake.
 
 It does not treat AI confidence as proof of safety.
 
+## Cases
+
+[cases/](./cases/) holds write-ups of real incidents from agent-driven development — what
+happened, what caught it, and what changed afterwards.
+
+Belief is the trunk. Skills are the method. Cases are the evidence.
+
+* [2026-07-22 — The field that erased itself](./cases/2026-07-22-silent-field-erasure.md)
+
 ## Project status
 
-This project is at the belief and design stage.
+This project is developing its belief, its operational methods, and its field evidence.
 
 The first goal is to define the language, decisions, save points, recovery paths, stop conditions, and route principles that allow humans to believe in agent-driven development.
 
-Implementation comes later.
+That definition is not written in the abstract. It is corrected by what actually happens —
+which is what [cases/](./cases/) is for. Belief explains reality; reality updates belief.
+
+Tooling comes later.
 
 Belief comes first.
