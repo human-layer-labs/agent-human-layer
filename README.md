@@ -154,10 +154,13 @@ Belief is the trunk. Skills are the method. Cases are the evidence.
 
 ## Project status
 
-This project is at the belief and design stage.
+This project is developing its belief, its operational methods, and its field evidence.
 
 The first goal is to define the language, decisions, save points, recovery paths, stop conditions, and route principles that allow humans to believe in agent-driven development.
 
-Implementation comes later.
+That definition is not written in the abstract. It is corrected by what actually happens —
+which is what [cases/](./cases/) is for. Belief explains reality; reality updates belief.
+
+Tooling comes later.
 
 Belief comes first.
