@@ -143,6 +143,15 @@ It does not add ceremony for its own sake.
 
 It does not treat AI confidence as proof of safety.
 
+## Cases
+
+[cases/](./cases/) holds write-ups of real incidents from agent-driven development — what
+happened, what caught it, and what changed afterwards.
+
+Belief is the trunk. Skills are the method. Cases are the evidence.
+
+* [2026-07-22 — The field that erased itself](./cases/2026-07-22-silent-field-erasure.md)
+
 ## Project status
 
 This project is at the belief and design stage.
