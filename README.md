@@ -5,6 +5,8 @@ Agent Human Layer is a belief system for agent-driven development.
 Start with [BELIEF.md](./BELIEF.md) — the trunk.
 Then [CHEAP-DEATH.md](./CHEAP-DEATH.md) — Chapter 2: a belief must be written cheaply enough to die cheaply.
 
+Agents applying AHL to real work should start with [ADOPT-AHL.md](./ADOPT-AHL.md).
+
 The core idea is simple:
 
 > Ask. Act. Restore.
