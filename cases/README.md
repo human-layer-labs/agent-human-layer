@@ -42,3 +42,6 @@ Two rules:
 * [2026-07-22 — The field that erased itself](./2026-07-22-silent-field-erasure.md)
   A payroll field was silently overwritten with NULL on every save. Every test passed.
   A UI feature — not a test — is what exposed it.
+* [2026-07-24 — The belief that had to be built before it could die](./2026-07-24-the-wrong-axis.md)
+  Four phases were built on the wrong domain axis. Every test passed — tests verify a design
+  against itself. The refuting fact was known, unwritten, on day one. Origin of Chapter 2.

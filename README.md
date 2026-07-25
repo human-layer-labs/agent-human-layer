@@ -2,7 +2,8 @@
 
 Agent Human Layer is a belief system for agent-driven development.
 
-Start with [BELIEF.md](./BELIEF.md).
+Start with [BELIEF.md](./BELIEF.md) — the trunk.
+Then [CHEAP-DEATH.md](./CHEAP-DEATH.md) — Chapter 2: a belief must be written cheaply enough to die cheaply.
 
 The core idea is simple:
 
@@ -151,6 +152,7 @@ happened, what caught it, and what changed afterwards.
 Belief is the trunk. Skills are the method. Cases are the evidence.
 
 * [2026-07-22 — The field that erased itself](./cases/2026-07-22-silent-field-erasure.md)
+* [2026-07-24 — The belief that had to be built before it could die](./cases/2026-07-24-the-wrong-axis.md)
 
 ## Project status
 
