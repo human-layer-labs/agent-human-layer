@@ -16,7 +16,7 @@ The build was deployed to the test environment. The migration ran and reported s
 Then the reviewer checked the actual database — not the report — and found the migration
 half-done:
 
-* the two old tables were correctly dropped
+* the three old tables were correctly dropped
 * one of the two new tables was created
 * **the other new table was silently absent**
 
