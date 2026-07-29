@@ -4,6 +4,7 @@ Agent Human Layer is a belief system for agent-driven development.
 
 Start with [BELIEF.md](./BELIEF.md) — the trunk.
 Then [CHEAP-DEATH.md](./CHEAP-DEATH.md) — Chapter 2: a belief must be written cheaply enough to die cheaply.
+Then [UNRUN-CHECKS.md](./UNRUN-CHECKS.md) — Chapter 3: an unrun check is not a check. It is a belief with the authority to stop work.
 
 The core idea is simple:
 
@@ -154,6 +155,7 @@ Belief is the trunk. Skills are the method. Cases are the evidence.
 * [2026-07-22 — The field that erased itself](./cases/2026-07-22-silent-field-erasure.md)
 * [2026-07-24 — The belief that had to be built before it could die](./cases/2026-07-24-the-wrong-axis.md)
 * [2026-07-26 — The suite was green; the schema was broken](./cases/2026-07-26-green-logic-broken-schema.md)
+* [2026-07-29 — The check that could not pass](./cases/2026-07-29-the-check-that-could-not-pass.md)
 
 ## Project status
 
