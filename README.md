@@ -154,6 +154,7 @@ Belief is the trunk. Skills are the method. Cases are the evidence.
 * [2026-07-22 — The field that erased itself](./cases/2026-07-22-silent-field-erasure.md)
 * [2026-07-24 — The belief that had to be built before it could die](./cases/2026-07-24-the-wrong-axis.md)
 * [2026-07-26 — The suite was green; the schema was broken](./cases/2026-07-26-green-logic-broken-schema.md)
+* [2026-07-30 — "I didn't really get it"](./cases/2026-07-30-i-didnt-really-get-it.md)
 
 ## Project status
 

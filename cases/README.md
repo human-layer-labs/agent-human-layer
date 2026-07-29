@@ -49,3 +49,8 @@ Two rules:
   A migration silently created one of two new tables — a duplicate column the in-memory test
   stand-in never parsed. Logic green is not schema green. Caught by checking the real database;
   cheap to undo because the dump was taken first.
+* [2026-07-30 — "I didn't really get it"](./2026-07-30-i-didnt-really-get-it.md)
+  The owner's whole acceptance report was four words. The agent read it as a request for
+  polish and proposed better labels. It was a security defect: a silent fallback was assigning
+  a recovery-gated role to whichever device had been active most recently. A screen cannot
+  display a decision nobody ever made.
