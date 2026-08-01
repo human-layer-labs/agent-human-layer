@@ -49,3 +49,15 @@ Two rules:
   A migration silently created one of two new tables — a duplicate column the in-memory test
   stand-in never parsed. Logic green is not schema green. Caught by checking the real database;
   cheap to undo because the dump was taken first.
+* [2026-07-31 — Implementation is not delivery](./2026-07-31-implementation-is-not-delivery.md)
+  A destructive option was kept alive because its safe replacement was invisible. The safe one
+  had a button, a correct label, and tests — but nothing on screen explained what it did.
+  The system's own designer could not tell it existed. One of three cases cut from the same flow.
+* [2026-07-31 — The premise that lived in one head](./2026-07-31-unstated-premise.md)
+  Five defects on one screen, fixed separately over one day, all had a single cause: a layer
+  model that existed only in the human's head. Once written, all five collapsed into one.
+  You cannot ask about a structure you do not know exists.
+* [2026-07-31 — It looked like a mismatch until it was too wide to be one](./2026-07-31-drift.md)
+  Nine releases, zero rollbacks — and two designs in a row came out wrong. The angle had been
+  turning a few degrees at each restatement. Drift requires return, not patching. Stop on the
+  felt sense; classify after stopping.
