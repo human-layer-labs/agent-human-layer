@@ -61,3 +61,7 @@ Two rules:
   Nine releases, zero rollbacks — and two designs in a row came out wrong. The angle had been
   turning a few degrees at each restatement. Drift requires return, not patching. Stop on the
   felt sense; classify after stopping.
+* [2026-08-04 — The instruction that nothing was watching](./2026-08-04-faithful-to-a-false-premise.md)
+  Eight checks were written before the change, run, and all passed. The implementation matched the
+  instruction exactly — and the instruction was wrong. Every check asked whether the work was done,
+  none whether the premise was right. Origin of Chapter 3.
