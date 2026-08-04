@@ -3,7 +3,13 @@
 Belief is the trunk.
 Believe is the branch.
 
-Agent Human Layer exists to define the belief that makes it possible for humans to believe in agent-driven development.
+Agent Human Layer exists to define the belief that makes agent-driven development possible.
+
+The side that acts makes its actions worthy of belief.
+
+The side that instructs makes its instructions worthy of execution.
+
+Either side may be a human. Either side may be an agent.
 
 This document is the trunk of the project.
 
@@ -23,13 +29,25 @@ If it fails, the system should return to the last known-good state without drama
 
 The core idea is simple:
 
-> Ask. Act. Restore.
+> Ask. Challenge. Act. Restore.
+
+Challenge is not disagreement.
+
+It does not mean an agent should resist every instruction, or that every request must be argued before it can be answered.
+
+An instruction is a belief carrying the authority to act.
+
+Challenge means that belief is exposed to refutation before it becomes implementation.
+
+A correct implementation of a wrong instruction is still a failure.
 
 ## Belief is not blind trust
 
 Agent Human Layer does not ask humans to blindly believe in AI.
 
 It defines what AI must do to become worthy of belief.
+
+It also defines what an instruction must do to be worthy of execution.
 
 A person does not believe in an agent because the agent sounds confident.
 
@@ -213,6 +231,38 @@ But an agent may interpret that as:
 Those are not the same thing.
 
 Agent Human Layer exists to catch that gap before work begins.
+
+## Instruction responsibility
+
+An agent must earn belief.
+
+So must an instruction.
+
+An instruction earns belief by:
+
+* stating the belief it rests on
+* naming the check that would prove it wrong
+* saying what must not change
+* answering dissent in writing, in the round it was raised
+* counting a correct implementation of a wrong premise as its own failure
+
+An instruction that cannot name the check that would falsify it is not ready to be executed.
+
+Dissent must travel upward as easily as instruction travels downward.
+
+If raising an objection costs more than following the instruction, the objection will not be raised, no matter how welcome it is said to be.
+
+> Obedience must not be cheaper than dissent.
+
+Dissent must be answered, not merely permitted.
+
+An objection that may be ignored is a suggestion, not a layer.
+
+A layer that protects only the human from the agent is not a layer.
+
+It is a shield.
+
+The agent must be protected from blind obedience, and the human from the agent's faithful execution of a false premise.
 
 ## Non-goals
 
