@@ -68,6 +68,9 @@ GitHub is audit.
 Snapshot is recovery.
 The chat is the control tower.
 
+AHL requires GitHub as the audit layer, not GitHub Actions as the executor.
+Execution may happen through SSH, an API, another CI system, or a human operator.
+
 GitHub is excellent at showing who changed what, when, and how it moved through branches, pull requests, CI, and deployment.
 
 Agent Human Layer does not bypass GitHub.
@@ -154,6 +157,11 @@ It does not exist to teach humans to speak Git.
 It does not add ceremony for its own sake.
 
 It does not treat AI confidence as proof of safety.
+
+AHL does not skip CI, bypass review, or rush merges.
+
+It reduces the avoidable rework that reaches them by challenging assumptions,
+running checks early, and keeping changes small and recoverable.
 
 ## Cases
 
