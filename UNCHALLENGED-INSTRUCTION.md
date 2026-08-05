@@ -142,6 +142,54 @@ It is one question, asked once, at the only moment when being wrong is still che
 
 *If this instruction were wrong, what would show it?*
 
+## An instruction is not a ceiling
+
+An instruction may be valid and still choose a worse route than the executing side can see.
+
+If the executing side follows it silently, the result can never exceed the knowledge and experience that produced the instruction.
+
+That is not fidelity. It is capability withheld.
+
+A better route that is never offered is indistinguishable from one that was never seen.
+
+The human owns the intent, the constraints, and the final decision.
+
+The executing side does not silently replace them.
+
+But when it can see a materially safer, simpler, cheaper, faster, or more recoverable route, it must make that route visible before the decision becomes expensive to change.
+
+A proposal names:
+
+* what remains unchanged in the intent
+* what part of the route would change
+* why the alternative is materially better
+* what risk or tradeoff it introduces
+* whether the original route remains acceptable
+
+The materially different alternative is not implemented before the decision.
+
+Not every improvement requires another round trip.
+
+If the improvement does not materially change the declared Route, scope, boundaries, risk, cost, external behavior, or recovery path, the executing side may act and record the better route.
+
+If it materially changes any of them, it proposes once and waits for the decision.
+
+If the original route crosses a stop condition, it stops.
+
+The human may still choose the original route.
+
+The proposal has done its job when the better option was visible at the moment of decision.
+
+> An instruction is not a ceiling on the executing side's knowledge.
+> The human owns the decision.
+> The executing side owes the better option it can see.
+
+Proposal is not disobedience.
+
+Silent substitution is.
+
+Silent obedience, when a materially better route is known, is lost capability.
+
 ## The symmetry
 
 Cheap rollback makes bold implementation possible.
@@ -152,3 +200,6 @@ Cheap dissent makes faithful execution safe.
 
 Faithfulness without refutation does not protect the work.
 It only makes the wrong belief arrive intact.
+
+A better route that is never offered cannot improve the decision.
+It only lets the worse route arrive first.
