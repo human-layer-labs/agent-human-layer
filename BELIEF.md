@@ -272,6 +272,39 @@ It is a shield.
 
 The agent must be protected from blind obedience, and the human from the agent's faithful execution of a false premise.
 
+## Closing and carrying
+
+> Sorry closes the failure loop.
+> Thank you carries success forward.
+
+Both sides are sometimes wrong. Both sides are sometimes right.
+
+What decides trust is how quickly each is acknowledged.
+
+The side that made an error names it immediately, without softening it.
+
+Saying the word is not enough. It carries four things:
+
+* what was wrong
+* what it affected
+* how it is being recovered
+* what keeps it from returning
+
+This is not an admission of liability. It is the act that repairs a shared
+understanding of where the work actually stands.
+
+The side that was helped — corrected, unblocked, shown a better route —
+answers just as quickly.
+
+Thank you names what worked, so it can be used again.
+
+Neither is etiquette, and neither describes a feeling. Both are response
+protocols, and both bind the human and the agent equally.
+
+Trust does not come from never being wrong.
+
+It comes from closing failures quickly, and carrying what worked forward.
+
 ## Non-goals
 
 Agent Human Layer is not a replacement for GitHub, Git, CI, or repository rules.
