@@ -128,8 +128,7 @@ And one classification, because the three kinds of check fail differently:
 | **removal** | "the old form must be gone" | naming a *shape* instead of the *old value*; a shape matches the fix too |
 | **arrival** | "the new form must be present" | being written as a count nobody can measure in advance — name the files instead |
 
-This case is the origin of the unrun check, named in
-[The Unchallenged Instruction](../UNCHALLENGED-INSTRUCTION.md).
+This case is the origin of [The Unrun Check](../UNRUN-CHECKS.md).
 
 ## For other teams
 
