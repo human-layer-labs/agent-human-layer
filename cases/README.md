@@ -50,6 +50,11 @@ Two rules:
   A migration silently created one of two new tables — a duplicate column the in-memory test
   stand-in never parsed. Logic green is not schema green. Caught by checking the real database;
   cheap to undo because the dump was taken first.
+* [2026-07-29 — The check that could not pass](./2026-07-29-the-check-that-could-not-pass.md)
+  Four correct stops in one pull request, all caused by acceptance checks the directing agent
+  had written but never run — including one that could never pass. Nothing broke, so rollback
+  had nothing to restore; the cost was round trips and belief.
+  Origin of the unrun check, named in [The Unchallenged Instruction](../UNCHALLENGED-INSTRUCTION.md).
 * [2026-07-31 — Implementation is not delivery](./2026-07-31-implementation-is-not-delivery.md)
   A destructive option was kept alive because its safe replacement was invisible. The safe one
   had a button, a correct label, and tests — but nothing on screen explained what it did.
