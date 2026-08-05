@@ -18,7 +18,7 @@ Which part of `BELIEF.md` does this issue branch from?
 
 Examples:
 
-* Ask. Act. Restore.
+* Ask. Challenge. Act. Restore.
 * The chat is the control tower.
 * GitHub is audit.
 * Snapshot is recovery.

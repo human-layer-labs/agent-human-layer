@@ -17,6 +17,14 @@ README, issues, code, CI, route formats, snapshots, risk rules, and implementati
 
 If anything conflicts with `BELIEF.md`, `BELIEF.md` wins.
 
+The chapters that extend this trunk:
+
+* [Cheap Enough to Die](./CHEAP-DEATH.md) — a belief must be written cheaply enough to die cheaply.
+* [The Unchallenged Instruction](./UNCHALLENGED-INSTRUCTION.md) — an instruction is a belief carrying the authority to act.
+* [The Unrun Check](./UNRUN-CHECKS.md) — an unrun check is a belief carrying the authority to stop work.
+
+Reading order is in the [README](./README.md).
+
 ## Prime Belief
 
 A human should be able to ask.

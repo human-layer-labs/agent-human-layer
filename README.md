@@ -15,9 +15,10 @@ Then [UNRUN-CHECKS.md](./UNRUN-CHECKS.md) — Chapter 4: an unrun check is a bel
 
 The core idea is simple:
 
-> Ask. Act. Restore.
+> Ask. Challenge. Act. Restore.
 
 Humans should be able to ask in plain language.
+Instructions should be exposed to refutation before they become implementation.
 Agents should act within clear boundaries.
 If something breaks, the system should restore to the last known-good state.
 
@@ -157,7 +158,7 @@ It does not treat AI confidence as proof of safety.
 [cases/](./cases/) holds write-ups of real incidents from agent-driven development — what
 happened, what caught it, and what changed afterwards.
 
-Belief is the trunk. Skills are the method. Cases are the evidence.
+Belief is the trunk. [Skills](./skills/) are the method. Cases are the evidence.
 
 * [2026-07-22 — The field that erased itself](./cases/2026-07-22-silent-field-erasure.md)
 * [2026-07-24 — The belief that had to be built before it could die](./cases/2026-07-24-the-wrong-axis.md)

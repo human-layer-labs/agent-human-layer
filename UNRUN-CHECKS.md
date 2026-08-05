@@ -89,8 +89,8 @@ And one rule about instruments:
 
 ## The ratchet is the symptom
 
-AHL holds that over-verification is not a virtue — it is what a team does
-when it cannot cheaply undo things.
+["Cheap Enough to Die"](./CHEAP-DEATH.md) holds that over-verification is not a virtue —
+it is what a team does when it cannot cheaply undo things.
 
 The same disease reaches the rulebook.
 
