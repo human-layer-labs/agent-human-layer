@@ -161,6 +161,15 @@ Belief is the trunk. Skills are the method. Cases are the evidence.
 * [2026-07-22 — The field that erased itself](./cases/2026-07-22-silent-field-erasure.md)
 * [2026-07-24 — The belief that had to be built before it could die](./cases/2026-07-24-the-wrong-axis.md)
 * [2026-07-26 — The suite was green; the schema was broken](./cases/2026-07-26-green-logic-broken-schema.md)
+* [2026-07-29 — The check that could not pass](./cases/2026-07-29-the-check-that-could-not-pass.md)
+* [2026-07-31 — Implementation is not delivery](./cases/2026-07-31-implementation-is-not-delivery.md)
+* [2026-07-31 — The premise that lived in one head](./cases/2026-07-31-unstated-premise.md)
+* [2026-07-31 — It looked like a mismatch until it was too wide to be one](./cases/2026-07-31-drift.md)
+* [2026-08-04 — The instruction that nothing was watching](./cases/2026-08-04-faithful-to-a-false-premise.md)
+* [2026-08-05 — The snapshot that was not known-good](./cases/2026-08-05-the-snapshot-that-was-not-known-good.md)
+* [2026-08-05 — One value, two jobs](./cases/2026-08-05-one-value-two-jobs.md)
+
+The full index, with a summary of each, is in [cases/README.md](./cases/README.md).
 
 ## Project status
 
