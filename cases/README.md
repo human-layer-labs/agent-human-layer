@@ -71,3 +71,7 @@ Two rules:
   A rollback path trusted for months, rehearsed on purpose and timed twice: under a second on the
   server, one minute for the human. The drill found the defect before an outage did — snapshots are
   taken *before* each deploy, so restoring the newest one silently undoes the most recent fix.
+* [2026-08-05 — One value, two jobs](./2026-08-05-one-value-two-jobs.md)
+  A deploy version that also triggered migrations, a backup selector that also meant "safe to
+  return to", and this repository's own chapter numbers. Three systems in six days, one shape:
+  the job that moves a value often will quietly break the job that needed it to hold still.
