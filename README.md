@@ -6,6 +6,12 @@ Start with [BELIEF.md](./BELIEF.md) — the trunk.
 Then [CHEAP-DEATH.md](./CHEAP-DEATH.md) — Chapter 2: a belief must be written cheaply enough to die cheaply.
 Then [UNCHALLENGED-INSTRUCTION.md](./UNCHALLENGED-INSTRUCTION.md) — Chapter 3: an instruction is a belief carrying the authority to act, and it must be refuted before it becomes implementation.
 
+> **Chapter numbers live here and nowhere else.**
+> A number says where a chapter sits in the reading order — and reading order changes as
+> chapters are added. A chapter's own file does not carry its number, because a number that
+> two things depend on will eventually be moved by one of them and broken for the other.
+> Chapters refer to each other by name. New chapters take their number here, when they merge.
+
 The core idea is simple:
 
 > Ask. Act. Restore.

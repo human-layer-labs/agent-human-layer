@@ -44,7 +44,8 @@ Two rules:
   A UI feature — not a test — is what exposed it.
 * [2026-07-24 — The belief that had to be built before it could die](./2026-07-24-the-wrong-axis.md)
   Four phases were built on the wrong domain axis. Every test passed — tests verify a design
-  against itself. The refuting fact was known, unwritten, on day one. Origin of Chapter 2.
+  against itself. The refuting fact was known, unwritten, on day one.
+  Origin of [Cheap Enough to Die](../CHEAP-DEATH.md).
 * [2026-07-26 — The suite was green; the schema was broken](./2026-07-26-green-logic-broken-schema.md)
   A migration silently created one of two new tables — a duplicate column the in-memory test
   stand-in never parsed. Logic green is not schema green. Caught by checking the real database;
@@ -64,4 +65,5 @@ Two rules:
 * [2026-08-04 — The instruction that nothing was watching](./2026-08-04-faithful-to-a-false-premise.md)
   Eight checks were written before the change, run, and all passed. The implementation matched the
   instruction exactly — and the instruction was wrong. Every check asked whether the work was done,
-  none whether the premise was right. Origin of Chapter 3.
+  none whether the premise was right.
+  Origin of [The Unchallenged Instruction](../UNCHALLENGED-INSTRUCTION.md).
