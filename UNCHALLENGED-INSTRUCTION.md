@@ -1,13 +1,13 @@
 # The Unchallenged Instruction
 
-*Chapter 3 of the Agent Human Layer belief.*
+*A chapter of the Agent Human Layer belief. Reading order is in [README](./README.md).*
 
 *[BELIEF.md](./BELIEF.md) is the trunk, and remains the trunk.
 This chapter extends it. It does not replace it, and it is not a second trunk.*
 
 ---
 
-## Chapter 2 held
+## What "Cheap Enough to Die" held
 
 Beliefs must be written, because an unwritten belief can only be refuted by built software.
 

@@ -65,7 +65,7 @@ But the discard was cheap, because the guards already existed:
 * every deploy had a named save point, and a database dump where data was touched
 * so the wrong design could be dropped without any migration
 
-Chapter 1 paid for this lesson.
+The trunk paid for this lesson.
 Rollback being cheap is exactly what made the wrong design cheap to abandon —
 its job had quietly moved up a layer.
 
@@ -85,7 +85,7 @@ The death condition was already true on day one.
 The belief would have died at the cost of reading it —
 instead of at the cost of building it.
 
-This case is the origin of Chapter 2: [Cheap Enough to Die](../CHEAP-DEATH.md).
+This case is the origin of [Cheap Enough to Die](../CHEAP-DEATH.md).
 
 ## For other teams
 

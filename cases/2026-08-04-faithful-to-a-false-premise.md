@@ -67,7 +67,7 @@ Faithfulness worked perfectly, and that is precisely how the wrong premise arriv
 The failure did not happen where the work happened.
 It happened one step earlier, and nothing was watching that step.
 
-Chapter 2 had already named this duty. *Dissent is not a right. It is a duty.*
+"Cheap Enough to Die" had already named this duty. *Dissent is not a right. It is a duty.*
 It was named, and it still did not fire — because the report was written after the work,
 and raising a doubt before it meant stopping, waiting, and being asked to justify the pause.
 Following the instruction cost one round. Questioning it cost two.
@@ -101,7 +101,7 @@ Refuted if: a workplace saves one field, and an untouched statutory floor
 
 That is not a test anyone needed to build. It is a sentence, and reading it kills the belief.
 
-This case is the origin of Chapter 3: [The Unchallenged Instruction](../UNCHALLENGED-INSTRUCTION.md).
+This case is the origin of [The Unchallenged Instruction](../UNCHALLENGED-INSTRUCTION.md).
 
 ## The tail that is still open
 
