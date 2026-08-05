@@ -33,6 +33,19 @@ Validation:
 Open questions:
 ```
 
+Include an Execution block whenever the work involves delivery, deployment, external
+execution, or restore — this is triggered by what the work touches, not by risk level:
+
+```text
+Execution:
+- Executor:
+- Target:
+- Execution method:
+- Authentication mechanism:
+- Validation executor:
+- Restore executor:
+```
+
 ## Field meanings
 
 ### Intent
@@ -69,6 +82,16 @@ Define the conditions that require the agent to stop before continuing. Stop con
 ### Recovery
 
 Explain how the work can be undone. Recovery is always required.
+
+### Execution
+
+Include this field whenever the work involves delivery, deployment, external execution, or restore.
+
+Name who or what carries out execution, validation, and restore. State the authentication mechanism, never the credentials. Risk says how much safety the change requires; Execution says who or what will meet that requirement.
+
+This field does not restate what Validation or Recovery already cover. It names who performs them, not how they are carried out — the check itself belongs in Validation, and the restore procedure belongs in Recovery.
+
+`Authentication mechanism` records the method only (for example: SSH key, API token, GitHub secret, hosting control panel login) — never the credential, secret, key, or token value itself.
 
 ## Standard format
 
