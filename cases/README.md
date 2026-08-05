@@ -67,3 +67,7 @@ Two rules:
   instruction exactly — and the instruction was wrong. Every check asked whether the work was done,
   none whether the premise was right.
   Origin of [The Unchallenged Instruction](../UNCHALLENGED-INSTRUCTION.md).
+* [2026-08-05 — The snapshot that was not known-good](./2026-08-05-the-snapshot-that-was-not-known-good.md)
+  A rollback path trusted for months, rehearsed on purpose and timed twice: under a second on the
+  server, one minute for the human. The drill found the defect before an outage did — snapshots are
+  taken *before* each deploy, so restoring the newest one silently undoes the most recent fix.
