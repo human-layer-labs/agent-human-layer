@@ -2,7 +2,7 @@
 
 Read [BELIEF.md](../../BELIEF.md) first.
 
-Agent Human Layer is the Skill layer for Ask. Act. Restore.
+Agent Human Layer is the Skill layer for Ask. Challenge. Act. Restore.
 This first MVP is documentation-only. No scripts yet.
 
 Before acting on any development task, show the route in plain language and wait for the human to approve or redirect it.

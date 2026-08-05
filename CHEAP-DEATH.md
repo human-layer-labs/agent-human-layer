@@ -36,6 +36,23 @@ to *discarding a wrong design cheaply*.
 Each layer that becomes cheap frees attention for the one above it.
 The most expensive failures now live at the top.
 
+## Over-verification is a symptom, not a virtue
+
+A team that keeps adding checks is not becoming safer. It is reporting that it cannot cheaply
+undo things. Verification is the price paid for irreversibility. When that price stays high,
+the thing to fix is the irreversibility, not the price.
+
+The same disease reaches the rulebook. A checklist that grows after every incident is
+describing the shape of the last failure, and the next failure arrives in a shape it does not
+cover. Prefer a step that executes over a rule to remember: a rule is a belief about future
+attention, a step is a fact.
+
+*Canonicalised in this sweep, 2026-08-05. This belief was already being cited as AHL's — in
+[cases/2026-07-29](./cases/2026-07-29-the-check-that-could-not-pass.md) and in
+[The Unrun Check](./UNRUN-CHECKS.md) — but it had never been written into any chapter. It is
+placed here now. It is not backdated, and the case that cited it before it existed is left as
+it was written.*
+
 ## An unwritten belief can only be refuted by implementation
 
 We built four phases on a wrong axis.
