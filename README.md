@@ -2,6 +2,8 @@
 
 Agent Human Layer is a belief system for agent-driven development.
 
+For agents, start with [START-HERE-FOR-AGENTS.md](./START-HERE-FOR-AGENTS.md).
+
 Start with [BELIEF.md](./BELIEF.md) — the trunk.
 Then [CHEAP-DEATH.md](./CHEAP-DEATH.md) — Chapter 2: a belief must be written cheaply enough to die cheaply.
 Then [UNCHALLENGED-INSTRUCTION.md](./UNCHALLENGED-INSTRUCTION.md) — Chapter 3: an instruction is a belief carrying the authority to act, and it must be refuted before it becomes implementation.

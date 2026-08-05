@@ -1,5 +1,7 @@
 # Agent Human Layer
 
+Before using this skill, read [START-HERE-FOR-AGENTS.md](../../START-HERE-FOR-AGENTS.md).
+
 Read [BELIEF.md](../../BELIEF.md) first.
 
 Agent Human Layer is the Skill layer for Ask. Challenge. Act. Restore.
