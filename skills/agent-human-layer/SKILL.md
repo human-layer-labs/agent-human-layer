@@ -12,7 +12,7 @@ Read [BELIEF.md](../../BELIEF.md) first.
 Agent Human Layer is the Skill layer for Ask. Challenge. Act. Restore.
 This first MVP is documentation-only. No scripts yet.
 
-Before acting on any development task, show the route in plain language and wait for the human to approve or redirect it.
+Before acting, show the route in plain language. Wait for human confirmation only when [ahl-flow.md](./references/ahl-flow.md)'s Confirmation rules require it.
 
 When this Skill is active, read [ahl-flow.md](./references/ahl-flow.md) before acting. Its classification, Confirmation rules, and completion check are required, not optional.
 
