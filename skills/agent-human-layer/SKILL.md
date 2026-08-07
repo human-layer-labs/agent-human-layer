@@ -5,9 +5,7 @@ description: Use before changing code, files, configuration, data, repository st
 
 # Agent Human Layer
 
-Before using this skill, read [START-HERE-FOR-AGENTS.md](../../START-HERE-FOR-AGENTS.md).
-
-Read [BELIEF.md](../../BELIEF.md) first.
+This Skill is self-contained: this file and `references/` carry everything needed to run it. If you have the full AHL repository, [START-HERE-FOR-AGENTS.md](../../START-HERE-FOR-AGENTS.md) and [BELIEF.md](../../BELIEF.md) explain the reasoning behind it, but neither is required to use it.
 
 Agent Human Layer is the Skill layer for Ask. Challenge. Act. Restore.
 This first MVP is documentation-only. No scripts yet.
