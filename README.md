@@ -1,6 +1,6 @@
 # Agent Human Layer
 
-Agent Human Layer is the layer that turns a human's Goal into agent-driven action.
+Agent Human Layer keeps humans and agents aligned to the Goal until it is achieved.
 
 The achievement of the Goal is the reason Agent Human Layer exists. A request is evidence of the Goal, not the Goal itself.
 
