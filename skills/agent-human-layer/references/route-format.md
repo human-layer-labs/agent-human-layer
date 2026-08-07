@@ -50,7 +50,14 @@ Execution:
 
 ### Intent
 
-Restate what the human asked for, what success looks like, and what is intentionally not included.
+State the outcome this work is currently trying to achieve — not a paraphrase of the request. Resolve it only as far as choosing the next action requires; do not invent a large Goal beyond that. The request itself is not assumed to be the Goal. Intent is resolved from the request plus available context and evidence — do not invent missing Intent. This does not replace preserving the human's own words as a fixed point where that rule already applies.
+
+Example:
+
+```text
+Human request: "Make this button bigger. People keep missing it."
+Intent: "Reduce missed interactions with the target action."
+```
 
 ### Risk
 
