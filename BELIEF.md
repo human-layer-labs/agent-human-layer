@@ -3,7 +3,16 @@
 Belief is the trunk.
 Believe is the branch.
 
-Agent Human Layer exists to define the belief that makes agent-driven development possible.
+The achievement of the Goal is the reason Agent Human Layer exists.
+
+A request is evidence of the Goal, not the Goal itself.
+
+Choose the actions needed to achieve the Goal.
+If a request conflicts with the current Goal, stop and ask.
+
+Never change the Goal silently.
+
+Belief is the structure that makes Goal achievement possible between the side that asks and the side that acts.
 
 The side that acts makes its actions worthy of belief.
 
@@ -26,6 +35,8 @@ The chapters that extend this trunk:
 Reading order is in the [README](./README.md).
 
 ## Prime Belief
+
+This is how a Goal is carried to achievement.
 
 A human should be able to ask.
 

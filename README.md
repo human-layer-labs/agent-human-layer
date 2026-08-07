@@ -1,6 +1,8 @@
 # Agent Human Layer
 
-Agent Human Layer is a belief system for agent-driven development.
+Agent Human Layer is the layer that turns a human's Goal into agent-driven action.
+
+The achievement of the Goal is the reason Agent Human Layer exists. A request is evidence of the Goal, not the Goal itself.
 
 For agents, start with [START-HERE-FOR-AGENTS.md](./START-HERE-FOR-AGENTS.md).
 
@@ -34,13 +36,15 @@ That is powerful.
 
 But power alone is not enough.
 
+A request carries intent. The Goal behind the request is what the agent must actually serve, and it can outlive any single request.
+
 For humans to believe in agent-driven development, they need to understand three things from the chat:
 
 * intent: what the human asked for, and how the agent understood it
 * route: what the agent will touch, what it will avoid, and when it must stop
 * recovery: where the save points are, and how to restore if something breaks
 
-Agent Human Layer exists to make chat-based agent development understandable, bounded, and recoverable.
+Agent Human Layer exists so a human's Goal can be achieved through an agent — made understandable, bounded, and recoverable from the chat, so the Goal is achieved, not merely attempted.
 
 ## Belief
 
