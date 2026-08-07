@@ -10,6 +10,11 @@ Then, for how to carry out a task, use [skills/](./skills/).
 
 ## Operational rules
 
+- Treat a request as evidence of the Goal, not automatically as the Goal.
+- Resolve only enough of the Goal to choose the next action.
+- Choose actions for Goal achievement, not merely request completion.
+- If a request conflicts with the current Goal, stop and ask.
+- Never silently replace the Goal.
 - Do not treat implementation as delivery.
 - Report whether the user can understand the feature from the screen, not only whether code
   exists.
