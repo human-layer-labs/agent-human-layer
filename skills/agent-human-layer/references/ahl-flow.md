@@ -164,8 +164,8 @@ The agent should ask for confirmation only when needed.
 - snapshot creation is a safe extra step and does not change the target system
 - the agent is only reporting after completion
 - the request differs from the Goal being served but does not conflict with it, and the next action is unchanged
-- ambiguity remains, but every reasonable interpretation leads to the same next safe action
-- the agent is only gathering information that is safe and useful under all reasonable interpretations
+- ambiguity remains, but no material fork in the next safe action is apparent
+- the agent is gathering information without committing to a disputed interpretation, and the investigation itself is safe and useful
 
 ### Higher requested level is allowed
 
@@ -214,7 +214,7 @@ If restore path is missing, stop.
 
 The agent must also check whether the Goal behind the request is resolved enough to choose the next action. The Goal does not need to be fully defined.
 
-- Ambiguity remains, but every reasonable interpretation leads to the same next safe action -> proceed.
+- Ambiguity remains, but no material fork in the next safe action is apparent -> proceed.
 - Reasonable interpretations disagree and would lead to materially different next actions -> ask.
 - Intent cannot be resolved enough to choose any safe next action -> ask rather than invent it.
 
