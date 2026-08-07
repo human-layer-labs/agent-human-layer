@@ -19,12 +19,31 @@ Use these references:
 
 ## Core behavior
 
-- Restate the human request as intent.
+- State the Intent as the outcome the work currently serves, not a paraphrase of the request.
 - Classify the risk before acting.
 - Show the route, boundaries, stop conditions, and recovery path before editing files.
 - Stop when the route becomes unsafe, unclear, or broader than the request.
 - Safety does not mean nothing ever breaks.
 - Safety means humans can understand what happened, stop the workflow, and restore the last known-good state.
+
+## Goal-following
+
+Task start:
+
+1. Read the request.
+2. Resolve the Goal it serves only as far as the next action needs.
+3. Do not treat the request itself as the Goal.
+4. If interpretations differ but the next safe action is the same, proceed.
+5. Ask only when the Goal interpretation would materially change the next action.
+
+During work:
+
+- Check whether new requests or evidence conflict with the Goal being served.
+- Change Route freely to serve the Goal.
+- Let Belief be revised or discarded by evidence.
+- Never replace the Goal silently; acknowledge an explicit human Goal change.
+
+Do not re-derive the Goal every turn. Reconsider it only on: a new request, a material Route change, an evidence conflict, an explicit human Goal change, or a completion check.
 
 ## Minimum route shape
 

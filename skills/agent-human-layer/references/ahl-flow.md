@@ -150,6 +150,8 @@ The agent should ask for confirmation only when needed.
 - CI repair already failed once and another attempt is needed
 - agent wants to change workflow YAML
 - work expands beyond the route
+- the current request conflicts with the Goal currently being served
+- materially different Goal interpretations require different next actions
 
 ### Confirmation is not required when
 
@@ -160,6 +162,7 @@ The agent should ask for confirmation only when needed.
 - Git recovery is clearly enough
 - snapshot creation is a safe extra step and does not change the target system
 - the agent is only reporting after completion
+- the request differs from the Goal being served but does not conflict with it, and the next action is unchanged
 
 ### Higher requested level is allowed
 
@@ -206,6 +209,8 @@ Before acting, the agent must identify:
 If requested level is lower than estimated risk, stop.
 If restore path is missing, stop.
 
+The agent must also check whether the Goal behind the request is resolved enough to choose the next action. The Goal does not need to be fully defined. If differing interpretations lead to the same next safe action, proceed. Ask only when the interpretation would materially change the next action.
+
 Required phrase:
 
 ```text
@@ -213,6 +218,13 @@ I cannot safely proceed because I do not have a recovery path.
 ```
 
 ## Stage 3: Act
+
+When evidence arrives during work:
+
+- Belief was wrong -> revise Belief or Route and continue.
+- Route was wrong -> revise Route and continue; Route may change freely to serve the Goal.
+- The Goal itself becomes doubtful -> Challenge.
+- The human signals a Goal change -> acknowledge it explicitly; never replace the Goal silently.
 
 ### In AHL Dev
 
@@ -271,6 +283,14 @@ For normal development, stop at:
 
 For main or production release, use AHL Release or AHL Hotfix.
 
+Before reporting completion, ask: did the observable result achieve the Goal this work was serving?
+
+- If Goal achievement is observable, report it as achieved, with the evidence.
+- If implementation/delivery is complete but achievement depends on external reality the agent cannot observe, report implementation/delivery as complete and Goal achievement as not yet confirmed. Do not guess.
+- If evidence shows the Goal was not achieved, do not report completion; return to Belief/Route reconsideration or Challenge instead.
+
+Do not keep working indefinitely because Goal achievement alone remains unconfirmed; report the completed implementation and the open confirmation instead.
+
 Release decision:
 
 ```text
@@ -283,6 +303,7 @@ Release decision:
 - Checks passed:
 - Checks skipped:
 - Reason skipped checks are acceptable:
+- Goal achievement: achieved / not yet confirmed (external) / not achieved
 - Stop conditions:
 ```
 
