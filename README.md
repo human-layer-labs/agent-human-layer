@@ -28,6 +28,16 @@ If something breaks, the system should restore to the last known-good state.
 
 The chat should become the control tower.
 
+## Reachability
+
+Once a repository adopts AHL, a human should not need to invoke it on every task. Add this to the repository's `AGENTS.md` or `CLAUDE.md`:
+
+> Before any task that may change code, files, data, configuration, repository state, deployment state, or another real system state, read and follow `skills/agent-human-layer/SKILL.md`.
+>
+> Pure explanation or read-only investigation does not require AHL unless the task is moving toward a change.
+
+This works for both Claude Code and Codex, the first-class targets for this version. `SKILL.md` also carries Agent Skills frontmatter, so tools with compatible auto-discovery may find it directly — that path is secondary; the bootstrap above is what makes AHL reachable everywhere.
+
 ## Why
 
 Coding agents can now write code, edit files, open pull requests, run CI, and deploy changes.
