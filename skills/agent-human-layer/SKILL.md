@@ -1,3 +1,8 @@
+---
+name: agent-human-layer
+description: Use before changing code, files, configuration, data, repository state, deployment state, or another real system state. Resolve the Goal only enough to choose the next safe action, then apply AHL risk, route, boundaries, confirmation, and recovery. Skip pure explanation or read-only investigation unless it is moving toward a change.
+---
+
 # Agent Human Layer
 
 Before using this skill, read [START-HERE-FOR-AGENTS.md](../../START-HERE-FOR-AGENTS.md).
@@ -7,15 +12,16 @@ Read [BELIEF.md](../../BELIEF.md) first.
 Agent Human Layer is the Skill layer for Ask. Challenge. Act. Restore.
 This first MVP is documentation-only. No scripts yet.
 
-Before acting on any development task, show the route in plain language and wait for the human to approve or redirect it.
+Before acting, show the route in plain language. Wait for human confirmation only when [ahl-flow.md](./references/ahl-flow.md)'s Confirmation rules require it.
 
-Use these references:
+When this Skill is active, read [ahl-flow.md](./references/ahl-flow.md) before acting. Its classification, Confirmation rules, and completion check are required, not optional.
 
-- [Route format](./references/route-format.md)
-- [Risk levels](./references/risk-levels.md)
-- [Recovery policy](./references/recovery-policy.md)
-- [Release gate policy](./references/release-gate-policy.md)
-- [AHL flow](./references/ahl-flow.md)
+Load the rest only as needed:
+
+- [Route format](./references/route-format.md) — when the minimum route shape below is not enough, or the work is normal risk or higher
+- [Risk levels](./references/risk-levels.md) — when risk classification is unclear or an escalation rule needs checking
+- [Recovery policy](./references/recovery-policy.md) — when the work is more than tiny, or a snapshot/restore level needs deciding
+- [Release gate policy](./references/release-gate-policy.md) — when the work is moving toward main, production, deploy, or release
 
 ## Core behavior
 
