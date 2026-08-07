@@ -22,11 +22,13 @@ Use these references:
 - State the Intent as the outcome the work currently serves, not a paraphrase of the request.
 - Classify the risk before acting.
 - Show the route, boundaries, stop conditions, and recovery path before editing files.
-- Stop when the route becomes unsafe, unclear, or broader than the request.
+- Stop when the route becomes unsafe, crosses a declared boundary, or is too unclear to choose a safe next action.
 - Safety does not mean nothing ever breaks.
 - Safety means humans can understand what happened, stop the workflow, and restore the last known-good state.
 
 ## Goal-following
+
+Ambiguity is acceptable until it changes the next action.
 
 Task start:
 
@@ -35,11 +37,12 @@ Task start:
 3. Do not treat the request itself as the Goal.
 4. If interpretations differ but the next safe action is the same, proceed.
 5. Ask only when the Goal interpretation would materially change the next action.
+6. If the Intent is too unclear to choose any safe next action, stop and ask rather than inventing it.
 
 During work:
 
 - Check whether new requests or evidence conflict with the Goal being served.
-- Change Route freely to serve the Goal.
+- Revise Route as needed to serve the Goal, but never silently cross a declared boundary, stop condition, or required confirmation.
 - Let Belief be revised or discarded by evidence.
 - Never replace the Goal silently; acknowledge an explicit human Goal change.
 
