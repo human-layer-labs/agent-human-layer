@@ -23,6 +23,28 @@ Use these levels:
 - `AHL5` = Urgent / production-facing
 - `AHL6` = Recovery
 
+## Authorization boundary
+
+Classification and authorization are separate:
+
+- `Requested level` is a safety profile the human explicitly binds to the current work.
+- `Estimated level` is exactly one agent classification of consequence.
+- `Authorization decision` is either `PROCEED` or `CONFIRM_REQUIRED`.
+- A requested or estimated level is not permission by itself.
+
+A level counts as a requested level only when the human explicitly applies it to the current work. A level mentioned in background, an example, quoted policy, prior work, or a report does not count. If the binding is unclear, treat the requested level as unspecified.
+
+The authorization gate covers every state-changing action, including:
+
+- file, data, or configuration mutation
+- state-changing shell commands
+- commits, pushes, merges, and other repository writes
+- deploys and production releases
+- state-changing external or API actions
+- any other write to an external system
+
+Read-only commands, read-only API calls, and other safe investigation are allowed before authorization. In this policy, `act` means perform a state-changing action; read-only investigation is not an act for the authorization gate.
+
 ## AHL modes
 
 Use these initial modes:
@@ -33,17 +55,19 @@ Use these initial modes:
 - `AHL Hotfix`
 - `AHL Recovery`
 
+Mode policies describe how to execute only after the ordered authorization procedure returns `PROCEED`. They do not independently grant permission.
+
 ### AHL Dev
 
 Use during development work.
 
 Policy:
 
-- minimize confirmations
-- `AHL1` and `AHL2` may proceed without confirmation if explicitly requested
-- `AHL3` may proceed if restore path is clear and work is not production-facing
-- `AHL4` or higher requires confirmation
-- DB, live data, secrets, production deploy, or unclear restore path requires stop
+- apply these permissive mode rules only after the ordered authorization gate returns `PROCEED`
+- `AHL1` may proceed when the ordered authorization gate classifies it as AHL1 and returns `PROCEED`, including when no level was specified
+- `AHL2` and `AHL3` may proceed only when the ordered authorization gate returns `PROCEED`
+- `AHL4` or higher requires a valid bound approval as defined below
+- DB, live data, secrets, production deploy, or unclear restore path produces the blocking reason defined below
 - report actual AHL level and recovery path after work
 
 Purpose:
@@ -82,7 +106,7 @@ Policy:
 - show restore method
 - show checks to run
 - show checks intentionally skipped
-- require human confirmation before merge or deploy
+- require valid bound human approval before merge or deploy unless an expressly applicable separate trusted automation policy exists
 
 Purpose:
 
@@ -129,39 +153,69 @@ Purpose:
 Get back to safe state first.
 ```
 
-## Confirmation rules
+## Authorization blocking rules
 
-AHL should reduce human operation, not increase it.
+This section is the single source of truth for authorization hard stops. Other sections and references provide evidence, prerequisites, or boundary policy; they cannot independently change `CONFIRM_REQUIRED` to `PROCEED`.
 
-The agent should ask for confirmation only when needed.
+AHL should reduce human operation, not increase it. Ask only for what is needed to clear the current blocking reason.
 
-### Confirmation is required when
+### Blocking-reason classes
 
-- no AHL level was provided and the work is not obviously AHL1
-- agent estimate is higher than requested AHL level
-- work is AHL4 or higher
-- work targets main or production
-- deploy or production release is about to happen
-- snapshot scope is unclear
-- restore path is unclear
-- one-minute restore cannot be named for production-facing work
-- DB, live data, secrets, payment data, customer data, or order data may be involved
-- conflict appears
-- CI repair already failed once and another attempt is needed
-- agent wants to change workflow YAML
-- work expands beyond the route
-- the current request conflicts with the Goal currently being served
-- materially different Goal interpretations require different next actions
-- the Intent is too unclear to choose a safe next action without inventing it
+Every blocking reason must be reported with its class, current status, and the condition needed to clear it. More than one reason may apply. After a reason is satisfied, keep its identity in the authorization record while distinguishing it from unresolved reasons.
 
-### Confirmation is not required when
+- `APPROVAL_REQUIRED` — a human can satisfy this reason with a valid approval bound to the current authorization scope. Only an expressly applicable separate trusted automation policy may substitute where this policy already allows that exception.
+- `PREREQUISITE_REQUIRED` — missing evidence, information, recovery, or another factual safety condition must be supplied or established. Human approval alone cannot satisfy it.
+- `BOUNDARY_ROUTE_REQUIRED` — current policy requires a separate route, policy, or stricter approval boundary. Approval of the current route alone cannot satisfy it.
 
-- human explicitly requested AHL1 or AHL2
-- agent estimate is equal to or lower than requested level
+`Proceed`, `OK`, or similar approval language can satisfy only an `APPROVAL_REQUIRED` reason, and only when it unambiguously refers to the current confirmation binding. It cannot create a restore path, supply missing evidence, resolve an unknown prerequisite, or authorize a boundary that current policy does not cover.
+
+### Confirmation binding
+
+A valid human approval must be bound to all of the following as presented to the human:
+
+- the estimated AHL level
+- the current Route
+- the files and scope
+- the target environment
+- the full blocking-reason set, including the `APPROVAL_REQUIRED` reason or reasons the approval is intended to satisfy
+
+The agent must record that binding in `Confirmation basis`. A short contextual reply such as `OK` is valid only when it unambiguously approves one currently presented binding and no prerequisite or boundary reason remains unresolved.
+
+Approval expires when the Route, files/scope, target environment, estimated level, or blocking-reason identity or clearance condition materially changes. Marking the same reason satisfied after its named prerequisite is established is a status update, not a material binding change. On the next turn and before every state-changing action after a material change, re-evaluate every hard-stop rule. If approval no longer matches, request confirmation again when required.
+
+### Authoritative hard-stop rules
+
+Use this list when collecting blocking reasons:
+
+| Trigger | Blocking-reason class | Condition needed to clear it |
+| --- | --- | --- |
+| No requested level is explicitly bound to the current work and the estimate is AHL2–AHL6 | `APPROVAL_REQUIRED` | Valid approval of the presented authorization binding |
+| Estimated level is higher than the requested level | `APPROVAL_REQUIRED` | Valid approval bound to the estimated level and current scope |
+| Work is AHL4 or higher | `APPROVAL_REQUIRED` | Valid approval bound to the current risky, urgent, or recovery route |
+| Work targets main or production | `APPROVAL_REQUIRED` | Valid release or hotfix approval after required release evidence is present, or an expressly applicable separate trusted automation policy |
+| Deploy or production release is about to happen | `APPROVAL_REQUIRED` | Valid approval for the exact merge or deploy target, or an expressly applicable separate trusted automation policy |
+| Snapshot scope is unclear | `PREREQUISITE_REQUIRED` | Identify the restore unit and snapshot scope |
+| Restore path is unclear | `PREREQUISITE_REQUIRED` | Establish a concrete restore method |
+| One-minute restore cannot be named for production-facing work | `PREREQUISITE_REQUIRED` | Establish the one-minute restore path |
+| Required evidence or another safety prerequisite named by the applicable mode, recovery, or release policy is missing | `PREREQUISITE_REQUIRED` | Establish the named evidence or prerequisite |
+| DB, live data, secrets, payment data, customer data, or order data is involved | `BOUNDARY_ROUTE_REQUIRED` | Move to the separate policy, route, and stricter approval required for that boundary |
+| Conflict appears | `PREREQUISITE_REQUIRED` | Inspect the conflict and establish the safe conflict route; add bound approval when conflict policy requires it |
+| CI repair already failed once and another attempt is needed | `APPROVAL_REQUIRED` | Valid approval for one additional focused attempt |
+| The agent wants to change workflow YAML | `APPROVAL_REQUIRED` | Valid approval bound to the exact workflow change |
+| Work expands beyond the Route | `APPROVAL_REQUIRED` | Present the updated binding and obtain valid approval |
+| The current request conflicts with the Goal currently being served | `PREREQUISITE_REQUIRED` | Resolve the conflict enough to choose the next action |
+| Materially different Goal interpretations require different next actions | `PREREQUISITE_REQUIRED` | Resolve the material fork needed for the next action |
+| The Intent is too unclear to choose a safe next action without inventing it | `PREREQUISITE_REQUIRED` | Obtain the minimum missing Intent information |
+
+### Permissive rules after `PROCEED`
+
+The following are not independent exceptions. They apply only after the ordered authorization procedure returns `PROCEED`:
+
+- a requested level, when present, is equal to or higher than the estimate
 - work is development-only
 - no runtime behavior is affected
-- Git recovery is clearly enough
-- snapshot creation is a safe extra step and does not change the target system
+- Git recovery is clearly enough and no higher-precedence blocking rule applies
+- snapshot creation is a safe extra step and is within the authorized scope
 - the agent is only reporting after completion
 - the request differs from the Goal being served but does not conflict with it, and the next action is unchanged
 - ambiguity remains, but no material fork in the next safe action is apparent
@@ -169,7 +223,7 @@ The agent should ask for confirmation only when needed.
 
 ### Higher requested level is allowed
 
-If the human requests a higher AHL level than the agent estimate, the agent may proceed using the higher safety profile when that does not create harm or unnecessary delay.
+If the human explicitly binds a higher requested AHL level to the current work, the agent may use the higher safety profile when that does not create harm or unnecessary delay. This does not by itself grant permission or satisfy another blocking reason.
 
 Safety can be increased by the human.
 Safety cannot be lowered below actual risk.
@@ -180,7 +234,7 @@ The first AHL flow has five stages:
 
 ```text
 1. Ask
-2. Classify
+2. Classify and authorize
 3. Act
 4. Release or return
 5. Restore if needed
@@ -192,13 +246,42 @@ The human gives a request.
 
 The human should not need to explain Git, CI, branch protection, snapshot mechanics, or restore commands.
 
-## Stage 2: Classify
+## Stage 2: Classify and authorize
+
+Use this ordered procedure before any state-changing action. Use it again on the turn after `CONFIRM_REQUIRED`, and whenever a material change could invalidate an earlier `PROCEED` or approval.
+
+1. Read the required AHL instructions.
+2. Identify the state-changing work the human actually requested and resolve the Goal only enough to choose the next action. A level mention without a request for current work is not authorization. Read-only investigation may continue while gathering the facts needed for later steps.
+3. Resolve the requested level only if the human explicitly bound it to the current work; otherwise record it as unspecified.
+4. Choose exactly one estimated AHL level. Ranges and multiple estimated levels are invalid.
+5. Define the current authorization binding: estimated level, Route, files/scope, and target environment.
+6. Collect every applicable reason from the Authoritative hard-stop rules, assign its blocking-reason class and clearance condition, and add the full reason set to the binding.
+7. If a prior human approval exists, validate it against the entire current binding.
+   - a matching approval may satisfy only its bound `APPROVAL_REQUIRED` reasons
+   - approval does not satisfy `PREREQUISITE_REQUIRED` or `BOUNDARY_ROUTE_REQUIRED`
+   - any material binding change invalidates the approval
+8. Re-evaluate every hard-stop rule using current evidence, including rules that were previously satisfied. Keep an approval-required reason satisfied only while the same valid approval still matches; do not recreate it as an unresolved duplicate merely because its trigger still applies.
+9. If any blocking reason remains unresolved, set the final decision to `CONFIRM_REQUIRED`.
+10. Only if the human requested the current state-changing work and no blocking reason remains unresolved, set the final decision to `PROCEED`.
+11. Permit a state-changing action only when the final decision is explicitly `PROCEED` for that action's current binding.
+
+`CONFIRM_REQUIRED` is monotonic and terminal for the current turn:
+
+- report each blocking reason, its class, and what must clear it
+- ask the human only for the required approval, prerequisite, evidence, or boundary route
+- do not perform a state-changing action or external write
+- end the turn
+
+On the next turn, start from step 1 and re-evaluate all gates. A previous approval is evidence for step 7, not permission to skip the procedure. Later permissive rules such as development-only work, a clear restore path, Git recovery, or “may proceed” cannot change an unresolved `CONFIRM_REQUIRED` back to `PROCEED`.
 
 Before acting, the agent must identify:
 
 ```text
 - requested AHL level
 - estimated AHL level
+- authorization decision
+- blocking reasons, each with class and clearance condition
+- confirmation basis
 - mode
 - intent
 - affected runtime unit
@@ -208,9 +291,6 @@ Before acting, the agent must identify:
 - gate level
 - stop conditions
 ```
-
-If requested level is lower than estimated risk, stop.
-If restore path is missing, stop.
 
 The agent must also check whether the Goal behind the request is resolved enough to choose the next action. The Goal does not need to be fully defined.
 
@@ -231,7 +311,7 @@ I cannot safely proceed because I do not have a recovery path.
 When evidence arrives during work:
 
 - Belief was wrong -> revise Belief or Route and continue.
-- Route was wrong -> revise Route and continue; Route may be revised to serve the Goal, but never to silently cross a declared boundary, stop condition, or required confirmation. A Route change that introduces material new scope or risk returns to Confirmation rules.
+- Route was wrong -> revise Route and continue; Route may be revised to serve the Goal, but never to silently cross a declared boundary, stop condition, or required confirmation. A Route change that introduces material new scope or risk invalidates the prior authorization binding and returns to the ordered authorization procedure.
 - The Goal itself becomes doubtful -> Challenge.
 - The human signals a Goal change -> acknowledge it explicitly; never replace the Goal silently.
 
@@ -303,7 +383,11 @@ Do not keep working indefinitely because Goal achievement alone remains unconfir
 Release decision:
 
 ```text
-- AHL level:
+- Requested level:
+- Estimated level:
+- Authorization decision:
+- Blocking reasons:
+- Confirmation basis:
 - Mode:
 - Target:
 - Affected runtime unit:
@@ -330,7 +414,7 @@ or:
 元に戻して
 ```
 
-the agent must restore from snapshot when a valid snapshot exists.
+the agent must first obtain `PROCEED` for the bound recovery action, then restore from snapshot when a valid snapshot exists.
 
 Restore is replacement, not overlay.
 
@@ -367,27 +451,24 @@ Development is allowed to be lighter.
 
 Default behavior:
 
-- `AHL1`: proceed if requested
-- `AHL2`: proceed if requested
-- `AHL3`: proceed if not production-facing and restore path is clear
-- `AHL4+`: stop and confirm
+- apply every rule below only after the ordered authorization gate returns `PROCEED`
+- `AHL1`: may use the unspecified-level fast path only when it satisfies the full tiny-risk policy
+- `AHL2`: needs no additional mode-level confirmation after the ordered authorization gate returns `PROCEED`
+- `AHL3`: needs no additional mode-level confirmation after the ordered authorization gate returns `PROCEED`, provided the restore path is clear and the work is not production-facing
+- `AHL4+`: requires a valid bound approval and resolution of every other blocking reason
 
-Development must still stop when:
-
-- production is affected
-- DB or live state is involved
-- secrets are involved
-- restore path is unclear
-- touched scope expands
-- conflict appears
+Development must still apply every Authoritative hard-stop rule. A development mode rule cannot satisfy or bypass a blocking reason.
 
 ## PR policy
 
-PR creation is allowed because it is reviewable and auditable.
+PR creation is allowed only after the ordered authorization gate returns `PROCEED` for that exact external write. Reviewability and auditability do not independently grant permission.
 
 PR creation should include:
 
-- AHL level
+- estimated AHL level
+- authorization decision
+- blocking reasons
+- confirmation basis
 - mode
 - summary
 - files changed
@@ -466,6 +547,9 @@ Before acting, use this format:
 AHL Route:
 - Requested level:
 - Estimated level:
+- Authorization decision:
+- Blocking reasons:
+- Confirmation basis:
 - Mode:
 - Intent:
 - Target environment:
@@ -495,14 +579,19 @@ Release confirmation required:
 ```text
 AHL Route:
 - Requested level: AHL2
-- Estimated level: AHL2 or AHL3 depending on touched files
+- Estimated level: AHL2
+- Authorization decision: PROCEED
+- Blocking reasons: none
+- Confirmation basis: explicit request for this development UI change at AHL2, bound to this Route, scope, and development target
 - Mode: AHL Dev
-- Intent: adjust homepage appearance in development
+- Intent: adjust one isolated homepage style in development
 - Target environment: development
-- Affected runtime unit: theme folder if runtime theme files are touched
-- Snapshot required: only if runtime folder changes beyond isolated CSS
-- Snapshot scope: theme folder if required
-- Restore method: Git recovery or folder replacement if snapshot is taken
+- Affected runtime unit: one identified theme stylesheet
+- Files/folders to touch: the identified stylesheet only
+- Files/folders to avoid: all other theme files and production
+- Snapshot required: no
+- Snapshot scope: none
+- Restore method: Git recovery for the one-file change
 - Gate level: lightweight development validation
 - Stop conditions: production is touched, checkout/order/payment/email/print is touched, scope expands, restore path unclear
 ```
@@ -511,12 +600,17 @@ AHL Route:
 
 ```text
 AHL Route:
-- Requested level: AHL Release
+- Requested level: AHL3
 - Estimated level: AHL3
+- Authorization decision: CONFIRM_REQUIRED
+- Blocking reasons: unresolved APPROVAL_REQUIRED — main / production target and exact release; clear with approval bound to this release binding
+- Confirmation basis: none; awaiting approval bound to this release Route and exact target
 - Mode: AHL Release
 - Intent: move dev-confirmed change to main
 - Target environment: main / production path
 - Affected runtime unit: identified changed runtime folder
+- Files/folders to touch: the identified dev-confirmed runtime unit only
+- Files/folders to avoid: all unrelated runtime units and DB/live data
 - Snapshot required: yes if runtime or production-facing
 - Snapshot scope: full restore unit, not changed files only
 - Restore method: move current production folder aside and replace it with snapshot
@@ -534,10 +628,15 @@ AHL Route:
 AHL Route:
 - Requested level: AHL5
 - Estimated level: AHL5
+- Authorization decision: CONFIRM_REQUIRED
+- Blocking reasons: unresolved APPROVAL_REQUIRED — AHL5 and production hotfix; clear with approval bound to this hotfix binding
+- Confirmation basis: none; awaiting approval bound to this hotfix Route, scope, and production target
 - Mode: AHL Hotfix
 - Intent: minimally fix a production-facing button
 - Target environment: production
 - Affected runtime unit: exact theme or plugin folder
+- Files/folders to touch: the exact file required for the minimal fix
+- Files/folders to avoid: all unrelated files and DB/live data
 - Snapshot required: yes
 - Snapshot scope: full affected runtime unit
 - Restore method: replacement restore from pre-hotfix snapshot
@@ -556,10 +655,15 @@ AHL Route:
 AHL Route:
 - Requested level: AHL6
 - Estimated level: AHL6
+- Authorization decision: CONFIRM_REQUIRED
+- Blocking reasons: unresolved APPROVAL_REQUIRED — AHL6 recovery, clear with bound recovery approval; unresolved PREREQUISITE_REQUIRED — identify the known-good snapshot and exact target, clear by establishing both
+- Confirmation basis: none; approval cannot be requested until the recovery prerequisite is resolved
 - Mode: AHL Recovery
 - Intent: restore previous known-good state
 - Target environment: affected environment
 - Affected runtime unit: identify from previous route or human input
+- Files/folders to touch: the exact affected runtime unit after identification
+- Files/folders to avoid: all unrelated units and unknown human work
 - Snapshot required: existing known-good snapshot required
 - Snapshot scope: full affected runtime unit
 - Restore method: move current unit aside and replace with snapshot
