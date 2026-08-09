@@ -10,6 +10,8 @@ See also:
 - [Release gate policy](./release-gate-policy.md)
 - [AHL flow](./ahl-flow.md)
 
+Route Adherence, safety-critical ordering, and Route revision / violation transitions are defined in [AHL flow](./ahl-flow.md). This document presents the route shape only and must not create a competing policy.
+
 ## Required fields
 
 Every route summary must include:
@@ -32,6 +34,20 @@ Files to avoid:
 Validation:
 Open questions:
 ```
+
+### Conditional ordering field
+
+Include an `Ordering constraints` block only when the Route has an applicable
+safety-critical ordering constraint:
+
+```text
+Ordering constraints:
+- ...
+```
+
+Omit this field only when no applicable safety-critical ordering constraint exists, regardless of AHL level.
+Ordinary read-only tool order is not fixed. Use [AHL flow](./ahl-flow.md)
+for the declaration, reachability, revision, and violation rules.
 
 Include an Execution block whenever the work involves delivery, deployment, external
 execution, or restore — this is triggered by what the work touches, not by risk level:
@@ -261,6 +277,9 @@ Route:
 - Create a folder snapshot before moving files.
 - Move files only after the human confirms the route.
 - Show the final diff.
+
+Ordering constraints:
+- Create the folder snapshot before moving files.
 
 Boundaries:
 - Do not delete content without confirmation.

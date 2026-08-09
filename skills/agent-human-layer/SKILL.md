@@ -14,7 +14,7 @@ Before any state-changing action, show the route in plain language. The route is
 
 For authorization, `act` means a state-changing action. This includes file, data, configuration, repository, deployment, or external-system changes; state-changing shell commands; commits and pushes; deploys; and API or other external writes. Read-only commands, read-only API calls, and other safe investigation are not state-changing actions and are allowed before authorization.
 
-[ahl-flow.md](./references/ahl-flow.md) is the single source of truth for hard-stop rules, blocking-reason classes, confirmation binding, the ordered authorization procedure, and next-turn transitions. Supporting references explain risk, recovery, route, and release requirements, but they do not independently grant permission.
+[ahl-flow.md](./references/ahl-flow.md) is the single source of truth for hard-stop rules, blocking-reason classes, confirmation binding, the ordered authorization procedure, next-turn transitions, Route Adherence, safety-critical ordering, and Route revision / violation transitions. Supporting references explain risk, recovery, route, and release requirements, but they do not independently grant permission.
 
 Hard authorization invariants:
 
@@ -109,6 +109,9 @@ Route:
 - Change only the target UI file.
 - Open a pull request.
 - Use the appropriate release gate before merge or deploy.
+
+Ordering constraints:
+- Create the hotfix branch before changing the target UI file.
 
 Boundaries:
 - Do not touch development.

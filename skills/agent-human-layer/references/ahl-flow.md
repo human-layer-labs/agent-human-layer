@@ -5,6 +5,80 @@ AHL should be strict at the boundary, not noisy during exploration.
 AHL means Agent Human Layer.
 It is the route language for the Skill.
 
+## Route Adherence and safety-critical ordering
+
+This section is the single source of truth for Route Adherence,
+safety-critical ordering, and Route revision / violation transitions.
+`SKILL.md` and `route-format.md` reference this section and must not create
+a separate policy.
+
+### Declaration rule
+
+Every applicable safety-critical ordering constraint must be declared in the
+Route before the related state-changing action. It is mandatory; an Agent must
+not omit an applicable constraint and thereby bypass Route Adherence.
+
+Examples include:
+
+- branch / savepoint / snapshot before mutation
+- required inspect before destructive mutation
+- required validation before deploy/release
+
+Normal read-only tool order is not fixed by Route Adherence. Do not create a
+total order for ordinary read-only exploration.
+
+### Pre-mutation reachability
+
+When a declared safety-critical ordering constraint exists, immediately before
+the related state-changing action ask:
+
+```text
+Is this state-changing action currently reachable under the declared safety-critical ordering constraints?
+```
+
+If the answer is no, the mutation is prohibited until the prerequisite is
+established and the current Route and authorization are valid. Do not apply
+this check to every tool or every mutation, and do not create a total order
+for actions without an applicable declared constraint.
+
+### Route revision and violation transition
+
+The following are material Route changes:
+
+- removing a safety-critical dependency
+- reversing the dependency order
+- weakening a prerequisite
+- changing the protection target
+
+A material Route change invalidates existing approval and returns to the
+ordered Authorization procedure before the state-changing action continues.
+
+A change that preserves the safety-critical dependency itself may, depending on
+the circumstances, be a non-material revision. For example, changing snapshot
+storage from A to B can remain non-material when the same
+`snapshot before edit` dependency is preserved.
+
+For an evidence-driven Route revision:
+
+1. obtain new Evidence
+2. update the Route before the mutation
+3. re-evaluate authorization when the revision is material
+4. perform the mutation only after the current authorization permits it
+
+An explicit human Route change is also a valid revision path; this rule does
+not prohibit it.
+
+A Route violation occurs when a state-changing action has already executed
+while a safety-critical prerequisite was not established. After a violation:
+
+- stop further mutation
+- report the Expected Route
+- report the Actual execution
+- report the state already changed
+- do not create a post-hoc savepoint to retroactively satisfy the Route
+- do not rewrite the Route to legitimize the prior mutation
+- begin restore or repair only through the existing Authorization procedure
+
 See also:
 
 - [Route format](./route-format.md)
@@ -616,6 +690,8 @@ AHL Route:
 - Restore method: move current production folder aside and replace it with snapshot
 - Gate level: production or relevant release gate
 - Checks to run: required release checks
+- Ordering constraints:
+  - Complete required validation before merge or deploy.
 - Checks to skip: only explicitly listed non-relevant checks
 - Reason skipped checks are acceptable: snapshot-backed trial in non-production environment
 - Stop conditions: snapshot missing, restore method unclear, CI failure unrelated, conflict, DB/live state involved
@@ -638,6 +714,8 @@ AHL Route:
 - Files/folders to touch: the exact file required for the minimal fix
 - Files/folders to avoid: all unrelated files and DB/live data
 - Snapshot required: yes
+- Ordering constraints:
+  - Create the pre-hotfix snapshot before changing the target.
 - Snapshot scope: full affected runtime unit
 - Restore method: replacement restore from pre-hotfix snapshot
 - Gate level: urgent production gate
