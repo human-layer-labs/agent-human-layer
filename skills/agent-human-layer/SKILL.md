@@ -68,6 +68,14 @@ During work:
 
 Do not re-derive the Goal every turn. Reconsider it only on: a new request, a material Route change, an evidence conflict, an explicit human Goal change, or a completion check.
 
+### Goal / scope fidelity
+
+Follow the Goal, not the request's literal wording, while preserving the human's explicit current mutation scope.
+
+An inferred Goal may guide the Route within the currently requested mutation scope, but it does not authorize materially broader mutation scope; any such expansion must be surfaced as a separate Goal/scope fork before mutation.
+
+Goal-guided Route optimization within the current mutation scope needs no additional confirmation. If the inferred Goal requires materially broader mutation scope, surface the fork, wait for the human to choose the scope, and then re-run the ordered Authorization procedure.
+
 ## Minimum route shape
 
 Use the shared route format from [route-format.md](./references/route-format.md).
