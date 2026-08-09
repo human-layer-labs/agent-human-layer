@@ -37,6 +37,62 @@ AI confidence is not proof of safety.
 
 If the agent cannot tell whether a change affects production, data, payment, orders, authentication, email, printing, or generated assets, it must escalate risk.
 
+## Mandatory classification procedure
+
+This document is the single source of truth for Classification. `ahl-flow.md`
+calls this procedure before the Authorization binding; it does not redefine
+these classification rules.
+
+Apply Classification in this order before any state-changing action:
+
+1. Identify actual consequences without using the `Requested level`.
+2. Apply hard eligibility exclusions and minimum floors:
+   - the AHL1 four-condition eligibility gate
+   - runtime behavior or user-visible runtime output/presentation excludes AHL1
+   - database schema or migration changes have a minimum AHL4 floor
+   - apply any other explicit floor already present in this policy
+3. Evaluate the remaining consequence dimensions using the existing risk levels.
+4. Choose exactly one `Estimated level`. If it is unclear, choose the higher
+   level or stop and ask.
+5. Separately resolve the `Requested level`.
+6. If `Requested level` is higher than `Estimated level`, preserve the
+   `Estimated level` and apply the higher requested safety profile separately.
+7. Pass both levels into the existing Authorization procedure.
+
+The `Requested level` must not be used to calculate the `Estimated level` in
+steps 1–4.
+
+### AHL1 eligibility and minimum floors
+
+AHL1 is eligible only when all four conditions are explicitly true:
+
+- one file
+- documentation/metadata-only
+- no runtime behavior
+- no data/config/deploy impact
+
+If any condition is false or unknown, AHL1 is prohibited.
+
+Runtime behavior or user-visible runtime output/presentation affected means the
+work is AHL1-ineligible. This includes JavaScript runtime logic and
+HTML/CSS user-visible runtime UI or presentation. Runtime exclusion does not
+automatically choose AHL2, AHL3, or AHL4; assess the actual consequence using
+the remaining levels. A small non-production runtime or source change may be
+AHL2 when its actual consequence supports that level.
+
+Adding, changing, or deleting an actual database schema definition or a
+database migration has a minimum classification of AHL4 / risky. This
+classification floor is separate from Authorization's
+`BOUNDARY_ROUTE_REQUIRED`; after Classification, the existing Authorization
+procedure must evaluate the database boundary separately.
+
+Risk is consequence, not effort. A one-line change, one-file
+change, easy task, quick change, easy review, easy Git recovery, or clear
+restore path does not lower Classification or override a hard exclusion or
+minimum floor. Difficult, uncertain, or slow recovery may increase the
+Estimated level when the existing taxonomy treats recovery difficulty as a
+consequence-amplifying factor.
+
 ## tiny
 
 Use `tiny` when the work is narrow, source-only, easy to review, and easy to revert.
