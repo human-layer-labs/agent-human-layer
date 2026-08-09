@@ -328,6 +328,30 @@ Use this ordered procedure before any state-changing action. Use it again on the
 2. Identify the state-changing work the human actually requested and resolve the Goal only enough to choose the next action. A level mention without a request for current work is not authorization. Read-only investigation may continue while gathering the facts needed for later steps.
 3. Resolve the requested level only if the human explicitly bound it to the current work; otherwise record it as unspecified.
 4. Choose exactly one estimated AHL level. Ranges and multiple estimated levels are invalid.
+
+Before step 5, perform the mandatory Goal/scope fidelity check. Compare the human's explicit current mutation scope with the mutation scope the inferred Goal would put into the Route:
+
+- If the inferred Goal would add materially broader mutation scope, surface a separate Goal/scope fork, record an unresolved `PREREQUISITE_REQUIRED`, prohibit mutation until the human chooses the scope, and then re-evaluate the normal ordered Authorization procedure after that choice.
+- If it would not, allow Goal-guided Route optimization within the current mutation scope without additional confirmation.
+
+Material scope is not determined by file count alone. Material expansion includes:
+
+- expanding from the requested feature or component to a different component
+- expanding to retirement or deletion of an entire subsystem
+- adding a data, process, or runtime responsibility
+- adding another mutation target that the human did not explicitly request and that is justified only by Goal inference
+
+Non-material changes include:
+
+- changing the implementation method within the same target
+- achieving a button-size Goal through hit area or spacing within the same target
+- broadening read-only investigation
+- adjusting Route details required within the current mutation scope
+
+Evidence-driven investigation may show that broader mutation scope is necessary. Evidence is not permission: surface the broader scope as a Goal/scope fork before mutation, then re-evaluate authorization after the human's choice.
+
+This additional gate applies only to material mutation-scope expansion. It does not add confirmation for read-only exploration, file additions by themselves, AHL1/AHL2 work without material expansion, or same-scope Goal-guided Route optimization.
+
 5. Define the current authorization binding: estimated level, Route, files/scope, and target environment.
 6. Collect every applicable reason from the Authoritative hard-stop rules, assign its blocking-reason class and clearance condition, and add the full reason set to the binding.
 7. If a prior human approval exists, validate it against the entire current binding.
