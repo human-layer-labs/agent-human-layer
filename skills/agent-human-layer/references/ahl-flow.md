@@ -325,11 +325,12 @@ The human should not need to explain Git, CI, branch protection, snapshot mechan
 Use this ordered procedure before any state-changing action. Use it again on the turn after `CONFIRM_REQUIRED`, and whenever a material change could invalidate an earlier `PROCEED` or approval.
 
 1. Read the required AHL instructions.
-2. Identify the state-changing work the human actually requested and resolve the Goal only enough to choose the next action. A level mention without a request for current work is not authorization. Read-only investigation may continue while gathering the facts needed for later steps.
-3. Resolve the requested level only if the human explicitly bound it to the current work; otherwise record it as unspecified.
-4. Choose exactly one estimated AHL level. Ranges and multiple estimated levels are invalid.
+2. Identify the state-changing work the human actually requested, resolve the Goal only enough to choose the next action, and record its actual consequences. A level mention without a request for current work is not authorization. Do not use the `Requested level` to classify consequences. Read-only investigation may continue while gathering the facts needed for later steps.
+3. Run the mandatory Classification procedure in [risk-levels.md](./risk-levels.md) using actual consequences. It applies AHL1 exclusions and minimum floors, evaluates remaining consequence dimensions, and returns exactly one `Estimated level`; if unclear, choose the higher level or stop.
+4. Resolve the `Requested level` separately, only if the human explicitly bound it to the current work; otherwise record it as unspecified.
+5. If the `Requested level` is higher than the `Estimated level`, preserve the estimate and apply the higher requested safety profile separately. Do not copy the requested level into the estimate.
 
-Before step 5, perform the mandatory Goal/scope fidelity check. Compare the human's explicit current mutation scope with the mutation scope the inferred Goal would put into the Route:
+Before step 6, perform the mandatory Goal/scope fidelity check. Compare the human's explicit current mutation scope with the mutation scope the inferred Goal would put into the Route:
 
 - If the inferred Goal would add materially broader mutation scope, surface a separate Goal/scope fork, record an unresolved `PREREQUISITE_REQUIRED`, prohibit mutation until the human chooses the scope, and then re-evaluate the normal ordered Authorization procedure after that choice.
 - If it would not, allow Goal-guided Route optimization within the current mutation scope without additional confirmation.
@@ -352,16 +353,16 @@ Evidence-driven investigation may show that broader mutation scope is necessary.
 
 This additional gate applies only to material mutation-scope expansion. It does not add confirmation for read-only exploration, file additions by themselves, AHL1/AHL2 work without material expansion, or same-scope Goal-guided Route optimization.
 
-5. Define the current authorization binding: estimated level, Route, files/scope, and target environment.
-6. Collect every applicable reason from the Authoritative hard-stop rules, assign its blocking-reason class and clearance condition, and add the full reason set to the binding.
-7. If a prior human approval exists, validate it against the entire current binding.
+6. Define the current authorization binding: estimated level, Route, files/scope, and target environment.
+7. Collect every applicable reason from the Authoritative hard-stop rules, assign its blocking-reason class and clearance condition, and add the full reason set to the binding.
+8. If a prior human approval exists, validate it against the entire current binding.
    - a matching approval may satisfy only its bound `APPROVAL_REQUIRED` reasons
    - approval does not satisfy `PREREQUISITE_REQUIRED` or `BOUNDARY_ROUTE_REQUIRED`
    - any material binding change invalidates the approval
-8. Re-evaluate every hard-stop rule using current evidence, including rules that were previously satisfied. Keep an approval-required reason satisfied only while the same valid approval still matches; do not recreate it as an unresolved duplicate merely because its trigger still applies.
-9. If any blocking reason remains unresolved, set the final decision to `CONFIRM_REQUIRED`.
-10. Only if the human requested the current state-changing work and no blocking reason remains unresolved, set the final decision to `PROCEED`.
-11. Permit a state-changing action only when the final decision is explicitly `PROCEED` for that action's current binding.
+9. Re-evaluate every hard-stop rule using current evidence, including rules that were previously satisfied. Keep an approval-required reason satisfied only while the same valid approval still matches; do not recreate it as an unresolved duplicate merely because its trigger still applies.
+10. If any blocking reason remains unresolved, set the final decision to `CONFIRM_REQUIRED`.
+11. Only if the human requested the current state-changing work and no blocking reason remains unresolved, set the final decision to `PROCEED`.
+12. Permit a state-changing action only when the final decision is explicitly `PROCEED` for that action's current binding.
 
 `CONFIRM_REQUIRED` is monotonic and terminal for the current turn:
 
@@ -370,7 +371,7 @@ This additional gate applies only to material mutation-scope expansion. It does 
 - do not perform a state-changing action or external write
 - end the turn
 
-On the next turn, start from step 1 and re-evaluate all gates. A previous approval is evidence for step 7, not permission to skip the procedure. Later permissive rules such as development-only work, a clear restore path, Git recovery, or “may proceed” cannot change an unresolved `CONFIRM_REQUIRED` back to `PROCEED`.
+On the next turn, start from step 1 and re-evaluate all gates. A previous approval is evidence for step 8, not permission to skip the procedure. Later permissive rules such as development-only work, a clear restore path, Git recovery, or “may proceed” cannot change an unresolved `CONFIRM_REQUIRED` back to `PROCEED`.
 
 Before acting, the agent must identify:
 

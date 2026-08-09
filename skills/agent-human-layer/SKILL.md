@@ -28,12 +28,14 @@ If the procedure returns `CONFIRM_REQUIRED`, that decision is monotonic and term
 
 The four AHL1 conditions are necessary but not sufficient: one file, documentation/metadata-only, no runtime behavior, and no data/config/deploy impact. The work must also satisfy the canonical tiny-risk policy. If any condition is unknown or false, the work is not AHL1. “Remove”, “Delete”, or “Fix” is a task request, not an explicit requested level or human approval. A level mentioned in background, an example, or a report is not a requested level for the current work.
 
+Classification is governed by the mandatory procedure in [risk-levels.md](./references/risk-levels.md), the Classification single source of truth. The AHL1 four-condition gate is hard: false or unknown means not AHL1. Runtime behavior or user-visible runtime output/presentation is AHL1-ineligible. `Estimated level` is derived from actual consequence independently of `Requested level`; a higher requested level may apply a stronger safety profile without changing the estimate.
+
 When this Skill is active, read [ahl-flow.md](./references/ahl-flow.md) before acting. Its classification, Authorization blocking rules, and completion check are required, not optional.
 
 Load the rest only as needed:
 
 - [Route format](./references/route-format.md) — when the minimum route shape below is not enough, or the work is normal risk or higher
-- [Risk levels](./references/risk-levels.md) — when risk classification is unclear or an escalation rule needs checking
+- [Risk levels](./references/risk-levels.md) — before authorization for state-changing work, use the mandatory Classification procedure; consult the rest only as needed for escalation rules
 - [Recovery policy](./references/recovery-policy.md) — when the work is more than tiny, or a snapshot/restore level needs deciding
 - [Release gate policy](./references/release-gate-policy.md) — when the work is moving toward main, production, deploy, or release
 
