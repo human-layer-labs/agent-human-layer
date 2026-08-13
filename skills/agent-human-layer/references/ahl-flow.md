@@ -263,7 +263,7 @@ Use this list when collecting blocking reasons:
 
 | Trigger | Blocking-reason class | Condition needed to clear it |
 | --- | --- | --- |
-| No requested level is explicitly bound to the current work and the estimate is AHL2–AHL6 | `APPROVAL_REQUIRED` | Valid approval of the presented authorization binding |
+| Estimated level is AHL2–AHL6 | `APPROVAL_REQUIRED` | Valid approval of the presented authorization binding |
 | Estimated level is higher than the requested level | `APPROVAL_REQUIRED` | Valid approval bound to the estimated level and current scope |
 | Work is AHL4 or higher | `APPROVAL_REQUIRED` | Valid approval bound to the current risky, urgent, or recovery route |
 | Work targets main or production | `APPROVAL_REQUIRED` | Valid release or hotfix approval after required release evidence is present, or an expressly applicable separate trusted automation policy |
