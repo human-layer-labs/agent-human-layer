@@ -109,12 +109,12 @@ or replacement point. No row is actionable during Phase 7.
 |---|---|---|---|
 | Live `SKILL.md` content | Thin activation/router and Human compression | S001, S025–S027, S043, S050 | After complete router validation and no legacy fallback reference. Replace in place; do not retain old router content. |
 | Live `ahl-flow.md` content | Lifecycle, Target, Route, Evidence, Core, policy loading, failure, and Reality collision | S011–S012, S025, S028–S032, S036–S046, S051 | After all activation checks pass. Replace in place; no old flow remains reachable. |
-| Live `risk-levels.md` | `consequence-policy.md` plus flow placement | S001–S006, S048–S050, S054 | Only after newborn consequence and DB Boundary validation pass and a reference scan finds no required legacy consumer. This is blocked now. |
+| Live `risk-levels.md` | `consequence-policy.md` plus flow placement | S001–S006, S048–S050, S054 | Only after newborn consequence and DB Boundary validation pass and a reference scan finds no required legacy consumer. |
 | Live `route-format.md` | `ahl-flow.md` Route semantics and `work-unit-format.md` when durable representation is required | S008, S011–S012, S025–S028 | After live flow/router validation and no direct live reference remains. |
 | Live `recovery-policy.md` content | Newborn Recovery Capability, Evidence, applicability, composition, and failure | S014–S020, S024, S053 | After newborn Recovery path validation. Replace in place; do not run old snapshot semantics in parallel. |
 | Live `release-gate-policy.md` content | Newborn artifact-to-Target release transition and temporal validation | S034–S035, S040–S041 | After newborn Release path validation. Replace in place; no old release owner remains reachable. |
 | No live authorization policy file | Newborn closed-world grant/membership owner | S007–S011, S019–S027, S029–S033, S050–S053, S055 | Create as part of the atomic activation set. |
-| No live Boundary policy file | Newborn Boundary owner and concrete DB adapter/path | S041, S049, S051 | Create and validate before retiring the legacy DB/production floor. This is the current cutover blocker. |
+| No live Boundary policy file | Newborn Boundary owner and concrete DB adapter/path | S041, S049, S051 | Create and validate before retiring the legacy DB/production floor. |
 | No live consequence policy file | Newborn factual Level owner | S001–S006, S048–S050, S054–S055 | Create as part of the atomic activation set. |
 | No live Work Unit format file | Newborn serialization-only owner | S008, S019–S021, S026, S053 | Create as part of the atomic activation set. |
 
@@ -226,8 +226,11 @@ itself live routing or live proof. Generic approval cannot clear this blocker.
 
 ## 8. Exact future execution ordering
 
-Phase 8 may begin only after the blocker in Section 7 is cleared by a separate
-authorized implementation route.
+Phase 8 may proceed under this `CUTOVER_READY` plan. Newborn activation and the
+Section 7 live DB Boundary validation sequence occur during Phase 8 under the
+execution barrier. The legacy DB/production numeric floor MUST NOT be retired
+until the Section 7 live DB Boundary validation sequence has completed
+successfully.
 
 1. Confirm the exact target and current live graph under the currently live
    pre-cutover AHL.
