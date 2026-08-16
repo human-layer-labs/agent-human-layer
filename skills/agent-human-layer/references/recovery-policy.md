@@ -1,162 +1,165 @@
-# Recovery Policy
+# NEWBORN RECOVERY POLICY — NON-LIVE STAGING
 
-This document defines the first snapshot recovery policy for Agent Human Layer.
+Status: `NEWBORN IMPLEMENTATION — STAGED, NOT LIVE`
 
-See also:
+This document is the sole owner of the newborn Recovery Capability model. It
+defines the capability structure, Recovery Evidence, per-use applicability,
+Fast qualification, composition, and failure semantics. It is not a runtime
+authority and does not activate the newborn graph.
 
-- [Route format](./route-format.md)
-- [Risk levels](./risk-levels.md)
-- [Release gate policy](./release-gate-policy.md)
-- [AHL flow](./ahl-flow.md)
+## Ownership boundary
 
-## Core idea
+This policy owns only recovery capability and recovery evidence. It does not
+own or redefine:
 
-GitHub is audit. Snapshot is recovery.
+- factual Level or consequence classification, which belongs to
+  `consequence-policy.md`;
+- Authorization, the Auth Envelope, approval, or authority latitude, which
+  belongs to `authorization-policy.md` and `ahl-flow.md`;
+- Target Binding, Boundary, Release, Work Unit semantics, or serialization;
+- provider-specific backup, snapshot, Git, deployment, or database rules.
 
-Git records what changed. A snapshot gives the human a fast way back to a known-good state.
+Recovery can make a restoration proposition legible and testable. It never
+grants permission to act, lowers factual Level, satisfies Boundary, or turns
+an unrun check into Evidence.
 
-## What a snapshot is
+## Recovery Capability
 
-A snapshot is a human-readable save point for restoration.
+A Recovery Capability is a bounded, evidence-backed description of how an
+identified affected unit can be restored to an identified known-good basis.
+Every capability has exactly these seven fields:
 
-It exists so a human can return to a known-good state when Git alone is too slow, too risky, or not enough.
+1. **Environment** — the environment and relevant execution conditions for
+   which the capability is claimed.
+2. **Restore unit** — the exact unit that will be restored, including its
+   identity and scope.
+3. **Restore closure** — the explicit set of state, files, dependencies, and
+   effects the restore claims to cover, plus material exclusions.
+4. **Mechanism** — the concrete replacement, rollback, or other restoration
+   mechanism.
+5. **Validation** — the checks that establish the restored unit and its
+   material dependencies are acceptable.
+6. **Material dependencies** — dependencies whose condition can change the
+   restoration result, including their relevant versions, state, or
+   availability.
+7. **Evidence** — the evidence supporting the capability's claims, with
+   provenance, scope, time, freshness, and locator sufficient for review.
 
-## What a snapshot is not
+These are the complete structural fields. There is no `Recovery Level` field
+and there is no eighth field. A capability may contain explanatory values
+inside a field, but it must not create a second recovery taxonomy or hidden
+structural field.
 
-Snapshots are not the same as Git history.
-Snapshots are not a replacement for review.
-Snapshots are not a replacement for CI.
-Snapshots are not a promise that nothing ever breaks.
+## Recovery Evidence
 
-## Policy
+Recovery Evidence supports an exact proposition about an exact capability,
+restore unit, target, source, mechanism, or validation result. Evidence should
+make clear what was observed, where and when it was observed, what basis was
+used, and how a human can inspect it.
 
-- Actual snapshot contents should usually not be committed to the repository.
-- The repository should contain recovery policy, snapshot rules, and restore instructions.
-- The repository should not usually contain live backup folders, production data, secrets, machine-specific snapshots, or large generated archives.
+A declared restore closure is a claim about intended coverage, not proof that
+the closure is complete. Residual risk, excluded state, uncertainty, and
+material dependency differences remain visible. The policy must not normalize
+unexplained differences into equivalence or certainty.
 
-## When Git is enough
+Evidence carries only while its material basis remains valid. A change to the
+environment, restore unit, closure, mechanism, validation basis, material
+dependency, or other fact that the proposition depends on can make the
+evidence stale or inapplicable. The capability must then be re-evaluated.
 
-Git is enough when the work is source-only, the branch is clean, the change is small, no generated files are involved, no local configuration is involved, and no production-adjacent files are involved.
+Evidence methods may include observation, validation output, an operator
+demonstration, or a drill. A drill is an optional method for acquiring or
+strengthening Evidence; it is not a universal ritual and is not required when
+other sufficient Evidence establishes the proposition.
 
-Examples:
+## Fast qualification
 
-- typo fix
-- README wording change
-- issue template copy edit
-- comments only
-- documentation-only change
-
-## When a snapshot is required
-
-A snapshot is required when the change touches generated assets, local environment files, production-adjacent configuration, risky or broad changes, or anything where the agent cannot clearly explain what will be restored.
-
-Examples:
-
-- config file
-- route format
-- risk policy
-- generated-facing instruction file
-- file that agents rely on
-- a directory used by agents or automation
-
-## Recovery levels
-
-### Level 0: No snapshot required
-
-Use when the work is tiny and source-only.
-
-Required explanation:
-
-- identify the branch
-- identify the changed file
-- explain that Git history is enough
-
-### Level 1: Git recovery
-
-Use when Git is enough.
-
-Required explanation:
-
-- current branch
-- starting commit
-- changed files
-- revert path
-
-### Level 2: File snapshot
-
-Use when a small number of important files are touched.
-
-Required explanation:
-
-- exact files copied
-- snapshot location
-- restore instruction
-
-### Level 3: Folder snapshot
-
-Use when a directory is risky or multiple related files are touched.
-
-Required explanation:
-
-- exact folder copied
-- snapshot location
-- restore instruction
-- what is intentionally excluded
-
-### Level 4: Stop and ask
-
-Use when the agent cannot safely define recovery.
-
-Required behavior:
-
-- stop before editing
-- explain the missing recovery path
-- ask for the minimum needed information
-
-Required phrase:
+Recovery is Fast only when all three predicates hold for the use at hand:
 
 ```text
-I cannot safely proceed because I do not have a recovery path.
+FAST = BOUNDED AND DEMONSTRATED AND CURRENTLY APPLICABLE
 ```
 
-## Agent requirements
+- **BOUNDED** means the environment, restore unit, restore closure, and
+  material dependencies are exact enough that the claimed action does not
+  silently expand.
+- **DEMONSTRATED** means Evidence establishes that the stated mechanism and
+  validation can achieve the claimed restoration on the stated basis. A
+  declaration alone is not a demonstration.
+- **CURRENTLY APPLICABLE** means the same capability, target/source basis,
+  dependencies, and material conditions hold for the present use.
 
-Before risky work, the agent must show:
+If any predicate is absent, uncertain, stale, or contradicted, the recovery
+is not Fast. A declared-only closure never qualifies as Fast. The policy may
+describe a capability before it is demonstrated; that does not upgrade its
+status.
 
-```text
-Recovery:
-- Current branch:
-- Starting point:
-- Recovery level:
-- Save point:
-- Snapshot location:
-- Restore method:
-- What is excluded:
-```
+## Per-use applicability
 
-If no snapshot is needed, the agent must still say why.
+Before relying on a capability for a Work Unit, the use binds all of the
+following:
 
-## Example
+- the exact Recovery Capability reference;
+- the exact currently known-good target and source basis;
+- the actual effect subset the capability will restore or protect; and
+- the current applicability determination for this use.
 
-```text
-Risk: Small documentation / instruction work
+The actual effect subset may be narrower than the capability's declared
+closure. A broader closure must not be inferred from a narrower use. Recovery
+reports whether the capability applies; Authorization separately determines
+which action, subset, exception, or latitude is permitted.
 
-Intent:
-- Create the first instruction-only Skill.
-- Do not add scripts yet.
+Per-use binding is not authority. It does not satisfy `APPROVAL_REQUIRED`,
+`BOUNDARY_REQUIRED`, or any other authorization blocker, and it cannot make a
+technical access path a permission.
 
-Route:
-- Create skills/agent-human-layer/SKILL.md.
-- Do not change BELIEF.md.
-- Do not change README.md.
-- Do not create scripts yet.
+## Composition
 
-Recovery:
-- Current branch: issue branch for Skill work
-- Starting point: main before the Skill file is added
-- Recovery level: Level 1 — Git recovery
-- Save point: branch start commit
-- Snapshot location: none required
-- Restore method: delete the new Skill file or revert the commit
-- What is excluded: no generated assets, secrets, database, or production state
-```
+Multiple recovery units may be composed automatically only when their restore
+units, closures, mechanisms, validation, and material dependencies are
+independent for the claimed use.
+
+The following require composite Evidence and a composite basis rather than
+independent composition:
+
+- overlapping restore units or closures;
+- ordering or atomicity constraints;
+- a shared invariant;
+- coupled state or coupled material dependencies; or
+- any interaction that means one restoration can change the proposition for
+  another.
+
+Composition must expose the overlap, order, atomicity, coupling, and residual
+risk. There is no universal ceremony or blanket assumption that a set of
+individually described capabilities is jointly valid.
+
+## Failure and degraded applicability
+
+When a capability fails, becomes stale, or cannot establish its proposition,
+the failure is exposed with the affected scope, missing basis, and residual
+risk. It is not silently converted into success, Fast status, or an unrelated
+global failure.
+
+Authorization may suspend the dependent subset of action or latitude when the
+recovery basis is unavailable. That suspension does not revoke or alter
+unrelated authority whose own requirements remain satisfied. Recovery itself
+does not select that authorization outcome.
+
+Recovery cannot self-authorize repair. A state-changing repair, replacement,
+or proof-producing repair is a separate Work Unit with its own Route,
+Target Binding, Boundary, Authorization, and validation. Re-demonstrating the
+same capability on the same material basis does not require new Human
+approval merely because the demonstration was repeated; any changed basis or
+changed action is evaluated on its own facts.
+
+## Owner references and audit rules
+
+The flow may consume Recovery Capability, Evidence, Fast status, applicability,
+composition, and failure results. Consequence policy supplies factual Level;
+authorization policy consumes recovery results for its own gate; boundary and
+release policies consume recovery results where their requirements say so.
+Those references are consumption, not ownership transfer.
+
+Any document that creates a Recovery Level, grants authority from recovery,
+declares a generic Boundary satisfied, or defines serialization rules is a
+collision with this or another owner and must stop the route for review.

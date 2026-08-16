@@ -101,7 +101,7 @@ Hands follow decisions within the agreed route.
 Voice must surface the belief that collides.
 
 Dissent is not a right. It is a duty.
-The human is absolute over decisions.
+The Human is final over decisions within authority attributable to that Human.
 The agenda is shared.
 
 Three levels, and only three:
