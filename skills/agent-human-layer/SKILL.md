@@ -70,8 +70,10 @@ For read-only or otherwise non-state-changing work, do not automatically load
 the mutation policy graph. Load only the references required by the actual
 next action.
 
-For state-changing work, route through [`ahl-flow.md`](./references/ahl-flow.md)
-and load the following only when applicable:
+For state-changing work, load [`ahl-flow.md`](./references/ahl-flow.md) before
+the first mutation. It is not conditional. Its lifecycle determines which
+further owners the work requires; load the following through it, only when
+applicable:
 
 - load [`consequence-policy.md`](./references/consequence-policy.md) when
   factual consequence classification is required;
@@ -88,8 +90,10 @@ and load the following only when applicable:
 - load [`work-unit-format.md`](./references/work-unit-format.md) only when
   structured or durable Work Unit serialization is actually required.
 
-Conditional loading reduces unnecessary policy Tax. It never skips an
-applicable owner or weakens a required prerequisite. If an applicable owner
+Conditional loading reduces unnecessary policy Tax. Applicability is decided
+by the loaded flow against its owners, never by an unloaded judgment that an
+owner is not needed. It never skips an applicable owner or weakens a required
+prerequisite. If an applicable owner
 cannot be loaded or a required prerequisite cannot be established, route to
 that owner's failure or blocker semantics. Do not silently satisfy the
 missing requirement or create a global degraded mode; unrelated Work Units
@@ -103,6 +107,10 @@ unchanged valid Authorization Envelope that already covers the occurrence.
 Ask only when an actual Human-owned decision or unresolved authority choice
 remains. Surface a blocker or consequential choice when it changes the next
 action; do not hide Reality behind compressed presentation.
+
+Compression governs presentation, not establishment. States the flow requires
+before a mutation exist whether or not they are shown, and remain truthfully
+recallable on request.
 
 `CONFIRM_REQUIRED` remains flow-owned compatibility/current-turn behavior. A
 policy reread alone does not evaporate unchanged Authorization, and full
