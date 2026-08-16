@@ -203,9 +203,9 @@ idempotency under the newborn authorization owner.
 
 ## 7. Mandatory DB Boundary prerequisite
 
-This plan is **CUTOVER_BLOCKED** because the current repository has no
-concrete newborn DB Boundary adapter/path sufficient to satisfy the required
-ordering.
+This plan remains **CUTOVER_BLOCKED** because the concrete newborn DB/production
+Boundary adapter is now present in staging, but independent validation and
+live activation proof are still pending.
 
 Before any legacy DB/production floor is removed, the future route must first
 provide and validate all of the following under the newborn graph:
@@ -218,9 +218,8 @@ provide and validate all of the following under the newborn graph:
    and fails locally when absent.
 
 Only after those four facts are validated may the legacy DB/schema minimum
-floor and DB/live-data boundary route be retired. The generic staged
-`boundary-policy.md` is not, by itself, a concrete DB adapter or live proof.
-Generic approval cannot clear this blocker.
+floor and DB/live-data boundary route be retired. The staged adapter is not
+itself live routing or live proof. Generic approval cannot clear this blocker.
 
 ## 8. Exact future execution ordering
 
@@ -284,15 +283,16 @@ discriminating, not name-only checks:
 9. Active execution context remains a candidate until Target Binding is
    established.
 10. The newborn Boundary path is live, derives a real protected requirement,
-    and its DB adapter/path validation passes. This check is currently
-    unavailable and is the cutover blocker.
+    and its DB/production adapter/path validation passes. The staged
+    implementation exists, but this independent activation check remains
+    pending.
 11. The newborn Release path proves exact artifact-to-Target Binding and
     temporal post-act validation.
 12. The newborn Recovery path proves per-use applicability, no Fast credit
     from declaration alone, and local failure suspension.
 13. Policy-basis identity/version semantics resolve to live `ahl-flow.md`.
-14. The 55 declarative Sentinels remain present as migration evidence, with
-    S055 represented in the live validation selection.
+14. The 56 declarative Sentinels remain present as migration evidence, with
+    S055 and S056 represented in the live validation selection.
 15. No mixed graph exists during or after the barrier window.
 
 Additional smoke checks should exercise wrong-target handling (S036–S039),
@@ -375,25 +375,28 @@ It must not touch:
 
 ## CUTOVER BLOCKERS
 
-`CB-01 — MISSING CONCRETE NEWBORN DB BOUNDARY PATH`
+`CB-01 implementation present — independent validation pending`
 
-The repository has no concrete DB Boundary adapter/path that is present in,
-routed by, and validated as part of the newborn live graph. The staged generic
-Boundary policy is insufficient to prove the required protected DB
-requirement. Therefore the legacy DB/production safety floor cannot be
-retired and the cutover cannot be marked ready.
+The concrete DB/production Boundary adapter is present in staged
+`boundary-policy.md`, with explicit applicability, protected target/resource/
+effect/authority requirement fields, satisfaction Evidence, local
+`BOUNDARY_REQUIRED` failure, and independent factual Level semantics. It is
+not yet routed by the live newborn graph or independently validated there.
+Therefore the legacy DB/production safety floor cannot yet be retired and the
+cutover cannot be marked ready.
 
-Required clearance: implement and separately authorize the exact DB Boundary
-path, route it through the newborn live graph, validate its local failure and
-Authorization consumption, then rerun the cutover validation. No generic
-approval, provider presence, or label can clear this blocker.
+Required clearance: activate the newborn DB/production Boundary path, verify
+router reachability, verify concrete protected-requirement derivation, verify
+Boundary consumption and local `BOUNDARY_REQUIRED` failure, then rerun the
+cutover validation. No generic approval, provider presence, or label can clear
+this blocker.
 
 ## Readiness result
 
 ```text
 CUTOVER_READY = false
 CUTOVER_BLOCKED = true
-Reason = CB-01
+Reason = CB-01 implementation present — independent validation pending
 Cutover performed = false
 Phase 8 begun = false
 ```

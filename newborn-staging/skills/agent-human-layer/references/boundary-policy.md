@@ -31,6 +31,70 @@ Boundary derivation is independent of Level. A low factual Level may still
 touch a separately protected resource, and a high factual Level does not by
 itself prove that a particular Boundary is satisfied.
 
+## DB/production protected-condition adapter
+
+This section is the concrete domain adapter for the load-bearing protection
+that the legacy AHL expressed through its database minimum floor and separate
+DB/live-data/production boundary route. It replaces that protection; it does
+not preserve a numeric Level floor and it does not create a new normative
+owner.
+
+### Applicability
+
+The adapter returns `APPLICABLE` only when the final per-effect Target
+Binding and material effect facts establish one of these protected
+conditions:
+
+1. the effect changes an actual database schema definition or runs a database
+   migration;
+2. the effect mutates live database or live data; or
+3. the effect changes a verified production-serving or production-deployed
+   target state.
+
+The condition must come from the bound target, resource, and intended effect.
+The words `database`, `DB`, `live`, or `production` in a path, branch,
+provider, credential, or environment label are not sufficient by themselves.
+If none of the three conditions is established, the adapter returns
+`NOT_APPLICABLE` and creates no Boundary ceremony.
+
+### Concrete requirement
+
+For an applicable effect, derive one exact protected requirement with these
+fields:
+
+- `protected_target`: the verified Target Binding identity;
+- `protected_resource`: the exact schema, database, live-data, or
+  production-serving resource domain;
+- `protected_effect`: the exact material effect subset and Operation;
+- `protected_authority`: the separately protected DB/production boundary
+  authority or control named by attributable project policy; and
+- `required_evidence`: current Evidence that proves that exact target,
+  resource, effect, and authority are protected for this occurrence.
+
+The requirement is not a generic request for approval or access. For a
+production release transition, an exact applicable Release result may be
+part of `required_evidence`; Release remains the sole owner of release
+derivation and temporal release checks. This adapter does not duplicate or
+replace Release.
+
+### Satisfaction and Authorization result
+
+The requirement is `SATISFIED` only when `required_evidence` is current and
+directly establishes the exact `protected_target`, `protected_resource`,
+`protected_effect`, and `protected_authority` for the occurrence. The evidence
+must be an actual verified boundary result or an exact owner result explicitly
+accepted for that requirement. Credentials, DB access, writability,
+connectivity, production access, Recovery availability, a factual Level, or
+generic Human approval do not satisfy it.
+
+If the condition is `APPLICABLE` and the exact requirement is not satisfied,
+return `BOUNDARY_REQUIRED` for the affected occurrence/effect subset. If it
+is satisfied, return the Boundary result to Authorization and let ordinary
+Authorization evaluation continue. If it is `NOT_APPLICABLE`, return no
+Boundary blocker.
+
+This adapter never selects a factual Level. DB involvement does not automatically create AHL3 or AHL4. Production involvement does not automatically create AHL3 or AHL4. `consequence-policy.md` independently classifies the highest credible consequence of the selected Route in the actual context.
+
 ## Derivation and consumption
 
 The applicable owner or policy adapter derives whether a Boundary is present

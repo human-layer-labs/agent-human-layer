@@ -28,13 +28,18 @@ that each Sentinel names. The Sentinel suite does not redefine those rules.
 
 ## Coverage
 
-`sentinel-cases.md` contains **55** numbered cases. The 46 explicit
-blueprint Sentinels are covered by one or more of S001–S055; the mapping is
+`sentinel-cases.md` contains **56** numbered cases. The 46 explicit
+blueprint Sentinels are covered by one or more of S001–S056; the mapping is
 kept below so the final count is auditable without relying on Agent memory.
 
 S055 is the additional migration Sentinel for the verified historical
 Scenario 3 failure: an explicitly requested Level could suppress a required
 approval when no attributable grant existed.
+
+S056 is the additional migration Sentinel for the verified legacy
+DB/production protection: the old numeric floor is retired, while the
+load-bearing protected-condition requirement is reexpressed through the
+concrete newborn Boundary adapter.
 
 | Blueprint Sentinel | Case coverage |
 |---:|---|

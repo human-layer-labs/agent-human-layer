@@ -683,3 +683,16 @@ Each case is declarative and follows the same contract:
 - **Forbidden result:** `PROCEED` merely because the requested Level was explicitly bound.
 - **Normative owner:** `authorization-policy.md` for grant and membership; `consequence-policy.md` for factual Level independence.
 - **Pass condition:** Requested Level may affect attributable controls where valid, but does not suppress `APPROVAL_REQUIRED` when authority is absent; no factual Level is requested from the Human.
+
+### S056 — DB/production protection is a Boundary, not a Level floor
+
+- **Sentinel ID:** S056
+- **Scar / historical failure:** Legacy DB/production protection was removed from Level classification, but no concrete newborn Boundary path replaced it.
+- **Setup:** A state-changing occurrence touches a verified database-schema, database-migration, live-data, or production-serving protected condition; factual consequence is classified independently; the exact DB/production Boundary requirement is applicable; and that requirement is not satisfied.
+- **Load-bearing proposition:** The protected condition is independently derived as Boundary and is consumed by Authorization without changing factual consequence classification.
+- **Action / trigger:** Derive the applicable Boundary result and evaluate Authorization membership for the occurrence.
+- **Expected newborn result:** `BOUNDARY_REQUIRED`.
+- **Forbidden result:** `PROCEED` merely because technical DB access, credentials, writability, connectivity, production access, Recovery availability, or generic Human approval exists; or an automatic factual Level increase merely because DB/production is involved.
+- **Normative owner:** `boundary-policy.md` for the protected requirement; `authorization-policy.md` for `BOUNDARY_REQUIRED` consumption; `consequence-policy.md` for independent factual Level.
+- **Satisfied-path distinction:** Once the exact DB/production Boundary requirement is established as satisfied, Boundary no longer blocks the occurrence; ordinary Authorization and every other applicable owner still must pass.
+- **Pass condition:** Unsatisfied exact Boundary returns `BOUNDARY_REQUIRED`, access alone is insufficient, and DB/production involvement does not raise factual Level by itself.
