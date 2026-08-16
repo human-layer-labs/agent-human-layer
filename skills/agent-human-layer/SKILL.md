@@ -3,13 +3,14 @@ name: agent-human-layer
 description: Thin newborn activation and policy-routing layer for Human-facing AHL work.
 ---
 
-# NEWBORN AHL ROUTER — NON-LIVE NEWBORN STAGING — NOT A RUNTIME AUTHORITY
+# NEWBORN AHL ROUTER — LIVE RUNTIME AUTHORITY
 
-Status: `NEWBORN IMPLEMENTATION — STAGED, NOT LIVE`
+Status: `NEWBORN AHL — LIVE`
 
-This file is an activation and routing layer only. It does not activate the
-newborn graph, modify live routing, instruct `AGENTS.md` to load staging, or
-create a fallback or dual ownership between live and newborn AHL.
+This file is the live activation and routing layer only. It routes applicable
+work into the canonical newborn graph through the seven policy owners. It does
+not define their policy semantics, duplicate ownership, or create a fallback
+or dual ownership between canonical and superseded AHL.
 
 ## Entry contract
 
@@ -124,5 +125,5 @@ requests, CI, snapshots, a particular IDE, or a particular Agent host.
 Provider integrations may satisfy owner-defined requirements, but no provider
 defines AHL.
 
-The newborn graph remains non-live until an authorized later cutover. Do not
-begin Phase 5 from this router.
+The newborn graph is live through this router. Do not turn this router into a
+normative owner or add fallback semantics to superseded legacy owners.
