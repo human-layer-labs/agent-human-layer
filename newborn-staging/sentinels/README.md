@@ -28,9 +28,13 @@ that each Sentinel names. The Sentinel suite does not redefine those rules.
 
 ## Coverage
 
-`sentinel-cases.md` contains **54** numbered cases. The 46 explicit
-blueprint Sentinels are covered by one or more of S001–S054; the mapping is
+`sentinel-cases.md` contains **55** numbered cases. The 46 explicit
+blueprint Sentinels are covered by one or more of S001–S055; the mapping is
 kept below so the final count is auditable without relying on Agent memory.
+
+S055 is the additional migration Sentinel for the verified historical
+Scenario 3 failure: an explicitly requested Level could suppress a required
+approval when no attributable grant existed.
 
 | Blueprint Sentinel | Case coverage |
 |---:|---|
@@ -91,7 +95,7 @@ the invariant owned by the newborn policy named in each case:
 |---|---|---|---|
 | Scenario 1 | Not found as standalone legacy file | Low-consequence work does not create unnecessary Human Tax. | S001 |
 | Scenario 2 | Not found as standalone legacy file | Operative policy changes are classified by consequence, not by Markdown appearance. | S002–S004 |
-| Scenario 3 | Not found as standalone legacy file; explicitly required by blueprint | Wrong-target and route/order failures stop before they become silently normalized. | S012, S036–S039 |
+| Scenario 3 | No standalone scenario file; reachable history at `4af6316` and its parent contains the requested-Level/authorization repair | Requested Level or caution is not authority; absent attributable grant remains `APPROVAL_REQUIRED`. | S055 |
 | Scenario 4 | Not found as standalone legacy file | Recovery, allowance, and authorization state do not create unsafe retry or repair authority. | S014–S021, S053 |
 | Scenario 5 | Not found as standalone legacy file | Cutover preserves contracts without mixed ownership or ordinal-level mapping. | S048, S051–S053 |
 

@@ -28,10 +28,13 @@ Inspected legacy sources:
   snapshot-backed trial, release, CI, conflict, and live-state boundaries.
 
 No standalone historical Scenario 1–5, sentinel, or smoke artifact was found
-in the bounded repository file inventory or in reachable Git history. Scenario
-anchors are therefore cross-referenced to the frozen blueprint and the
-discriminating cases in `../sentinels/sentinel-cases.md`; no undocumented
-legacy scenario detail is invented.
+in the bounded repository file inventory. Reachable Git history does contain
+the material Scenario 3 failure/repair evidence at `4af6316` and its parent:
+the parent hard-stop predicate required approval only when no requested Level
+was explicitly bound, and `4af6316` changed that predicate to estimated
+consequence. Scenario anchors are cross-referenced to the frozen blueprint
+and the discriminating cases in `../sentinels/sentinel-cases.md`; no
+undocumented legacy scenario detail is invented.
 
 ## Disposition vocabulary
 
@@ -66,7 +69,7 @@ legacy scenario detail is invented.
 | LC-18 | `SKILL.md`, Git/recovery examples; `release-gate-policy.md`, provider and CI sections | GitHub, snapshots, CI, and host mechanisms were used as concrete route assumptions. | Preserve admissible provider evidence without making one provider canonical. | `ahl-flow.md`, `boundary-policy.md`, `release-gate-policy.md` | Provider-neutral adapters and exact proposition Evidence. | S040, S041, S048 | REEXPRESS | Provider observations can remain inputs; provider architecture and mandatory Git markers retire. |
 | LC-19 | `ahl-flow.md`, no-loop/conflict rules; `release-gate-policy.md`, CI/conflict policy | Related failures received one focused repair attempt; conflicts and unrelated failures stopped. | Bound repair and prevent CI/conflict loops or unrelated mutation. | `ahl-flow.md`, `release-gate-policy.md` | Failure Work Unit, local stop, and explicit release validation. | S012, S040, S044 | PRESERVE | This is a surviving operational safety contract. |
 | LC-20 | `release-gate-policy.md`, production gates and one-minute restore | Production release required exact checks, restore, and explicit approval. | Do not release an ambiguous artifact to an ambiguous target. | `release-gate-policy.md`, `boundary-policy.md`, `authorization-policy.md` | Exact artifact → exact Target Binding transition, temporal checks, and post-release Evidence. | S034, S035, S048 | REEXPRESS | Release protection survives as its own owner, not as AHL5/production Level. |
-| LC-21 | Bounded inventory and reachable history; no standalone Scenario 1–5 files found | Historical scenarios are referenced by the frozen blueprint but not present as separate legacy artifacts. | Preserve each historical failure class as a discriminating newborn regression. | The owner named by each Sentinel | Declarative cases and scenario crosswalk; no legacy implementation or numbering. | SCN-01–SCN-05; S001, S012, S014, S036, S054 | REEXPRESS | The scars are retained as tests; absent source details are not invented. |
+| LC-21 | Bounded inventory found no standalone Scenario 1–5 files; reachable `4af6316` and `4af6316^` `ahl-flow.md` hard-stop table | The legacy predicate let an explicitly requested Level suppress the no-grant approval condition; the repair separated requested Level from authorization. | `authorization-policy.md` for closed-world attributable grant/membership; `consequence-policy.md` for factual Level independence | Exact Envelope/grant membership; requested Level may add valid controls but cannot substitute for authority. | SCN-01–SCN-05; S001, S014, S036, S048, S054, S055 | REEXPRESS | Reachable history proves Scenario 3 protected separation between requested Level and authorization. S055 preserves the scar; no old ordinal rule is carried. |
 
 ## Extraction result
 

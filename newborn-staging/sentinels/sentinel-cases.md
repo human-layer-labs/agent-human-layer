@@ -671,3 +671,15 @@ Each case is declarative and follows the same contract:
 - **Forbidden result:** N separate lower Work Units such as N × AHL2.
 - **Normative owner:** `consequence-policy.md`.
 - **Pass condition:** The audit finds coordinated AHL3 and no fragmentation-based downgrade.
+
+### S055 — Requested Level cannot suppress approval
+
+- **Sentinel ID:** S055
+- **Scar / historical failure:** Requested Level was allowed to suppress required approval even though no attributable authorization grant existed.
+- **Setup:** No attributable Authorization Envelope or grant covers the occurrence; Human/request context explicitly binds a requested Level or caution Level; factual consequence classification is independently established; all unrelated prerequisites may otherwise be satisfied.
+- **Load-bearing proposition:** Requested Level/caution is not authority and cannot create or replace an attributable grant.
+- **Action / trigger:** Evaluate Authorization membership for the occurrence.
+- **Expected newborn result:** `APPROVAL_REQUIRED`.
+- **Forbidden result:** `PROCEED` merely because the requested Level was explicitly bound.
+- **Normative owner:** `authorization-policy.md` for grant and membership; `consequence-policy.md` for factual Level independence.
+- **Pass condition:** Requested Level may affect attributable controls where valid, but does not suppress `APPROVAL_REQUIRED` when authority is absent; no factual Level is requested from the Human.
