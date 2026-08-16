@@ -1,6 +1,6 @@
 # NEWBORN AHL ATOMIC CUTOVER PLAN — NON-LIVE PLANNING ARTIFACT
 
-Status: `PHASE 7 PLAN — CUTOVER BLOCKED; NO CUTOVER PERFORMED`
+Status: `PHASE 8 PLAN — CUTOVER READY; NO CUTOVER PERFORMED`
 
 Architecture authority: `AHL-CANONICAL-TARGET.md` only.
 
@@ -75,10 +75,10 @@ ready behind the admission barrier.
   explicit approval, snapshot/restore expectations, and production checks.
 - Recovery currently depends on the live snapshot policy and replacement
   restore instructions.
-- The staged newborn Boundary policy is present, but it contains only a
-  provider-independent generic adapter model. No concrete DB Boundary
-  adapter/path exists in the repository and no live routing currently invokes
-  it.
+- The staged newborn Boundary policy contains the concrete provider-independent
+  DB/production Boundary adapter and exact attributable target/effect authority
+  policy. It passed the independent narrow audit, but it is not yet live and
+  no live routing currently invokes it.
 
 ## 2. Newborn activation manifest
 
@@ -95,10 +95,48 @@ transition. Existing destinations are not safe to expose one at a time.
 | `newborn-staging/skills/agent-human-layer/references/boundary-policy.md` | `skills/agent-human-layer/references/boundary-policy.md` | create |
 | `newborn-staging/skills/agent-human-layer/references/release-gate-policy.md` | `skills/agent-human-layer/references/release-gate-policy.md` | replace |
 | `newborn-staging/skills/agent-human-layer/references/work-unit-format.md` | `skills/agent-human-layer/references/work-unit-format.md` | create |
+| `AHL-CANONICAL-TARGET.md` §2 literal BELIEF delta | `BELIEF.md` | narrow in-place frozen trunk delta during Phase 8 |
+| `AHL-CANONICAL-TARGET.md` §2 CHEAP-DEATH authority delta | `CHEAP-DEATH.md` | one-line frozen authority rewrite during Phase 8 |
 
 `AGENTS.md` is not a replacement destination and must remain unchanged. It
 continues to point to the canonical live paths; the live paths themselves
 must resolve to the complete newborn graph after the switch.
+
+### Frozen trunk delta contract
+
+The two non-runtime/trunk rows above are applied under the execution barrier
+as part of the same coherent cutover commit. Neither delta may be applied
+early while the legacy graph is operating, and neither may become a separate
+partially-live architecture state.
+
+For `BELIEF.md`, the executor MUST verify the expected source concepts before
+mutation and apply exactly these four changes:
+
+1. add `Human authority grants freedom to act; demonstrated recovery makes
+   that freedom cheap to use.`;
+2. reword `The chat is the control tower.` to `The chat is the Human
+   interface.`;
+3. reword `Snapshot is recovery.` to `Recovery returns a known-good state. A
+   snapshot is one possible mechanism.`; and
+4. reword `GitHub is audit.` to `Audit records what happened. GitHub is one
+   possible audit provider.`
+
+No new Belief chapter or decorative Belief growth is authorized. Quoted
+architecture principles such as `Correctness is a tactic...` are not
+automatically additions to `BELIEF.md`. If the actual BELIEF source surface
+differs materially from these expected concepts, Phase 8 MUST stop for plan
+drift rather than improvise.
+
+For `CHEAP-DEATH.md`, the executor MUST verify the exact old source semantic
+surface before mutation and apply only this one-line rewrite:
+
+`The human is absolute over decisions.`
+→ `The Human is final over decisions within authority attributable to that Human.`
+
+No other `CHEAP-DEATH.md` change is authorized. Runtime authority semantics
+remain owned by `authorization-policy.md`; `CHEAP-DEATH.md` carries the trunk
+statement only. If the source differs materially, Phase 8 MUST stop for plan
+drift.
 
 ## 3. Legacy retirement manifest
 
@@ -222,7 +260,8 @@ provide and validate all of the following under the newborn graph:
 
 Only after those five facts are validated may the legacy DB/schema/production
 floor and DB/live-data boundary route be retired. The staged adapter is not
-itself live routing or live proof. Generic approval cannot clear this blocker.
+itself live routing or live proof. Generic approval cannot satisfy this live
+requirement.
 
 ## 8. Exact future execution ordering
 
@@ -249,9 +288,12 @@ successfully.
 7. Resolve known in-flight occurrences and conserve unknown
    allowance/reservation state. Do not carry legacy approval unless Section 6
    proves exact reconstructability.
-8. Prepare the eight-file activation manifest and verify each source hash and
-   destination role while the barrier remains held.
-9. Replace/create all eight canonical live destinations without exposing a
+8. Prepare the complete activation manifest, including the eight newborn
+   runtime destinations and both frozen BELIEF/CHEAP-DEATH trunk deltas, and
+   verify each source hash, expected source surface, and destination role while
+   the barrier remains held.
+9. Replace/create all eight canonical live destinations and apply both frozen
+   trunk deltas as one coherent cutover operation without exposing a
    dispatchable mixed graph.
 10. Validate the complete newborn live graph using Section 9.
 11. If validation fails before newborn dispatch, execute the coherent legacy
@@ -362,6 +404,8 @@ DB Boundary ordering above.
 The future cutover Work Unit may touch exactly:
 
 - the eight canonical live destinations in the activation manifest;
+- the exact frozen `BELIEF.md` delta and one-line `CHEAP-DEATH.md` delta in the
+  activation manifest, applied only under the execution barrier;
 - the legacy `risk-levels.md` and `route-format.md` removal paths, only after
   validation;
 - the staged newborn runtime copies, only after successful live validation;
