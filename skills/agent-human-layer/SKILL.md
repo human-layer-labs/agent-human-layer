@@ -1,6 +1,6 @@
 ---
 name: agent-human-layer
-description: Thin newborn activation and policy-routing layer for Human-facing AHL work.
+description: Agent Human Layer for ordinary Human-to-Agent repository work. Use automatically when an agent is asked to inspect, modify, verify, recover, contain, or release project state, including small routine code or documentation changes such as typo fixes. Establish the actual Target, preserve attributable Human authority, choose the smallest safe Route, and verify completion. Do not require the Human to mention AHL.
 ---
 
 # NEWBORN AHL ROUTER — LIVE RUNTIME AUTHORITY
