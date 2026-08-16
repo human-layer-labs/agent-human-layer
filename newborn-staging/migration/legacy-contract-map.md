@@ -75,12 +75,18 @@ undocumented legacy scenario detail is invented.
 
 - Meaningful contracts found: **21**.
 - `PRESERVE`: **5**.
-- `REEXPRESS`: **14**.
-- `RETIRE`: **2**.
+- `REEXPRESS`: **15**.
+- `RETIRE`: **1**.
 - Unmapped load-bearing contracts: **NONE** within the bounded inspected
   surface.
 
-Retired items are the automatic DB/production Level floor and repeated
-unchanged confirmation ceremony. Their underlying protections are explicitly
-re-expressed by Boundary/Release/Authorization and by unchanged-Envelope
-carry Sentinels.
+Retired items are:
+
+- the automatic DB/production numeric Level floor; and
+- repeated unchanged confirmation ceremony as ceremony/tax.
+
+The DB/production protected-condition requirement is **NOT retired**. Its
+load-bearing protection is **REEXPRESSED** through the newborn concrete DB
+Boundary adapter, with applicable Release/Authorization ownership and exact
+attributable authority coverage. The numeric floor is retired; the protected
+condition is not.

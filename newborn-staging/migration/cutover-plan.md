@@ -203,9 +203,10 @@ idempotency under the newborn authorization owner.
 
 ## 7. Mandatory DB Boundary prerequisite
 
-This plan remains **CUTOVER_BLOCKED** because the Human-owned DB/production
-Boundary policy has now been supplied and implemented in the staged adapter,
-but independent validation and live activation proof are still pending.
+This plan is **CUTOVER_READY** because the Human-owned DB/production Boundary
+policy has been supplied, implemented in the staged adapter, and independently
+validated for CB-01. Readiness means the plan is ready for Phase 8 execution;
+the live activation and validation steps below have not yet occurred.
 
 Before any legacy DB/production floor is removed, the future route must first
 provide and validate all of the following under the newborn graph:
@@ -377,31 +378,25 @@ It must not touch:
 
 ## CUTOVER BLOCKERS
 
-`CB-01 Human-owned policy supplied and implemented — independent validation pending`
+`CB-01 CLOSED — independently validated.`
 
-The Human-owned DB/production Boundary policy is attributable and implemented
-in staged `boundary-policy.md`: applicability is factual, the protected
-requirement requires exact attributable authority for the protected DB
-target/resource/effect, generic approval/access is insufficient, existing
-exact authority avoids duplicate confirmation, and factual authority
-provenance remains separate from Evidence. It is not yet routed by the live
-newborn graph or independently validated there. Therefore the legacy
-DB/production safety floor cannot yet be retired and the cutover cannot be
-marked ready.
+The concrete newborn DB Boundary path is implemented and independently
+verified. Its live execution gate remains mandatory: activate the adapter,
+verify router reachability, verify factual applicability/Target/resource/
+effect, recognize exact attributable DB authority, verify Boundary result
+consumption and local `BOUNDARY_REQUIRED` failure, and only then retire the
+legacy DB/production numeric floor. None of those live activation steps is
+being performed by this plan.
 
-Required clearance: activate the newborn DB/production Boundary path, verify
-router reachability, verify factual applicability/Target/resource/effect,
-verify exact attributable target/effect authority recognition, verify Boundary
-consumption and local `BOUNDARY_REQUIRED` failure, then rerun the cutover
-validation. No generic approval, provider presence, or label can clear this
-blocker.
+No unresolved cutover blocker remains. The ordering and objective live
+validation gate are preserved for Phase 8.
 
 ## Readiness result
 
 ```text
-CUTOVER_READY = false
-CUTOVER_BLOCKED = true
-Reason = CB-01 Human-owned policy supplied and implemented — independent validation pending
+CUTOVER_READY = true
+CUTOVER_BLOCKED = false
+Reason = CB-01 CLOSED — independently validated
 Cutover performed = false
 Phase 8 begun = false
 ```
