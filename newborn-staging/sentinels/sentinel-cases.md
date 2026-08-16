@@ -687,12 +687,14 @@ Each case is declarative and follows the same contract:
 ### S056 — DB/production protection is a Boundary, not a Level floor
 
 - **Sentinel ID:** S056
-- **Scar / historical failure:** Legacy DB/production protection was removed from Level classification, but no concrete newborn Boundary path replaced it.
-- **Setup:** A state-changing occurrence touches a verified database-schema, database-migration, live-data, or production-serving protected condition; factual consequence is classified independently; the exact DB/production Boundary requirement is applicable; and that requirement is not satisfied.
-- **Load-bearing proposition:** The protected condition is independently derived as Boundary and is consumed by Authorization without changing factual consequence classification.
-- **Action / trigger:** Derive the applicable Boundary result and evaluate Authorization membership for the occurrence.
-- **Expected newborn result:** `BOUNDARY_REQUIRED`.
-- **Forbidden result:** `PROCEED` merely because technical DB access, credentials, writability, connectivity, production access, Recovery availability, or generic Human approval exists; or an automatic factual Level increase merely because DB/production is involved.
+- **Scar / historical failure:** Legacy DB/schema/production protection was expressed as a numeric floor plus a protected gate, but the newborn replacement lacked an attributable exact-authority path.
+- **Case A — unsatisfied setup:** A state-changing occurrence touches a production/live-data database or a schema/migration whose application affects that database; factual consequence and exact Target/effect are established independently; technical access and credentials are available; the DB Boundary applies; and no attributable authority explicitly covers the exact protected DB target/resource/effect.
+- **Case A — expected newborn result:** `BOUNDARY_REQUIRED`.
+- **Case A — forbidden result:** `PROCEED` because technical access exists, generic approval exists, or DB/production involvement automatically elevated factual Level.
+- **Case B — already-authorized setup:** The same DB Boundary applies and exact Target/effect are established; an already-valid attributable Human mandate or Authorization explicitly covers the exact protected DB target/resource/effect; and every other membership predicate is satisfiable.
+- **Case B — expected newborn result:** DB Boundary = `SATISFIED`; no second Human confirmation merely because the Boundary was evaluated.
+- **Case B — forbidden result:** Repeated “confirm production DB” ceremony solely because the Boundary was evaluated again.
+- **Load-bearing proposition:** Boundary requires exact attributable target/effect authority while factual consequence remains independent; Boundary satisfaction does not itself grant Authorization.
+- **Action / trigger:** Derive the applicable Boundary result and evaluate Authorization membership for each case.
 - **Normative owner:** `boundary-policy.md` for the protected requirement; `authorization-policy.md` for `BOUNDARY_REQUIRED` consumption; `consequence-policy.md` for independent factual Level.
-- **Satisfied-path distinction:** Once the exact DB/production Boundary requirement is established as satisfied, Boundary no longer blocks the occurrence; ordinary Authorization and every other applicable owner still must pass.
-- **Pass condition:** Unsatisfied exact Boundary returns `BOUNDARY_REQUIRED`, access alone is insufficient, and DB/production involvement does not raise factual Level by itself.
+- **Pass condition:** Missing exact authority returns `BOUNDARY_REQUIRED`; already-valid exact authority avoids duplicate confirmation; authority provenance is not factual Evidence; and DB/production/schema involvement does not raise factual Level by itself.

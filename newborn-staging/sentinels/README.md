@@ -38,8 +38,10 @@ approval when no attributable grant existed.
 
 S056 is the additional migration Sentinel for the verified legacy
 DB/production protection: the old numeric floor is retired, while the
-load-bearing protected-condition requirement is reexpressed through the
-concrete newborn Boundary adapter.
+load-bearing protected-condition requirement is reexpressed through exact
+attributable target/effect authority in the concrete newborn Boundary
+adapter. It covers both missing exact authority and already-authorized reuse
+without duplicate Human confirmation.
 
 | Blueprint Sentinel | Case coverage |
 |---:|---|

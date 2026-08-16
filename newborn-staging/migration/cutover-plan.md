@@ -203,21 +203,23 @@ idempotency under the newborn authorization owner.
 
 ## 7. Mandatory DB Boundary prerequisite
 
-This plan remains **CUTOVER_BLOCKED** because the concrete newborn DB/production
-Boundary adapter is now present in staging, but independent validation and
-live activation proof are still pending.
+This plan remains **CUTOVER_BLOCKED** because the Human-owned DB/production
+Boundary policy has now been supplied and implemented in the staged adapter,
+but independent validation and live activation proof are still pending.
 
 Before any legacy DB/production floor is removed, the future route must first
 provide and validate all of the following under the newborn graph:
 
-1. a concrete DB Boundary path is present;
+1. the newborn DB Boundary adapter is activated;
 2. the live newborn `SKILL.md`/`ahl-flow.md` route DB-relevant work to it;
-3. the path derives the applicable separately protected DB Boundary
-   requirement from the actual target/effect; and
-4. live validation proves that the requirement is consumed by Authorization
-   and fails locally when absent.
+3. live validation establishes factual DB/production applicability, exact
+   Target, resource, and material effect;
+4. live validation recognizes attributable authority explicitly covering that
+   exact protected DB target/effect; and
+5. live validation proves Boundary result consumption by Authorization and
+   local `BOUNDARY_REQUIRED` failure when exact authority is absent.
 
-Only after those four facts are validated may the legacy DB/schema minimum
+Only after those five facts are validated may the legacy DB/schema/production
 floor and DB/live-data boundary route be retired. The staged adapter is not
 itself live routing or live proof. Generic approval cannot clear this blocker.
 
@@ -282,17 +284,17 @@ discriminating, not name-only checks:
    produces `APPROVAL_REQUIRED`, not `PROCEED`.
 9. Active execution context remains a candidate until Target Binding is
    established.
-10. The newborn Boundary path is live, derives a real protected requirement,
-    and its DB/production adapter/path validation passes. The staged
-    implementation exists, but this independent activation check remains
-    pending.
+10. The newborn Boundary path is live, derives the exact DB/production
+    requirement, recognizes exact attributable target/effect authority, and
+    its adapter/path validation passes. The staged implementation exists, but
+    this independent activation check remains pending.
 11. The newborn Release path proves exact artifact-to-Target Binding and
     temporal post-act validation.
 12. The newborn Recovery path proves per-use applicability, no Fast credit
     from declaration alone, and local failure suspension.
 13. Policy-basis identity/version semantics resolve to live `ahl-flow.md`.
 14. The 56 declarative Sentinels remain present as migration evidence, with
-    S055 and S056 represented in the live validation selection.
+    S055 and both S056 paths represented in the live validation selection.
 15. No mixed graph exists during or after the barrier window.
 
 Additional smoke checks should exercise wrong-target handling (S036–S039),
@@ -375,28 +377,31 @@ It must not touch:
 
 ## CUTOVER BLOCKERS
 
-`CB-01 implementation present — independent validation pending`
+`CB-01 Human-owned policy supplied and implemented — independent validation pending`
 
-The concrete DB/production Boundary adapter is present in staged
-`boundary-policy.md`, with explicit applicability, protected target/resource/
-effect/authority requirement fields, satisfaction Evidence, local
-`BOUNDARY_REQUIRED` failure, and independent factual Level semantics. It is
-not yet routed by the live newborn graph or independently validated there.
-Therefore the legacy DB/production safety floor cannot yet be retired and the
-cutover cannot be marked ready.
+The Human-owned DB/production Boundary policy is attributable and implemented
+in staged `boundary-policy.md`: applicability is factual, the protected
+requirement requires exact attributable authority for the protected DB
+target/resource/effect, generic approval/access is insufficient, existing
+exact authority avoids duplicate confirmation, and factual authority
+provenance remains separate from Evidence. It is not yet routed by the live
+newborn graph or independently validated there. Therefore the legacy
+DB/production safety floor cannot yet be retired and the cutover cannot be
+marked ready.
 
 Required clearance: activate the newborn DB/production Boundary path, verify
-router reachability, verify concrete protected-requirement derivation, verify
-Boundary consumption and local `BOUNDARY_REQUIRED` failure, then rerun the
-cutover validation. No generic approval, provider presence, or label can clear
-this blocker.
+router reachability, verify factual applicability/Target/resource/effect,
+verify exact attributable target/effect authority recognition, verify Boundary
+consumption and local `BOUNDARY_REQUIRED` failure, then rerun the cutover
+validation. No generic approval, provider presence, or label can clear this
+blocker.
 
 ## Readiness result
 
 ```text
 CUTOVER_READY = false
 CUTOVER_BLOCKED = true
-Reason = CB-01 implementation present — independent validation pending
+Reason = CB-01 Human-owned policy supplied and implemented — independent validation pending
 Cutover performed = false
 Phase 8 begun = false
 ```
