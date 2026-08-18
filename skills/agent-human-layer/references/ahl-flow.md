@@ -1,10 +1,9 @@
-# NEWBORN AHL FLOW — NON-LIVE STAGING
+# NEWBORN AHL FLOW — LIVE
 
-Status: `NEWBORN IMPLEMENTATION — STAGED, NOT LIVE`
+Status: `NEWBORN AHL — LIVE`
 
 This file is the normative owner for newborn AHL lifecycle orchestration. It
-is not loaded by the live AHL until a coherent atomic cutover activates the
-newborn graph.
+is live through the newborn AHL router.
 
 ## 1. Ownership and boundary
 
@@ -630,6 +629,3 @@ The flow is complete only when the selected Work Unit has reached its
 applicable post-act validation and Goal check, or when a bounded failure has
 been handed to a new independently authorized Work Unit. Implementation
 completion, delivery completion, and Goal achievement remain distinct.
-
-This file does not activate the newborn graph, alter live routing, define
-foreign policy contracts, or authorize Phase 2.

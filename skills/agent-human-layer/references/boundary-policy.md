@@ -1,10 +1,10 @@
-# NEWBORN BOUNDARY POLICY — NON-LIVE STAGING
+# NEWBORN BOUNDARY POLICY — LIVE
 
-Status: `NEWBORN IMPLEMENTATION — STAGED, NOT LIVE`
+Status: `NEWBORN AHL — LIVE`
 
 This document is the sole owner of Boundary derivation, separately protected
-requirement semantics, and Boundary satisfaction. It is not a runtime
-authority and does not activate the newborn graph.
+requirement semantics, and Boundary satisfaction. It is a live normative
+owner routed by the newborn AHL.
 
 ## Ownership boundary
 

@@ -1,11 +1,10 @@
-# NEWBORN AUTHORIZATION POLICY — NON-LIVE STAGING
+# NEWBORN AUTHORIZATION POLICY — LIVE
 
-Status: `NEWBORN IMPLEMENTATION — STAGED, NOT LIVE`
+Status: `NEWBORN AHL — LIVE`
 
 This file is the sole normative owner of the newborn Closed-World
 Authorization Envelope and its grant, membership, carry, allowance, and
-state-transition semantics. It is not loaded by live AHL until coherent
-atomic cutover.
+state-transition semantics. It is live through the newborn AHL router.
 
 ## 1. Authorization question and ownership
 
@@ -428,6 +427,3 @@ final factual classification
 → occurrence refresh
 → Act
 ```
-
-This file does not activate the newborn graph, modify the frozen blueprint,
-alter live routing, or authorize Phase 3.

@@ -1,11 +1,11 @@
-# NEWBORN RECOVERY POLICY — NON-LIVE STAGING
+# NEWBORN RECOVERY POLICY — LIVE
 
-Status: `NEWBORN IMPLEMENTATION — STAGED, NOT LIVE`
+Status: `NEWBORN AHL — LIVE`
 
 This document is the sole owner of the newborn Recovery Capability model. It
 defines the capability structure, Recovery Evidence, per-use applicability,
-Fast qualification, composition, and failure semantics. It is not a runtime
-authority and does not activate the newborn graph.
+Fast qualification, composition, and failure semantics. It is a live
+normative owner routed by the newborn AHL.
 
 ## Ownership boundary
 

@@ -1,9 +1,9 @@
-# NEWBORN CONSEQUENCE POLICY — NON-LIVE STAGING
+# NEWBORN CONSEQUENCE POLICY — LIVE
 
-Status: `NEWBORN IMPLEMENTATION — STAGED, NOT LIVE`
+Status: `NEWBORN AHL — LIVE`
 
 This file is the sole normative owner of factual consequence classification.
-It is not loaded by live AHL until coherent atomic cutover.
+It is live through the newborn AHL router.
 
 ## 1. Ownership
 

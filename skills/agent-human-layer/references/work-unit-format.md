@@ -1,11 +1,11 @@
-# NEWBORN WORK UNIT FORMAT — NON-LIVE STAGING
+# NEWBORN WORK UNIT FORMAT — LIVE
 
-Status: `NEWBORN IMPLEMENTATION — STAGED, NOT LIVE`
+Status: `NEWBORN AHL — LIVE`
 
 This document defines only the durable serialization format for an already
 semantic Work Unit. `ahl-flow.md` is the sole owner of Work Unit semantics,
 membership, routing, authorization flow, and effect interpretation. This
-format is not a runtime database and does not activate the newborn graph.
+format is live through the newborn AHL router; it is not a runtime database.
 
 ## Serialization-only boundary
 

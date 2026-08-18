@@ -1,10 +1,10 @@
-# NEWBORN RELEASE GATE POLICY — NON-LIVE STAGING
+# NEWBORN RELEASE GATE POLICY — LIVE
 
-Status: `NEWBORN IMPLEMENTATION — STAGED, NOT LIVE`
+Status: `NEWBORN AHL — LIVE`
 
 This document is the sole owner of release-transition derivation, release
 prerequisites, release checks, ordering, and deploy or release validation. It
-is not a runtime authority and does not activate the newborn graph.
+is a live normative owner routed by the newborn AHL.
 
 ## Ownership and independence
 
