@@ -1,0 +1,46 @@
+name: Public case candidate
+description: Post a write-up that is already safe to be public. Not for private reports — this is published immediately.
+title: "[Case candidate] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > ### This form is public.
+        > What you write here is visible to everyone the moment you submit it, and stays in
+        > this repository's history.
+        >
+        > **Only post material that is already safe to publish.** If what you have is not
+        > sanitized — raw logs, screenshots, internal or customer details, anything your
+        > organisation has not cleared — do not paste it here, and do not open an issue for
+        > it. Keep it on your own machine. There is no private intake channel yet; if this
+        > project opens one, it will be named in
+        > [How a report becomes a case](https://github.com/human-layer-labs/agent-human-layer/blob/main/cases/README.md#how-a-report-becomes-a-case).
+        >
+        > We never need your raw evidence. Describe it; keep it.
+        >
+        > Posting here does not make this a case, and does not establish anything in it as
+        > fact. A maintainer reviews every candidate before anything enters `cases/`.
+
+  - type: checkboxes
+    id: public-safe
+    attributes:
+      label: Before you post
+      options:
+        - label: This text is already safe to be public, and contains no raw evidence, credentials, hostnames, paths, customer data, or personal data.
+          required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Plain language is fine. What was wanted, what was believed, what actually occurred, and what it cost.
+    validations:
+      required: true
+
+  - type: textarea
+    id: support
+    attributes:
+      label: What can be backed up, and how
+      description: Optional. For the parts that matter most, say what evidence supports them, what that evidence covers, and who saw it. Describe the evidence — do not paste it.
+    validations:
+      required: false

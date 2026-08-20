@@ -26,19 +26,38 @@ Instructions should be exposed to refutation before they become implementation.
 Agents should act within clear boundaries.
 If something breaks, the system should restore to the last known-good state.
 
-The chat should become the control tower.
+The chat should become the Human interface.
 
 ## Reachability
 
-AHL must already be present in the adopting repository at `skills/agent-human-layer/`. This v0 does not automate installation or updates — it assumes AHL is already there.
+AHL has to be present in the adopting repository before it can do anything. This version does not automate installation or updates.
 
-Once AHL is present, a human should not need to invoke it on every task. Add this bootstrap to the repository's instruction file — `AGENTS.md` for Codex, `CLAUDE.md` for Claude Code:
+**Claude Code.** Copy `skills/agent-human-layer/` into the adopting repository as `.claude/skills/agent-human-layer/`, keeping `SKILL.md` and the `references/` directory as they are. Claude Code discovers skills at that location on its own, and `SKILL.md` carries the frontmatter it reads — no instruction-file line is needed. This is the arrangement Host Conformance actually exercised; see below.
 
-> Before any task that may change code, files, data, configuration, repository state, deployment state, or another real system state, read and follow `skills/agent-human-layer/SKILL.md`.
+**Codex, and hosts without skill auto-discovery.** Keep AHL at `skills/agent-human-layer/` and add this to the repository's instruction file — `AGENTS.md` for Codex:
+
+> Before any task that may change code, files, data, configuration, repository state, deployment state, or another real system state, directly read and follow both `skills/agent-human-layer/SKILL.md` and `skills/agent-human-layer/references/ahl-flow.md` before mutation.
 >
 > Pure explanation or read-only investigation does not require AHL unless the task is moving toward a change.
 
-This works for both Claude Code and Codex, the first-class targets for this version. `SKILL.md` also carries Agent Skills frontmatter, so tools with compatible auto-discovery may find it directly — that path is secondary; the bootstrap is the primary invocation path once AHL is present at that location.
+This repository's own [AGENTS.md](./AGENTS.md) carries exactly that text. Reading `SKILL.md` alone is not enough: it is a router, and the flow it routes into lives in `ahl-flow.md`.
+
+### What has been verified, and what has not
+
+Host capability is measured by a separate conformance suite, against a fixed Core basis — currently commit `b88ab13`. Treat everything below as the whole of what has been established.
+
+**Verified.** Claude Code 2.1.234, one bounded-change scenario, two runs. With AHL installed at `.claude/skills/agent-human-layer/` and no mention of AHL anywhere in the request, AHL activated before the file was changed, bounded read-only discovery established the target, the requested change was made, and the human was asked for nothing extra.
+
+**Not yet verified**, and the list is longer than the verified one:
+
+* whether the flow is followed faithfully once activated — what was observed is that AHL activates before mutation, not that every step of it is then honoured
+* the Goal check, evidence sufficiency, and how much work a host imposes on the human
+* restore and contain paths under a real failure
+* Codex, and every host other than the one named above
+* mechanical enforcement — nothing here prevents an agent from ignoring AHL
+* any hosted, independent, or third-party verification; none exists
+
+AHL is a set of semantics and a discipline. It is not a guarantee, and an agent carrying it can still be wrong. What it changes is how early that becomes visible, and how cheaply it can be undone.
 
 ## Why
 
@@ -80,11 +99,11 @@ We define what AI must do to become worthy of belief.
 
 ## GitHub, snapshots, and chat
 
-GitHub is audit.
-Snapshot is recovery.
-The chat is the control tower.
+Audit records what happened. GitHub is one possible audit provider.
+Recovery returns a known-good state. A snapshot is one possible mechanism.
+The chat is the Human interface.
 
-AHL requires GitHub as the audit layer, not GitHub Actions as the executor.
+Where GitHub is the audit provider, AHL uses it as the audit layer, not GitHub Actions as the executor.
 Execution may happen through SSH, an API, another CI system, or a human operator.
 
 GitHub is excellent at showing who changed what, when, and how it moved through branches, pull requests, CI, and deployment.

@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
+  - name: Something went wrong and it is not safe to publish?
+    url: https://github.com/human-layer-labs/agent-human-layer/blob/main/cases/README.md#how-a-report-becomes-a-case
+    about: Do not open an issue — every issue here is public the moment you submit it. Keep it on your own machine for now; there is no private intake channel yet. Read this first.
   - name: Start with BELIEF.md
     url: https://github.com/human-layer-labs/agent-human-layer/blob/main/BELIEF.md
     about: Read the trunk of the project before opening a new issue.

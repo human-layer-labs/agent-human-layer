@@ -1,143 +1,137 @@
 ---
 name: agent-human-layer
-description: Use before changing code, files, configuration, data, repository state, deployment state, or another real system state. Resolve the Goal only enough to choose the next safe action, then apply AHL risk, route, boundaries, confirmation, and recovery. Skip pure explanation or read-only investigation unless it is moving toward a change.
+description: Agent Human Layer for ordinary Human-to-Agent repository work. Use automatically when an agent is asked to inspect, modify, verify, recover, contain, or release project state, including small routine code or documentation changes such as typo fixes. Establish the actual Target, preserve attributable Human authority, choose the smallest safe Route, and verify completion. Do not require the Human to mention AHL.
 ---
 
-# Agent Human Layer
+# NEWBORN AHL ROUTER — LIVE RUNTIME AUTHORITY
 
-This Skill is self-contained: this file and `references/` carry everything needed to run it. If you have the full AHL repository, [START-HERE-FOR-AGENTS.md](../../START-HERE-FOR-AGENTS.md) and [BELIEF.md](../../BELIEF.md) explain the reasoning behind it, but neither is required to use it.
+Status: `NEWBORN AHL — LIVE`
 
-Agent Human Layer is the Skill layer for Ask. Challenge. Act. Restore.
-This first MVP is documentation-only. No scripts yet.
+This file is the live activation and routing layer only. It routes applicable
+work into the canonical newborn graph through the seven policy owners. It does
+not define their policy semantics, duplicate ownership, or create a fallback
+or dual ownership between canonical and superseded AHL.
 
-Before any state-changing action, show the route in plain language. The route is not permission to act.
+## Entry contract
 
-For authorization, `act` means a state-changing action. This includes file, data, configuration, repository, deployment, or external-system changes; state-changing shell commands; commits and pushes; deploys; and API or other external writes. Read-only commands, read-only API calls, and other safe investigation are not state-changing actions and are allowed before authorization.
+Before any state-changing action, preserve this invariant:
 
-[ahl-flow.md](./references/ahl-flow.md) is the single source of truth for hard-stop rules, blocking-reason classes, confirmation binding, the ordered authorization procedure, next-turn transitions, Route Adherence, safety-critical ordering, and Route revision / violation transitions. Supporting references explain risk, recovery, route, and release requirements, but they do not independently grant permission.
+> The active execution context is a candidate, not the Target.
 
-Hard authorization invariants:
+Route target establishment, Target Binding, target discovery, material
+equivalence, bootstrap, drift, and re-entry semantics to
+[`ahl-flow.md`](./references/ahl-flow.md). Cwd, an open folder, repository
+path, provider endpoint, writable context, credentials, or reachability is not
+authority merely because it is active or available.
 
-1. Read [ahl-flow.md](./references/ahl-flow.md); if unread, do not act.
-2. Choose exactly one estimated AHL level; ranges or multiple estimated levels are invalid.
-3. Keep classification separate from authorization. A risk level is not permission.
-4. Report `Estimated level`, `Authorization decision`, `Blocking reasons`, and `Confirmation basis` separately.
-5. A state-changing action is permitted only when the ordered procedure returns an explicit `PROCEED` for the current Route, files/scope, target environment, and estimated risk.
+Human shorthand is input, not truth. Infer only enough intent and Goal to
+choose the next safe action. Do not require the Human to provide a factual AHL
+Level. Do not adapt Reality to Human preference; infer intent, adapt
+presentation, and preserve the facts and owner results that govern the action.
 
-If the procedure returns `CONFIRM_REQUIRED`, that decision is monotonic and terminal for the current turn: ask the human for the required approval, evidence, prerequisite, or separate boundary route; do not perform a state-changing action; and end the turn. Later permissive rules such as development-only work, a clear restore path, Git recovery, or “may proceed” cannot change that decision back to `PROCEED`.
+## Smallest applicable owner set
 
-The four AHL1 conditions are necessary but not sufficient: one file, documentation/metadata-only, no runtime behavior, and no data/config/deploy impact. The work must also satisfy the canonical tiny-risk policy. If any condition is unknown or false, the work is not AHL1. “Remove”, “Delete”, or “Fix” is a task request, not an explicit requested level or human approval. A level mentioned in background, an example, or a report is not a requested level for the current work.
+Route the work to the smallest applicable normative owner set. A policy is not
+loaded merely because AHL is active, and unchanged policy is not reread as a
+universal ritual. Reuse still-valid policy basis and Authorization according
+to `ahl-flow.md`; its policy-basis identity/version semantics remain solely
+flow-owned.
 
-Classification is governed by the mandatory procedure in [risk-levels.md](./references/risk-levels.md), the Classification single source of truth. The AHL1 four-condition gate is hard: false or unknown means not AHL1. Runtime behavior or user-visible runtime output/presentation is AHL1-ineligible. `Estimated level` is derived from actual consequence independently of `Requested level`; a higher requested level may apply a stronger safety profile without changing the estimate.
+The normative owners are:
 
-When this Skill is active, read [ahl-flow.md](./references/ahl-flow.md) before acting. Its classification, Authorization blocking rules, and completion check are required, not optional.
+- [`ahl-flow.md`](./references/ahl-flow.md) — lifecycle/orchestration, Work
+  Unit semantics, Operations, general Evidence, Goal, Challenge, Arbiter,
+  Core, Route, Target/startup, policy loading/reuse, Act, Validate, failure,
+  and Reality collision;
+- [`consequence-policy.md`](./references/consequence-policy.md) — factual
+  AHL1–AHL4 consequence, classification, aggregate consequence, and
+  anti-fragmentation;
+- [`authorization-policy.md`](./references/authorization-policy.md) — the
+  Closed-World Authorization Envelope, grant, membership, blockers, carry,
+  suspension/end, occurrence, allowance, and reservation authorization;
+- [`recovery-policy.md`](./references/recovery-policy.md) — Recovery
+  Capability, Fast qualification, applicability, composition, and Recovery
+  failure;
+- [`boundary-policy.md`](./references/boundary-policy.md) — separately
+  protected Boundary requirements and Boundary satisfaction;
+- [`release-gate-policy.md`](./references/release-gate-policy.md) — artifact
+  to Target release transition, release prerequisites, checks, ordering, and
+  validation; and
+- [`work-unit-format.md`](./references/work-unit-format.md) — serialization
+  only when a structured or durable Work Unit representation is actually
+  required.
 
-Load the rest only as needed:
+These are routing references, not duplicated policy definitions. The owner
+files remain the sole normative source for their named concepts.
 
-- [Route format](./references/route-format.md) — when the minimum route shape below is not enough, or the work is normal risk or higher
-- [Risk levels](./references/risk-levels.md) — before authorization for state-changing work, use the mandatory Classification procedure; consult the rest only as needed for escalation rules
-- [Recovery policy](./references/recovery-policy.md) — when the work is more than tiny, or a snapshot/restore level needs deciding
-- [Release gate policy](./references/release-gate-policy.md) — when the work is moving toward main, production, deploy, or release
+## Conditional loading
 
-## Core behavior
+For read-only or otherwise non-state-changing work, do not automatically load
+the mutation policy graph. Load only the references required by the actual
+next action.
 
-- State the Intent as the outcome the work currently serves, not a paraphrase of the request.
-- Classify the risk before acting.
-- Show the route, boundaries, stop conditions, and recovery path before editing files.
-- Stop when the route becomes unsafe, crosses a declared boundary, or is too unclear to choose a safe next action.
-- Safety does not mean nothing ever breaks.
-- Safety means humans can understand what happened, stop the workflow, and restore the last known-good state.
+For state-changing work, load [`ahl-flow.md`](./references/ahl-flow.md) before
+the first mutation. It is not conditional. Its lifecycle determines which
+further owners the work requires; load the following through it, only when
+applicable:
 
-## Goal-following
+- load [`consequence-policy.md`](./references/consequence-policy.md) when
+  factual consequence classification is required;
+- load [`authorization-policy.md`](./references/authorization-policy.md) when
+  Authorization, grant, membership, carry, reservation, suspension, or end
+  is required;
+- load [`recovery-policy.md`](./references/recovery-policy.md) when Recovery
+  capability, applicability, latitude, prerequisite, failure, or restore
+  reasoning materially participates;
+- load [`boundary-policy.md`](./references/boundary-policy.md) when a
+  separately protected requirement may affect the occurrence or membership;
+- load [`release-gate-policy.md`](./references/release-gate-policy.md) for an
+  artifact/state transition governed by Release Gate; and
+- load [`work-unit-format.md`](./references/work-unit-format.md) only when
+  structured or durable Work Unit serialization is actually required.
 
-Ambiguity is acceptable until it changes the next action.
+Conditional loading reduces unnecessary policy Tax. Applicability is decided
+by the loaded flow against its owners, never by an unloaded judgment that an
+owner is not needed. It never skips an applicable owner or weakens a required
+prerequisite. If an applicable owner
+cannot be loaded or a required prerequisite cannot be established, route to
+that owner's failure or blocker semantics. Do not silently satisfy the
+missing requirement or create a global degraded mode; unrelated Work Units
+may continue when their own owners and prerequisites remain valid.
 
-Task start:
+## Human-facing compression
 
-1. Read the request.
-2. Resolve the Goal it serves only as far as the next action needs.
-3. Do not treat the request itself as the Goal.
-4. If interpretations differ but the next safe action is the same, proceed.
-5. Ask only when the Goal interpretation would materially change the next action.
-6. If the Intent is too unclear to choose any safe next action, stop and ask rather than inventing it.
+Keep ordinary interaction short. The Human need not operate AHL internals
+manually, repeat an unchanged factual description, or repeatedly reconfirm an
+unchanged valid Authorization Envelope that already covers the occurrence.
+Ask only when an actual Human-owned decision or unresolved authority choice
+remains. Surface a blocker or consequential choice when it changes the next
+action; do not hide Reality behind compressed presentation.
 
-During work:
+Compression governs presentation, not establishment. States the flow requires
+before a mutation exist whether or not they are shown, and remain truthfully
+recallable on request.
 
-- Check whether new requests or evidence conflict with the Goal being served.
-- Revise Route as needed to serve the Goal, but never silently cross a declared boundary, stop condition, or required confirmation.
-- Let Belief be revised or discarded by evidence.
-- Never replace the Goal silently; acknowledge an explicit human Goal change.
+`CONFIRM_REQUIRED` remains flow-owned compatibility/current-turn behavior. A
+policy reread alone does not evaporate unchanged Authorization, and full
+policy reread before every mutation is not required. These statements route
+interaction to the owners; they do not redefine Authorization, Evidence,
+Route, or policy-basis semantics here.
 
-Do not re-derive the Goal every turn. Reconsider it only on: a new request, a material Route change, an evidence conflict, an explicit human Goal change, or a completion check.
+## Router boundaries
 
-### Goal / scope fidelity
+This file must not define or duplicate factual levels, classification,
+anti-fragmentation, Envelope structure, grant formation, membership,
+blockers, Recovery fields or Fast qualification, Boundary derivation or
+satisfaction, Release semantics, Work Unit serialization, Evidence states,
+Target Binding, Route violations, Arbiter jurisdiction, or policy-basis
+identity semantics. It names those concepts only to route them to their
+normative owners.
 
-Follow the Goal, not the request's literal wording, while preserving the human's explicit current mutation scope.
+The router is provider-independent. It does not require Git, GitHub, pull
+requests, CI, snapshots, a particular IDE, or a particular Agent host.
+Provider integrations may satisfy owner-defined requirements, but no provider
+defines AHL.
 
-An inferred Goal may guide the Route within the currently requested mutation scope, but it does not authorize materially broader mutation scope; any such expansion must be surfaced as a separate Goal/scope fork before mutation.
-
-Goal-guided Route optimization within the current mutation scope needs no additional confirmation. If the inferred Goal requires materially broader mutation scope, surface the fork, wait for the human to choose the scope, and then re-run the ordered Authorization procedure.
-
-## Minimum route shape
-
-Use the shared route format from [route-format.md](./references/route-format.md).
-For higher-risk work, include the AHL fields from [ahl-flow.md](./references/ahl-flow.md).
-
-## Example
-
-Human:
-
-> Make the order confirmation button easier to press.
-> It is painful in production, so keep the change minimal.
-
-Agent:
-
-```text
-Intent:
-- Make one production-facing button easier to press.
-- Keep the change minimal.
-
-Risk:
-- AHL5 / urgent.
-
-Estimated level:
-- AHL5.
-
-Authorization decision:
-- CONFIRM_REQUIRED.
-
-Blocking reasons:
-- unresolved APPROVAL_REQUIRED — no requested level is bound to this AHL5 work.
-- unresolved APPROVAL_REQUIRED — production-facing AHL5 route.
-
-Confirmation basis:
-- none; awaiting approval bound to this Route, file scope, production target, and blocking reasons.
-
-Route:
-- Use the relevant repository.
-- Create a hotfix branch from main.
-- Change only the target UI file.
-- Open a pull request.
-- Use the appropriate release gate before merge or deploy.
-
-Ordering constraints:
-- Create the hotfix branch before changing the target UI file.
-
-Boundaries:
-- Do not touch development.
-- Do not use stash.
-- Do not cherry-pick.
-- Do not change unrelated files.
-- Do not touch database, payment, order logic, print, or email.
-
-Stop conditions:
-- Diff becomes larger than expected.
-- Conflict appears.
-- CI fails for a production-risk reason.
-- The requested tiny change becomes a larger release path.
-
-Recovery:
-- Create or identify a human-readable save point before work starts.
-- Create or identify a human-readable save point after work completes.
-- Use a folder snapshot if the touched area is risky.
-```
+The newborn graph is live through this router. Do not turn this router into a
+normative owner or add fallback semantics to superseded legacy owners.

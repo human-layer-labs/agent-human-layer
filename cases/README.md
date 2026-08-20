@@ -18,16 +18,59 @@ Write one when something surprised you. Especially:
 
 Do not write one to demonstrate that the method works. Write one when reality corrected the method.
 
+## How a report becomes a case
+
+If something went wrong in your own work and you want it kept, you do not have to write a
+case. Tell us what happened; the structuring is our job. *"I can't explain it well, but
+something strange happened"* is a complete report.
+
+**If it is already safe to publish**, post it as a public case candidate. That is the one
+way in that exists today, and it is a public one: every issue in this repository is visible
+the moment it is submitted, and stays in the history.
+
+**If it is not safe to publish, do not open an issue.** Keep the report and the evidence
+where they are — on your own machine. This project has not opened a private intake channel;
+if it opens one, it will be named here. Until then, holding it is the right move. A report
+can wait. A report that leaks cannot be taken back.
+
+**Capturing it locally is still worth doing now**, while it is fresh. If you work with an
+agent, ask it to write up what just happened as a draft on your machine — from the
+conversation and what it observed, containing nothing you have not seen. Nothing leaves your
+machine at that point. Whether that draft is ever sent anywhere, and where, stays your
+decision.
+
+**Once a candidate reaches us:** we structure it into a case (see *Claims and evidence*
+below) and send you back the exact text we would publish, with the identifying details we
+propose removing. You compare it against what you sent and decide what is acceptable.
+Nothing enters `cases/` until you say yes, and you can withdraw at any point before that,
+without giving a reason. If the evidence cannot bound a single claim, the record stays a
+candidate and is not published — that is a hold, not a rejection, and not a judgement of
+you.
+
+Three acts, kept separate on purpose: **capturing** a report is not **sending** it, and
+sending it is not **publishing** it. Each one is yours, and none of them happens by itself.
+Neither does anonymization, an evidence state, a cause, or a promotion to case — those are
+proposed, and a human decides.
+
+**We do not want your raw evidence.** Logs, dumps, screenshots, credentials, customer data,
+and anything internal stay with you. A case *names* the evidence and bounds what it supports;
+it never contains it.
+
 ## How to write a case
 
 Keep it short enough to read in one sitting. Suggested shape:
 
-1. **Context** — what was being built, and what could have been damaged
+1. **Context** — what was being built, and what could have been damaged. Say separately
+   *what was wanted* and *what was believed* — the belief that collided with reality is the
+   part another team can reuse
 2. **What happened** — plainly, in order, without softening
 3. **What caught it** — the specific mechanism, not "we were careful"
 4. **What made recovery cheap** — the guards that already existed before the incident
 5. **What changed** — the concrete rule adopted afterwards
 6. **For other teams** — what to copy
+
+Name what it cost and what was recovered — one line each is enough. Naming a cause is
+optional: a case records what occurred; it is not obliged to explain it.
 
 Two rules:
 
@@ -36,6 +79,77 @@ Two rules:
 * **Be accurate over impressive.** If production was never at risk, say so. An inflated case
   teaches nothing and costs credibility. The interesting question is usually
   *why the blast radius was small*, not *how close it came*.
+
+## Claims and evidence
+
+A case is not established truth. It is a set of **bounded claims**, each carried with the
+evidence, scope, and provenance it actually has. Turning a report into a case is structuring,
+not promotion to fact: a published case may still contain claims nobody has verified — as
+long as it says so.
+
+Most cases need none of the machinery below — the shape above is enough, because the writer
+lived the incident. Bound a claim explicitly when it is load-bearing and the maintainers of
+this repository could not check it themselves. A case contributed from outside almost always
+has at least one such claim. Do not turn every sentence into a claim.
+
+A bounded claim is a small labeled block:
+
+> **Claim:** the migration gate fired on every deploy, not only on schema changes
+> - state: DECLARED
+> - evidence: deploy log for June–August, held by the reporter
+> - scope: one plugin's deploy pipeline; nothing is claimed beyond it
+> - provenance: observed by the reporter; prose written by their agent from the log
+> - observed_at: 2026-08-04
+
+What keeps this honest:
+
+* **The four evidence states** — `DECLARED`, `OBSERVED`, `VERIFIED`, `UNEVALUATED` — are
+  owned by [`ahl-flow.md`](../skills/agent-human-layer/references/ahl-flow.md). A case uses
+  them; it does not redefine or extend them. "We don't know" is said in plain prose and the
+  claim stays `DECLARED` or `UNEVALUATED` — an unestablished claim may remain unestablished
+  and still be published, visibly so.
+* **The state line is this repository's position.** A published case speaks in this
+  repository's voice, and a claim that arrives carried — supported only by the reporter's
+  account — stays `DECLARED` here, however confident the account: carrying a claim does not
+  raise its state (`ahl-flow.md`: memory may carry a claim; it must not raise Evidence
+  state). The reporter's own observation is not erased — it lives in the evidence and
+  provenance lines, exactly as reported. Publication changes no state.
+* **No automatic promotion.** A state rises only through actual observation or verification
+  against a named source — never because time passed, the case was published, or the claim
+  was restated.
+* **Provenance is not a trust ranking.** Human-written and agent-written text are not ranked
+  by origin. Distinguish, where it matters: who observed, who produced the text, what
+  transformed it, what the source was, when it was observed (`observed_at`), when it was
+  generated (`generated_at`), and whether a human reviewed it (`human_reviewed`). When an
+  agent turns a log into prose, the evidence source is **the log, not the agent** — the
+  agent is producer and transform.
+* **Raw evidence never lands in this repository.** The case names it and bounds it; the
+  reporter keeps it.
+
+**Publication condition.** A public case carries at least one bounded claim with scope and
+provenance. If the available evidence cannot bound a single claim, the record is not yet a
+case — it stays a report / case candidate, unpublished.
+
+The block shape above is provisional — the smallest reversible representation, kept only
+until the first external case has graded it.
+
+## Revisions, lineage, and withdrawal
+
+* **Corrections are visible.** A published case is corrected with a dated revision note,
+  never silently overwritten — the previous meaning stays readable. One exception: removal
+  of secrets or personal data, where keeping a public trace of what was removed would itself
+  do harm.
+* **Lineage stays the existing convention.** When a case actually produces a derived
+  artifact — a chapter, check, rule, or change — the case links it from "What changed" (or
+  its index entry), and the derived artifact points back with an `*Evidence: cases/…*`
+  footer, as [CHEAP-DEATH.md](../CHEAP-DEATH.md) and [UNRUN-CHECKS.md](../UNRUN-CHECKS.md)
+  already do. Plain relative links; no IDs, no graph. "Could be derived" is not derived and
+  gets no link.
+* **A case contributed from outside records its provenance without exposing the private
+  report** — channel, dates, and the reporter's consent; nothing more.
+* **Withdrawal is not correction.** A contributor may withdraw; a claim is corrected or
+  retracted on evidence. These are different acts. Withdrawal does not automatically delete
+  derived artifacts — each goes to review for independent evidence, by hand.
 
 ## Index
 

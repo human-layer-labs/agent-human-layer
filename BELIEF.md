@@ -18,6 +18,8 @@ The side that acts makes its actions worthy of belief.
 
 The side that instructs makes its instructions worthy of execution.
 
+Human authority grants freedom to act; demonstrated recovery makes that freedom cheap to use.
+
 Either side may be a human. Either side may be an agent.
 
 This document is the trunk of the project.
@@ -100,7 +102,7 @@ Each successful Believe should answer:
 
 A Believe is not complete until the human can understand the result and the recovery path.
 
-## The chat is the control tower
+## The chat is the Human interface
 
 The human should not need to live inside GitHub.
 
@@ -133,7 +135,7 @@ The human should be able to say:
 
 The agent should translate that request into a safe workflow route and explain it in human language.
 
-## GitHub is audit
+## Audit records what happened. GitHub is one possible audit provider.
 
 GitHub is powerful.
 
@@ -160,7 +162,7 @@ Audit matters.
 
 But audit is not the same as recovery.
 
-## Snapshot is recovery
+## Recovery returns a known-good state. A snapshot is one possible mechanism.
 
 Recovery must mean returning to a known-good state.
 
