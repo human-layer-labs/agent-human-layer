@@ -19,9 +19,9 @@ Which part of `BELIEF.md` does this issue branch from?
 Examples:
 
 * Ask. Challenge. Act. Restore.
-* The chat is the control tower.
-* GitHub is audit.
-* Snapshot is recovery.
+* The chat is the Human interface.
+* Audit records what happened. GitHub is one possible audit provider.
+* Recovery returns a known-good state. A snapshot is one possible mechanism.
 * Git is the trigger, not always the recovery.
 * Balance over ceremony.
 
@@ -47,7 +47,7 @@ If this is about an agent route, show what the human says and what the agent sho
 
 If this is about recovery, show what gets saved and how restore would work.
 
-If this is about risk, show what makes something tiny, normal, risky, urgent, or recovery work.
+If this is about consequence, show what makes the effect non-operative, minor, material, or critical.
 
 ## Acceptance criteria
 

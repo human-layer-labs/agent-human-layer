@@ -4,7 +4,7 @@ Status: **NEWBORN BLUEPRINT FROZEN**
 Purpose: **Single architecture target for newborn canonical implementation and atomic migration. Not live execution policy.**  
 Audit state: **Final narrow freeze audit completed; findings NONE.**  
 Legacy Core baseline: `4af6316b704fa5235778f92512f74dfc9f27ffa0`  
-Legacy Guard baseline: `af30ee69fd2782c075d1d70438c6c3b43ad0ea51`
+Guard / Guard enforcement: **NOT VERIFIED for Public v0.1**
 
 Canonical architecture metadata: `AHL-CANONICAL-TARGET.md` is the sole canonical architecture SSoT. Copies, notes, Obsidian files, audit excerpts, generated summaries, and Agent memory are non-canonical.
 
