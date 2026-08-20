@@ -18,6 +18,44 @@ Write one when something surprised you. Especially:
 
 Do not write one to demonstrate that the method works. Write one when reality corrected the method.
 
+## How a report becomes a case
+
+If something went wrong in your own work and you want it kept, you do not have to write a
+case. Tell us what happened; the structuring is our job. *"I can't explain it well, but
+something strange happened"* is a complete report.
+
+**If it is already safe to publish**, post it as a public case candidate. That is the one
+way in that exists today, and it is a public one: every issue in this repository is visible
+the moment it is submitted, and stays in the history.
+
+**If it is not safe to publish, do not open an issue.** Keep the report and the evidence
+where they are — on your own machine. This project has not opened a private intake channel;
+if it opens one, it will be named here. Until then, holding it is the right move. A report
+can wait. A report that leaks cannot be taken back.
+
+**Capturing it locally is still worth doing now**, while it is fresh. If you work with an
+agent, ask it to write up what just happened as a draft on your machine — from the
+conversation and what it observed, containing nothing you have not seen. Nothing leaves your
+machine at that point. Whether that draft is ever sent anywhere, and where, stays your
+decision.
+
+**Once a candidate reaches us:** we structure it into a case (see *Claims and evidence*
+below) and send you back the exact text we would publish, with the identifying details we
+propose removing. You compare it against what you sent and decide what is acceptable.
+Nothing enters `cases/` until you say yes, and you can withdraw at any point before that,
+without giving a reason. If the evidence cannot bound a single claim, the record stays a
+candidate and is not published — that is a hold, not a rejection, and not a judgement of
+you.
+
+Three acts, kept separate on purpose: **capturing** a report is not **sending** it, and
+sending it is not **publishing** it. Each one is yours, and none of them happens by itself.
+Neither does anonymization, an evidence state, a cause, or a promotion to case — those are
+proposed, and a human decides.
+
+**We do not want your raw evidence.** Logs, dumps, screenshots, credentials, customer data,
+and anything internal stay with you. A case *names* the evidence and bounds what it supports;
+it never contains it.
+
 ## How to write a case
 
 Keep it short enough to read in one sitting. Suggested shape:
