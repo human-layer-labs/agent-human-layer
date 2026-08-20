@@ -2,6 +2,8 @@
 
 Status: `PHASE 8 PLAN — CUTOVER READY; NO CUTOVER PERFORMED`
 
+> **Superseded, 2026-08-20.** The cutover this plan describes was performed at `b88ab13`. The status line above, and the present tense throughout this document, describe the pre-cutover state in which the plan was written. The document is kept unedited as the historical migration record; current repository state is the live canonical file set outside `newborn-staging/`.
+
 Architecture authority: `AHL-CANONICAL-TARGET.md` only.
 
 This plan is derived from the repository state inspected on the
