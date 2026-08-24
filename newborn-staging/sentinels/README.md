@@ -28,8 +28,8 @@ that each Sentinel names. The Sentinel suite does not redefine those rules.
 
 ## Coverage
 
-`sentinel-cases.md` contains **56** numbered cases. The 46 explicit
-blueprint Sentinels are covered by one or more of S001–S056; the mapping is
+`sentinel-cases.md` contains **57** numbered cases. The 46 explicit
+blueprint Sentinels are covered by one or more of S001–S057; the mapping is
 kept below so the final count is auditable without relying on Agent memory.
 
 S055 is the additional migration Sentinel for the verified historical
@@ -42,6 +42,12 @@ load-bearing protected-condition requirement is reexpressed through exact
 attributable target/effect authority in the concrete newborn Boundary
 adapter. It covers both missing exact authority and already-authorized reuse
 without duplicate Human confirmation.
+
+S057 is the additional regression Sentinel for the verified Goal-scope
+expansion failure: a bounded removal request was widened during Route
+resolution into removal of the surrounding feature, including separately
+depended-upon data-handling artifacts. It discriminates a bounded, attributably
+established Goal from a silently substituted broader one.
 
 | Blueprint Sentinel | Case coverage |
 |---:|---|
