@@ -220,6 +220,19 @@ sufficient for a particular requirement.
 Memory MAY carry a claim or locator. Memory MUST NOT raise Evidence state.
 Agent repetition remains `DECLARED`.
 
+A proposition about the past is not established by the Agent later recalling
+it. A report of a historical claim MUST distinguish what a durable record
+preserved from the time of the act, what current observation shows now, and
+what is derived now by applying policy to preserved inputs. Derivation MUST
+NOT be presented as recollection, and MUST NOT be offered as proof of what
+the Agent actually held or evaluated at act time. Where no durable basis
+establishes the claim, `UNEVALUATED` remains the honest answer.
+
+Where a state must outlive active context for an owner-defined reason, that
+owner's mechanism MUST preserve it durably; later Agent recollection is
+neither required nor Evidence. This creates no obligation to record states
+that no owner later requires.
+
 ### 6.1 Narrow default Evidence sufficiency
 
 Before a state-changing occurrence may `PROCEED`, an exact factual
@@ -430,6 +443,22 @@ live semantics:
 - load Release only for a Release transition; and
 - load serialization only when durable representation, carry, audit, count,
   or occurrence accounting requires it.
+
+The list above is a screen, not a result. A screen selects candidates for
+loading and determines nothing normative. It MAY be deliberately
+over-inclusive and MUST stay cheap. A screen MAY exclude an owner on cheaply
+observable facts about the work; it MUST NOT exclude an owner by applying
+that owner's unloaded semantics. An unloaded paraphrase, recollection, or
+approximation of an owner's semantics is not that owner's result and MUST
+NOT stand in for one.
+
+Before the first action or dependence that requires an owner's normative
+result, that owner MUST be loaded and evaluated; only the loaded owning
+policy may determine its own final applicability and result. Where the screen
+cannot cheaply exclude an owner, load it rather than concluding from unloaded
+judgment that the owner is unnecessary. This creates no eager loader: loading
+follows demand, not speculative judgment, and an owner whose result is never
+required stays unloaded.
 
 `ahl-flow.md` is the sole normative owner of policy-basis identity/version
 semantics for loading, reuse, and Authorization carry.

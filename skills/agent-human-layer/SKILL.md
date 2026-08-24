@@ -109,8 +109,9 @@ remains. Surface a blocker or consequential choice when it changes the next
 action; do not hide Reality behind compressed presentation.
 
 Compression governs presentation, not establishment. States the flow requires
-before a mutation exist whether or not they are shown, and remain truthfully
-recallable on request.
+before a mutation MUST be established before it, whether or not they are
+shown. This file does not require the Agent to recall them afterward; any
+later report of them is governed by the flow's Evidence semantics.
 
 `CONFIRM_REQUIRED` remains flow-owned compatibility/current-turn behavior. A
 policy reread alone does not evaporate unchanged Authorization, and full
