@@ -64,6 +64,14 @@ The normative owners are:
 These are routing references, not duplicated policy definitions. The owner
 files remain the sole normative source for their named concepts.
 
+Beside the seven policy owners there is one non-policy lexical owner:
+
+- [`GLOSSARY.md`](./references/GLOSSARY.md) — the lexical meaning and category
+  boundary of the base terms it marks `NORMATIVE`, and nothing else.
+
+It is not an eighth policy owner and owns no behavioral semantics. This file
+defines no term and duplicates no entry.
+
 ## Conditional loading
 
 For read-only or otherwise non-state-changing work, do not automatically load
@@ -88,7 +96,13 @@ applicable:
 - load [`release-gate-policy.md`](./references/release-gate-policy.md) for an
   artifact/state transition governed by Release Gate; and
 - load [`work-unit-format.md`](./references/work-unit-format.md) only when
-  structured or durable Work Unit serialization is actually required.
+  structured or durable Work Unit serialization is actually required; and
+- consult [`GLOSSARY.md`](./references/GLOSSARY.md) for the exact entry whose
+  `NORMATIVE` meaning an action, owner evaluation, or conclusion actually
+  relies upon. `ahl-flow.md` owns when lexical basis is required, reused, and
+  invalidated; this file does not restate that rule. Entries are consulted on
+  demand, never loaded wholesale, and a Glossary entry never substitutes for
+  an unloaded owner's result.
 
 Conditional loading reduces unnecessary policy Tax. Applicability is decided
 by the loaded flow against its owners, never by an unloaded judgment that an
@@ -109,8 +123,9 @@ remains. Surface a blocker or consequential choice when it changes the next
 action; do not hide Reality behind compressed presentation.
 
 Compression governs presentation, not establishment. States the flow requires
-before a mutation exist whether or not they are shown, and remain truthfully
-recallable on request.
+before a mutation MUST be established before it, whether or not they are
+shown. This file does not require the Agent to recall them afterward; any
+later report of them is governed by the flow's Evidence semantics.
 
 `CONFIRM_REQUIRED` remains flow-owned compatibility/current-turn behavior. A
 policy reread alone does not evaporate unchanged Authorization, and full
@@ -124,9 +139,10 @@ This file must not define or duplicate factual levels, classification,
 anti-fragmentation, Envelope structure, grant formation, membership,
 blockers, Recovery fields or Fast qualification, Boundary derivation or
 satisfaction, Release semantics, Work Unit serialization, Evidence states,
-Target Binding, Route violations, Arbiter jurisdiction, or policy-basis
-identity semantics. It names those concepts only to route them to their
-normative owners.
+Target Binding, Route violations, Arbiter jurisdiction, policy-basis
+identity semantics, or the lexical meaning or category of any `NORMATIVE`
+base term. It names those concepts only to route them to their normative
+owners.
 
 The router is provider-independent. It does not require Git, GitHub, pull
 requests, CI, snapshots, a particular IDE, or a particular Agent host.

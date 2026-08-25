@@ -47,11 +47,22 @@ The following policies remain the normative owners of their own contracts:
   transitions; and
 - `work-unit-format.md` owns serialization only.
 
+`GLOSSARY.md` is the non-policy lexical owner. It owns the lexical meaning and
+category boundary of the base terms it marks `NORMATIVE`, and owns no
+behavioral semantics. It is not an eighth policy owner, and it does not own
+loading, reuse, policy-basis identity, invalidation, or re-entry, all of which
+remain owned by this file.
+
 `SKILL.md` owns activation and routing only. It MUST NOT be made normative by
 this file through duplicated router behavior.
 
 When lifecycle needs a foreign-owned concept, this file references the owner
-by name. It MUST NOT redefine that concept.
+by name. It MUST NOT redefine that concept. The lexical meaning and category
+of a `NORMATIVE` base term are owned by `GLOSSARY.md`; an owner MAY apply,
+specialize, or constrain such a term within its own responsibility, and MUST
+NOT silently assign it an incompatible meaning or category. This creates no
+general precedence for `GLOSSARY.md`; `BELIEF.md` remains the constitutional
+trunk.
 
 ## 2. Lifecycle overview
 
@@ -219,6 +230,19 @@ sufficient for a particular requirement.
 
 Memory MAY carry a claim or locator. Memory MUST NOT raise Evidence state.
 Agent repetition remains `DECLARED`.
+
+A proposition about the past is not established by the Agent later recalling
+it. A report of a historical claim MUST distinguish what a durable record
+preserved from the time of the act, what current observation shows now, and
+what is derived now by applying policy to preserved inputs. Derivation MUST
+NOT be presented as recollection, and MUST NOT be offered as proof of what
+the Agent actually held or evaluated at act time. Where no durable basis
+establishes the claim, `UNEVALUATED` remains the honest answer.
+
+Where a state must outlive active context for an owner-defined reason, that
+owner's mechanism MUST preserve it durably; later Agent recollection is
+neither required nor Evidence. This creates no obligation to record states
+that no owner later requires.
 
 ### 6.1 Narrow default Evidence sufficiency
 
@@ -431,6 +455,35 @@ live semantics:
 - load serialization only when durable representation, carry, audit, count,
   or occurrence accounting requires it.
 
+The list above is a screen, not a result. A screen selects candidates for
+loading and determines nothing normative. It MAY be deliberately
+over-inclusive and MUST stay cheap. A screen MAY exclude an owner on cheaply
+observable facts about the work; it MUST NOT exclude an owner by applying
+that owner's unloaded semantics. An unloaded paraphrase, recollection, or
+approximation of an owner's semantics is not that owner's result and MUST
+NOT stand in for one.
+
+Before the first action or dependence that requires an owner's normative
+result, that owner MUST be loaded and evaluated; only the loaded owning
+policy may determine its own final applicability and result. Where the screen
+cannot cheaply exclude an owner, load it rather than concluding from unloaded
+judgment that the owner is unnecessary. This creates no eager loader: loading
+follows demand, not speculative judgment, and an owner whose result is never
+required stays unloaded.
+
+The same demand rule governs lexical basis. Before an action, owner
+evaluation, or conclusion relies on the meaning of a `NORMATIVE` base term,
+the exact applicable `GLOSSARY.md` entry MUST be available as part of that
+dependence's lexical basis. An unavailable entry MUST NOT be reconstructed
+from memory, paraphrase, neighboring policy text, or Agent approximation and
+then relied upon as canonical meaning; a Glossary entry likewise never stands
+in for an unloaded owner's result. A missing lexical basis is local: it blocks
+only the dependent conclusion or Work Unit, creates no global degraded mode,
+is not an Authorization blocker, and does not block unrelated work whose own
+lexical and policy basis remains available. This creates no eager loader and
+no second loader: entries whose meaning is never relied upon stay unloaded,
+and stable lexical basis is reused rather than reread per mutation.
+
 `ahl-flow.md` is the sole normative owner of policy-basis identity/version
 semantics for loading, reuse, and Authorization carry.
 
@@ -438,6 +491,14 @@ A policy basis MUST expose a stable identity/version sufficient to determine
 whether its load-bearing semantics materially changed. The mechanism MUST be
 provider-independent. Git, GitHub, or any version-control system is neither
 required nor normative.
+
+Applicable `NORMATIVE` lexical definitions participate in this policy basis. A
+material change to such a definition's meaning or category MUST re-enter the
+earliest affected step and invalidate/recompute only the conclusions that
+depend on it. A change that does not alter meaning or category — formatting,
+typo correction, `NON-NORMATIVE` Human orientation text, or other editorial
+material — is not a material basis change and creates no semantic
+invalidation.
 
 A policy reread alone MUST NOT invalidate unchanged Authorization. A real
 material policy-basis change MUST re-enter the earliest affected step and

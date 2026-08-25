@@ -8,6 +8,8 @@ Guard / Guard enforcement: **NOT VERIFIED for Public v0.1**
 
 Canonical architecture metadata: `AHL-CANONICAL-TARGET.md` is the sole canonical architecture SSoT. Copies, notes, Obsidian files, audit excerpts, generated summaries, and Agent memory are non-canonical.
 
+Architecture revision, 2026-08-24: §6 recognizes one non-policy lexical owner, `GLOSSARY.md`, alongside the seven policy owners. This is a narrow recognition of a Human-ratified architecture, not a redesign. Nothing else in this frozen target is reopened.
+
 This document is the **single architecture target** for writing the newborn AHL.
 
 It is not a second runtime policy layer.  
@@ -323,11 +325,14 @@ skills/agent-human-layer/
    ├─ recovery-policy.md
    ├─ boundary-policy.md
    ├─ release-gate-policy.md
-   └─ work-unit-format.md
+   ├─ work-unit-format.md
+   └─ GLOSSARY.md
 ```
 
-One concept has one normative runtime owner.  
-Other files may reference it; they do not restate it normatively.
+The runtime owner graph is **seven policy owners plus one non-policy lexical owner**. `GLOSSARY.md` is the lexical owner and is not an eighth policy owner.
+
+Each normative concept has one owning domain. For an explicitly `NORMATIVE` Glossary entry, the base term's lexical meaning and category belong to the lexical owner; every behavioral contract remains with its named policy owner.  
+Other files may reference either; they do not restate it normatively.
 
 ### `ahl-flow.md`
 
@@ -487,6 +492,19 @@ Owns serialization only:
     
 
 It owns no policy semantics.
+
+### `GLOSSARY.md`
+
+Non-policy lexical owner. Owns:
+
+- the lexical meaning of each base term it marks `NORMATIVE`
+    
+- that term's category boundary
+    
+
+It does not own lifecycle, ordering, thresholds, procedures, fields, prerequisites, blockers, permissions, policy results, or behavioral owner semantics. Loading, reuse, policy-basis identity, invalidation, and earliest-affected-step re-entry for those definitions remain owned by `ahl-flow.md`.
+
+A policy owner may apply, specialize, or constrain a `NORMATIVE` base term within its own responsibility, and must not silently assign it an incompatible lexical meaning or category. This creates no general precedence: `BELIEF.md` remains the constitutional trunk.
 
 ### `SKILL.md`
 
