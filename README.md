@@ -13,7 +13,44 @@ AHL makes important distinctions visible before they become consequences.
 
 > **Ask. Challenge. Act. Restore.**
 
-For agents: start with [START-HERE-FOR-AGENTS.md](./START-HERE-FOR-AGENTS.md).
+## When this matters
+
+- A payroll field was silently overwritten with NULL on every save.
+  Every test passed. A UI feature — not a test — exposed it.
+
+- Four phases were built on the wrong domain axis.
+  Every test passed. The refuting fact was known, unwritten, on day one.
+
+- Four correct stops in one pull request, all caused by acceptance checks the
+  directing agent had written but never run — including one that could never pass.
+
+AHL exists to make differences like these visible before implementation turns
+a false assumption into a correct change.
+
+[Read the real cases →](./cases/README.md)
+
+## What AHL is
+
+AHL is a method and Agent Skill for human-agent development.
+
+It helps a Human and an Agent keep separate what is wanted (Goal), what is true
+(Reality), what is permitted (Authorization), and what follows from the work
+(Consequence) while the work is still cheap to challenge or restore.
+
+It is not a sandbox, a security product, or a guarantee.
+This repository currently ships no mechanical enforcement.
+
+## New here?
+
+**Human**
+
+1. Start with the [real cases](./cases/README.md).
+2. Read [Ask. Challenge. Act. Restore.](./BELIEF.md).
+3. Install only if the model fits your work.
+
+**Agent**
+
+Start with [START-HERE-FOR-AGENTS.md](./START-HERE-FOR-AGENTS.md).
 
 Before state-changing work, load
 [`skills/agent-human-layer/SKILL.md`](./skills/agent-human-layer/SKILL.md)
@@ -112,6 +149,9 @@ That document is a design and audit reference, not runtime policy.
 ---
 
 ## Getting AHL into a repository
+
+AHL is not a packaged application. You do not need a binary or GitHub Release
+to use the method or Agent Skill.
 
 AHL must be reachable by the agent before it can influence state-changing work.
 
