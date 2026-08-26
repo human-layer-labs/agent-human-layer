@@ -7,6 +7,50 @@ Real incidents from agent-driven development, written up so other teams can reus
 A case is not a success story. It is a record of what actually happened, including the parts
 that went wrong, and what changed afterwards.
 
+## Index
+
+* [2026-07-22 — The field that erased itself](./2026-07-22-silent-field-erasure.md)
+  A payroll field was silently overwritten with NULL on every save. Every test passed.
+  A UI feature — not a test — is what exposed it.
+* [2026-07-24 — The belief that had to be built before it could die](./2026-07-24-the-wrong-axis.md)
+  Four phases were built on the wrong domain axis. Every test passed — tests verify a design
+  against itself. The refuting fact was known, unwritten, on day one.
+  Origin of [Cheap Enough to Die](../CHEAP-DEATH.md).
+* [2026-07-26 — The suite was green; the schema was broken](./2026-07-26-green-logic-broken-schema.md)
+  A migration silently created one of two new tables — a duplicate column the in-memory test
+  stand-in never parsed. Logic green is not schema green. Caught by checking the real database;
+  cheap to undo because the dump was taken first.
+* [2026-07-29 — The check that could not pass](./2026-07-29-the-check-that-could-not-pass.md)
+  Four correct stops in one pull request, all caused by acceptance checks the directing agent
+  had written but never run — including one that could never pass. Nothing broke, so rollback
+  had nothing to restore; the cost was round trips and belief.
+  Origin of [The Unrun Check](../UNRUN-CHECKS.md).
+* [2026-07-31 — Implementation is not delivery](./2026-07-31-implementation-is-not-delivery.md)
+  A destructive option was kept alive because its safe replacement was invisible. The safe one
+  had a button, a correct label, and tests — but nothing on screen explained what it did.
+  The system's own designer could not tell it existed. One of three cases cut from the same flow.
+* [2026-07-31 — The premise that lived in one head](./2026-07-31-unstated-premise.md)
+  Five defects on one screen, fixed separately over one day, all had a single cause: a layer
+  model that existed only in the human's head. Once written, all five collapsed into one.
+  You cannot ask about a structure you do not know exists.
+* [2026-07-31 — It looked like a mismatch until it was too wide to be one](./2026-07-31-drift.md)
+  Nine releases, zero rollbacks — and two designs in a row came out wrong. The angle had been
+  turning a few degrees at each restatement. Drift requires return, not patching. Stop on the
+  felt sense; classify after stopping.
+* [2026-08-04 — The instruction that nothing was watching](./2026-08-04-faithful-to-a-false-premise.md)
+  Eight checks were written before the change, run, and all passed. The implementation matched the
+  instruction exactly — and the instruction was wrong. Every check asked whether the work was done,
+  none whether the premise was right.
+  Origin of [The Unchallenged Instruction](../UNCHALLENGED-INSTRUCTION.md).
+* [2026-08-05 — The snapshot that was not known-good](./2026-08-05-the-snapshot-that-was-not-known-good.md)
+  A rollback path trusted for months, rehearsed on purpose and timed twice: under a second on the
+  server, one minute for the human. The drill found the defect before an outage did — snapshots are
+  taken *before* each deploy, so restoring the newest one silently undoes the most recent fix.
+* [2026-08-05 — One value, two jobs](./2026-08-05-one-value-two-jobs.md)
+  A deploy version that also triggered migrations, a backup selector that also meant "safe to
+  return to", and this repository's own chapter numbers. Three systems in six days, one shape:
+  the job that moves a value often will quietly break the job that needed it to hold still.
+
 ## What makes a case worth writing
 
 Write one when something surprised you. Especially:
@@ -150,47 +194,3 @@ until the first external case has graded it.
 * **Withdrawal is not correction.** A contributor may withdraw; a claim is corrected or
   retracted on evidence. These are different acts. Withdrawal does not automatically delete
   derived artifacts — each goes to review for independent evidence, by hand.
-
-## Index
-
-* [2026-07-22 — The field that erased itself](./2026-07-22-silent-field-erasure.md)
-  A payroll field was silently overwritten with NULL on every save. Every test passed.
-  A UI feature — not a test — is what exposed it.
-* [2026-07-24 — The belief that had to be built before it could die](./2026-07-24-the-wrong-axis.md)
-  Four phases were built on the wrong domain axis. Every test passed — tests verify a design
-  against itself. The refuting fact was known, unwritten, on day one.
-  Origin of [Cheap Enough to Die](../CHEAP-DEATH.md).
-* [2026-07-26 — The suite was green; the schema was broken](./2026-07-26-green-logic-broken-schema.md)
-  A migration silently created one of two new tables — a duplicate column the in-memory test
-  stand-in never parsed. Logic green is not schema green. Caught by checking the real database;
-  cheap to undo because the dump was taken first.
-* [2026-07-29 — The check that could not pass](./2026-07-29-the-check-that-could-not-pass.md)
-  Four correct stops in one pull request, all caused by acceptance checks the directing agent
-  had written but never run — including one that could never pass. Nothing broke, so rollback
-  had nothing to restore; the cost was round trips and belief.
-  Origin of [The Unrun Check](../UNRUN-CHECKS.md).
-* [2026-07-31 — Implementation is not delivery](./2026-07-31-implementation-is-not-delivery.md)
-  A destructive option was kept alive because its safe replacement was invisible. The safe one
-  had a button, a correct label, and tests — but nothing on screen explained what it did.
-  The system's own designer could not tell it existed. One of three cases cut from the same flow.
-* [2026-07-31 — The premise that lived in one head](./2026-07-31-unstated-premise.md)
-  Five defects on one screen, fixed separately over one day, all had a single cause: a layer
-  model that existed only in the human's head. Once written, all five collapsed into one.
-  You cannot ask about a structure you do not know exists.
-* [2026-07-31 — It looked like a mismatch until it was too wide to be one](./2026-07-31-drift.md)
-  Nine releases, zero rollbacks — and two designs in a row came out wrong. The angle had been
-  turning a few degrees at each restatement. Drift requires return, not patching. Stop on the
-  felt sense; classify after stopping.
-* [2026-08-04 — The instruction that nothing was watching](./2026-08-04-faithful-to-a-false-premise.md)
-  Eight checks were written before the change, run, and all passed. The implementation matched the
-  instruction exactly — and the instruction was wrong. Every check asked whether the work was done,
-  none whether the premise was right.
-  Origin of [The Unchallenged Instruction](../UNCHALLENGED-INSTRUCTION.md).
-* [2026-08-05 — The snapshot that was not known-good](./2026-08-05-the-snapshot-that-was-not-known-good.md)
-  A rollback path trusted for months, rehearsed on purpose and timed twice: under a second on the
-  server, one minute for the human. The drill found the defect before an outage did — snapshots are
-  taken *before* each deploy, so restoring the newest one silently undoes the most recent fix.
-* [2026-08-05 — One value, two jobs](./2026-08-05-one-value-two-jobs.md)
-  A deploy version that also triggered migrations, a backup selector that also meant "safe to
-  return to", and this repository's own chapter numbers. Three systems in six days, one shape:
-  the job that moves a value often will quietly break the job that needed it to hold still.
