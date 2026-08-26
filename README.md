@@ -24,6 +24,8 @@ AHL makes important distinctions visible before they become consequences.
 - Four correct stops in one pull request, all caused by acceptance checks the
   directing agent had written but never run — including one that could never pass.
 
+These cases are where the method comes from; they are not evidence that AHL would have prevented them.
+
 AHL exists to make differences like these visible before implementation turns
 a false assumption into a correct change.
 
