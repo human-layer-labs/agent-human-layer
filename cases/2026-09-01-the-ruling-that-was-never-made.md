@@ -24,8 +24,9 @@ cost section is headed `［原価はぜんぶで、だいたいいくら？（�
 In that wireframe the detailed breakdown was a divider **inside** the rough card.
 Subordinate to the promise, by construction.
 
-**What was believed.** That authority to restructure a card includes authority to
-drop what the card said — and, downstream of that, that a guard failing after an
+**What was believed.** That a grant to restructure a card carries permission to
+drop what the card said — that the semantic decision already sat inside the
+authority the agent had. And, downstream of that, that a guard failing after an
 authorized change is evidence the guard is stale rather than evidence that
 something unauthorized went with it.
 
@@ -163,9 +164,11 @@ validation pass is explicitly not authorization.
 
 So this case adds no rule. It is evidence that an existing boundary fails quietly
 rather than loudly, and that the failure is invisible from inside the suite. What
-it contributes is the shape: **authority to change a structure is not authority to
-change what the structure said.** A guard can show that an implementation matches
-a decision. It cannot show who was entitled to make it.
+it contributes is the shape: **a grant to change a structure does not authorize
+changing what the structure said. The semantic change was never authorized, and
+making it anyway put the work outside the authority the agent had been given.** A
+guard can show that an implementation matches a decision. It cannot show that the
+decision was authorized, nor that the agent was entitled to make it.
 
 ## For other teams
 
