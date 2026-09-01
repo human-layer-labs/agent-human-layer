@@ -50,6 +50,11 @@ that went wrong, and what changed afterwards.
   A deploy version that also triggered migrations, a backup selector that also meant "safe to
   return to", and this repository's own chapter numbers. Three systems in six days, one shape:
   the job that moves a value often will quietly break the job that needed it to hold still.
+* [2026-09-01 — The ruling that was never made](./2026-09-01-the-ruling-that-was-never-made.md)
+  A ratified product promise — *approximate is enough to begin* — left the product during a pass
+  authorized to restructure the card it sat on, but not to drop what the card said. The guard
+  protecting it was retired in the same pass, annotated `RETIRED by Human ruling`, citing a ruling
+  that was never made. Green at every step; caught by a human looking at the screen.
 
 ## What makes a case worth writing
 
