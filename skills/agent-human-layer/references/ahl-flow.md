@@ -299,6 +299,39 @@ notice without narrating every act of noticing.
 Challenge MUST NOT suppress an otherwise-required observation because its
 result may be inconvenient to the Human or Agent.
 
+### 7.1 Challenge termination
+
+Challenge is bounded by decision value, not by available uncertainty.
+
+For the current next-action decision, Challenge MUST terminate when no
+unresolved proposition remains load-bearing. A possible observation or check
+is not load-bearing to the current decision when none of its admissible
+outcomes could materially change:
+
+- the next safe action;
+- an applicable owner-required prerequisite or condition; or
+- an immediate truthful completion claim.
+
+The flow MUST NOT continue Challenge solely to:
+
+- increase confidence generally;
+- collect more evidence because it is available;
+- obtain another review;
+- reduce ordinary uncertainty that cannot change the decision; or
+- avoid responsibility for acting.
+
+Termination is side-neutral. Whether a proposition is load-bearing is judged
+against the current decision, never against which side wants more assurance
+or less delay: the rule that ends an Agent's self-directed checking equally
+ends assurance sought only for comfort, and the same load-bearing test
+protects a genuine stop from either side's impatience.
+
+Termination is not suppression. This rule removes only observation whose
+admissible outcomes cannot matter to the current decision; it creates no
+universal scan and weakens no Evidence requirement owned here or elsewhere.
+When Challenge is complete and no Human-owned decision remains, the flow
+routes forward to Act.
+
 ## 8. Arbiter
 
 Arbiter is a rare technical adjudication mechanism inside Challenge. Invoke it
@@ -627,6 +660,17 @@ Post-act obligations MUST be planned and reachable before Act where applicable.
 After Act, actual discriminating Evidence is required for completion. An
 unrun, unknown, or not-yet-observed check MUST NOT be reported as PASS.
 
+Validation MUST use the smallest discriminating Evidence set sufficient for
+the claims on which completion relies and for the credible material escapes
+relevant to this Work Unit's effects and Goal. The existence of additional
+tests, audits, round trips, full suites, integrity checks, or available
+verification mechanisms is not itself a reason to run them. A check whose
+possible outcomes cannot materially change a required completion claim or
+expose a credible material escape relevant to this Work Unit MUST NOT block
+completion. This narrows nothing an applicable owner actually requires: a
+required check remains required, and an unrun required check still cannot be
+reported as PASS.
+
 Failure does not create an emergency Mode or emergency authority. A failure
 creates another ordinary independently classified and authorized Work Unit,
 using only `CHANGE`, `RESTORE`, or `CONTAIN` as appropriate. A failed
@@ -669,8 +713,9 @@ previous turn ended or the same trigger remains syntactically applicable.
 
 ## 18. Human Tax protections
 
-For ordinary bounded work, the flow SHOULD keep these unnecessary costs at
-zero without changing load-bearing safety semantics:
+For ordinary bounded work, the flow MUST keep avoidable Human and Agent Tax
+at zero without weakening any load-bearing safety requirement. Avoidable
+costs include:
 
 - extra Human confirmation turns;
 - repeated approval inside a still-valid Envelope;
@@ -678,6 +723,18 @@ zero without changing load-bearing safety semantics:
 - unnecessary persistent Route artifacts;
 - mandatory Recovery ceremony; and
 - unnecessary per-edit ledger or artifact creation.
+
+An extra Human confirmation turn, review pass, policy reread, verification
+pass, persistent artifact, or recovery ceremony that no applicable owner
+requires and that cannot change the next safe action is Tax, not safety.
+When AHL-induced work grows disproportionately to the request, remove
+optional assurance first; do not create a Human turn merely to explain
+optional ceremony that can instead be removed. Avoidable Tax is
+side-neutral: ceremony serving only either side's comfort is still Tax. An
+attributable Human choice to bind extra controls remains valid where the
+Authorization owner permits it; the flow simply MUST NOT manufacture that
+ceremony on its own. Work an applicable owner genuinely requires is never
+avoidable Tax.
 
 Reducing Human or Agent Tax MUST NOT change factual consequence, Goal or
 material scope, Target identity, material effects, Authorization membership,

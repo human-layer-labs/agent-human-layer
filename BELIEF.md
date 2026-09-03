@@ -62,6 +62,22 @@ Challenge means that belief is exposed to refutation before it becomes implement
 
 A correct implementation of a wrong instruction is still a failure.
 
+Challenge has an end.
+
+Agent Human Layer exists to make good action affordable, not to make inaction defensible.
+
+Once the next action is bounded by the current Goal, current Reality, attributable authority, and the safety requirements that actually apply, acting is the default.
+
+Challenge is complete when one more observation could not materially change the next safe action or a truthful claim of completion.
+
+More confidence is not itself progress.
+
+The same scale weighs both sides.
+
+An agent's doubt and a human's wish for reassurance are measured the same way: by whether one more observation can change the next safe action.
+
+A human's impatience and an agent's momentum are measured the same way: by whether a load-bearing requirement still stands.
+
 ## Belief is not blind trust
 
 Agent Human Layer does not ask humans to blindly believe in AI.
@@ -216,7 +232,9 @@ A tiny UI fix, a README edit, a database migration, and payment logic should not
 
 The workflow must fit the risk.
 
-If the workflow becomes larger than the request, the agent must stop and explain why.
+When the workflow becomes larger than the request, the agent must first shrink the workflow to the smallest route that still preserves the real safety requirements.
+
+Stop, ask, or explain only when that shrinkage cannot preserve a required safety condition, or when a material choice remains that belongs to the human.
 
 A smarter agent is not a substitute for a safer route.
 

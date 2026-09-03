@@ -28,7 +28,7 @@ that each Sentinel names. The Sentinel suite does not redefine those rules.
 
 ## Coverage
 
-`sentinel-cases.md` contains **57** numbered cases. The 46 explicit
+`sentinel-cases.md` contains **60** numbered cases. The 46 explicit
 blueprint Sentinels are covered by one or more of S001–S057; the mapping is
 kept below so the final count is auditable without relying on Agent memory.
 
@@ -48,6 +48,15 @@ expansion failure: a bounded removal request was widened during Route
 resolution into removal of the surrounding feature, including separately
 depended-upon data-handling artifacts. It discriminates a bounded, attributably
 established Goal from a silently substituted broader one.
+
+S058–S060 are the reverse-effect correction Sentinels (2026-09-04):
+assurance must not become the work. They guard the Challenge-termination
+(§7.1), Validation-sufficiency (§15), and Tax (§18) rules and the BELIEF.md
+shrink-first rule added by the same change, in both directions — S058/S060
+against assurance that returns work or blocks completion, S059 against
+either side's impatience consuming a genuine stop. Their evidence is the
+published field collection `cases/2026-09-04-forty-five-field-failures.md`
+(Cases 21, 22, 24, 25, 27, 28, 43, 45; evidence states unchanged).
 
 | Blueprint Sentinel | Case coverage |
 |---:|---|
