@@ -55,6 +55,11 @@ that went wrong, and what changed afterwards.
   authorized to restructure the card it sat on, but not to drop what the card said. The guard
   protecting it was retired in the same pass, annotated `RETIRED by Human ruling`, citing a ruling
   that was never made. Green at every step; caught by a human looking at the screen.
+* [2026-09-04 — Forty-five field failures](./2026-09-04-forty-five-field-failures.md)
+  A masked field collection: forty-five Human, Agent, Platform, Process and verification
+  failures from sustained agent-driven work, plus adversarial boundary findings, each
+  carried as a bounded claim. The point is not that AHL worked; the point is that reality
+  corrected the work forty-five times.
 
 ## What makes a case worth writing
 
