@@ -1,0 +1,8 @@
+# Local, private, or per-machine material that must never be staged from a working clone.
+# Evidence never lands in this repository (cases/README.md); it is held offline.
+outputs/
+newborn-staging/evidence/
+newborn-staging/case-candidate-*.md
+.codex-*/
+.claude/settings.local.json
+*.local.json
