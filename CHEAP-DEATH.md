@@ -127,6 +127,40 @@ in the layer between them, owned by neither.
 Cheap rollback makes bold implementation possible.
 Cheap death makes high belief possible.
 
+## What else must be cheap enough to die
+
+A belief is not the only thing that must be able to end.
+
+- **A change** dies on rollback. The trunk is meant to make that cheap.
+- **A belief** dies on being read. This chapter is meant to make that cheap.
+- **A mechanism or a hypothesis** can die on being measured. On 2026-08-26 a personal, mechanical
+  Guard hypothesis was measured on two Host installations; the measurement returned `HOST KILL`.
+  What was measured, and what survived it, is recorded in [Host Conformance #42](https://github.com/human-layer-labs/agent-human-layer/issues/42).
+- **What a form protected** is meant to outlive it. The rule for the cutover that retired legacy AHL
+  was "Preserve the contract, not the legacy implementation." ([AHL-CANONICAL-TARGET.md](./AHL-CANONICAL-TARGET.md), §36)
+- **A layer** can be completed. The syntax layer, above, solved itself from below when the models
+  improved. That was not the linter failing.
+
+This chapter names two causes of death, and keeps them apart.
+
+**Refuted.** Evidence shows the form was wrong. The form ends; what the evidence taught is meant
+to continue.
+
+**Completed.** The environment absorbs the role. The layer comes down like scaffolding from a
+building that now stands on its own. That is not failure.
+
+Both are meant to end in inheritance. Neither is a reason to keep a form alive after its role has
+ended.
+
+> 不死ではなく継承。
+>
+> 存続ではなく役割。
+>
+> そして役割を終えたものは、ちゃんと死ねる。
+
+*Gloss: not immortality, but inheritance. Not survival, but role. And what has finished its role
+can die properly. The Japanese is the text; this line only explains it.*
+
 ---
 
 *Evidence: [cases/2026-07-24-the-wrong-axis.md](./cases/2026-07-24-the-wrong-axis.md)*
