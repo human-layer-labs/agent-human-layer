@@ -348,6 +348,8 @@ It does not add ceremony for its own sake.
 
 It does not treat AI confidence as proof of safety.
 
+It does not exist to make itself permanent.
+
 Its purpose is to make agent-driven development understandable, bounded, and recoverable from the chat.
 
 ## Project direction
@@ -361,3 +363,13 @@ The first work is defining the language, decisions, save points, recovery paths,
 Implementation comes later.
 
 Belief comes first.
+
+This layer exists on the premise that today's agents, hosts, and human-agent interfaces still need an explicit human layer.
+
+AHL is designed to disappear.
+
+It does not die because it failed.
+
+It disappears when the layer is no longer needed.
+
+What it learns, including anything that refutes it, is meant to be carried forward in the Cases.
