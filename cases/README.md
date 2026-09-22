@@ -60,6 +60,10 @@ that went wrong, and what changed afterwards.
   failures from sustained agent-driven work, plus adversarial boundary findings, each
   carried as a bounded claim. The point is not that AHL worked; the point is that reality
   corrected the work forty-five times.
+* [2026-09-22 — The belief that passed every check before Reality saw it](./2026-09-22-the-belief-that-passed-every-check-before-reality-saw-it.md)
+  A new workflow used the correct layered source of truth while the screen it linked to silently
+  used an older one. Tests, mutation checks, audit, and staging all passed. A Human opening both
+  screens exposed the contradiction. AHL bounded the consequence; it did not replace Reality contact.
 
 ## What makes a case worth writing
 
