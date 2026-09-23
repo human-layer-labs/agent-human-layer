@@ -64,6 +64,10 @@ that went wrong, and what changed afterwards.
   A new workflow used the correct layered source of truth while the screen it linked to silently
   used an older one. Tests, mutation checks, audit, and staging all passed. A Human opening both
   screens exposed the contradiction. AHL bounded the consequence; it did not replace Reality contact.
+* [2026-09-22 — The boundary that became an investigation](./2026-09-22-the-boundary-that-became-an-investigation.md)
+  A read-only precheck found changed production directory metadata before a test-only deployment.
+  Its origin remained unknown, and the agent required the Human to explain it before proceeding.
+  The Human challenged whether the change affected the next test deployment; no server write had occurred.
 
 ## What makes a case worth writing
 
