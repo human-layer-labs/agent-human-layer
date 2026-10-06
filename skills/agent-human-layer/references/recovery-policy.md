@@ -72,6 +72,14 @@ demonstration, or a drill. A drill is an optional method for acquiring or
 strengthening Evidence; it is not a universal ritual and is not required when
 other sufficient Evidence establishes the proposition.
 
+Recovery is an enabler, not a universal gate. Require or evaluate it when an
+applicable owner requires it or when the Work Unit relies on it. One sufficient
+rollback mechanism for the exact restore unit and closure is enough; do not
+stack redundant rollback layers or require a drill when other Evidence is
+sufficient. Choose prevention effort in proportion to the credible cost of
+rollback, while preserving every applicable Boundary, destructive-action,
+data-loss, and authority requirement.
+
 ## Fast qualification
 
 Recovery is Fast only when all three predicates hold for the use at hand:

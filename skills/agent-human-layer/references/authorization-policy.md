@@ -264,6 +264,15 @@ conclusions through the flow's fixpoint.
 
 Routine refresh MUST NOT become full reauthorization.
 
+A bounded technical implementation MAY carry the necessary edits, scoped
+validation, and in-scope commit or rebase steps inside the same active
+Envelope. Do not require a separate Human reconfirmation for each such step
+while membership remains valid. This carry creates no authority: a scope
+expansion, Target change, destructive or data-loss effect, material
+invalidation, or unresolved Human-owned choice requires the affected
+Authorization to be reevaluated, and any authority not already granted must
+not be inferred.
+
 ## 9. Policy-basis carry
 
 Carry MUST preserve:

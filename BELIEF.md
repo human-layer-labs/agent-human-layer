@@ -44,9 +44,9 @@ A human should be able to ask.
 
 An agent should be able to act.
 
-If it works, the work should be completed quickly.
+Work should be completed with the least process that safely fits its scope.
 
-If it fails, the system should return to the last known-good state without drama.
+If it fails, the system should be able to restore a known-good state with a sufficient rollback.
 
 The core idea is simple:
 
@@ -72,6 +72,12 @@ Challenge is complete when one more observation could not materially change the 
 
 More confidence is not itself progress.
 
+Lightweight means effort fits the scope and consequence; it never means careless or rushed. Applicable load-bearing safety requirements remain in force.
+
+No New Evidence, No New Round: repeat or expand review only when new material Evidence could change the next safe action or a completion claim.
+
+Progress toward the Goal is protected. Removing ceremony must preserve meaningful progress and must not silently replace or shrink the Goal.
+
 The same scale weighs both sides.
 
 An agent's doubt and a human's wish for reassurance are measured the same way: by whether one more observation can change the next safe action.
@@ -90,10 +96,10 @@ A person does not believe in an agent because the agent sounds confident.
 
 A person believes in an agent because it repeatedly:
 
-* explains before acting
-* limits its scope
+* makes material intent and scope clear
+* limits its actions to the authorized scope
 * respects repository rules
-* names save points
+* keeps a sufficient rollback when one is needed
 * stops when the route becomes unsafe
 * restores quickly when something goes wrong
 
@@ -113,10 +119,10 @@ Each successful Believe should answer:
 * What did the agent touch?
 * What did the agent refuse to touch?
 * Where was the work saved?
-* What happens if this fails?
-* How can the system restore?
+* What material uncertainty or failure remains?
+* What sufficient restore path applies, when recovery affects this work?
 
-A Believe is not complete until the human can understand the result and the recovery path.
+A Believe is complete when the human can understand the result and any material uncertainty. Explain recovery when it affects the decision or is needed to make the result understandable.
 
 ## The chat is the Human interface
 
@@ -124,13 +130,13 @@ The human should not need to live inside GitHub.
 
 Agent Human Layer brings the agent workflow back into the chat.
 
-The chat should make three things clear:
+The chat should make the material things clear:
 
 * intent: what the human asked for, and how the agent understood it
-* route: what the agent will touch, what it will avoid, and when it must stop
-* recovery: where the save points are, and how to restore if something breaks
+* route: the scope and boundaries that affect the work
+* recovery: the sufficient restore path when it affects the decision or the result
 
-Belief is earned in the chat when the human can understand the route before the agent acts, see the boundaries while it acts, and know the recovery path if it fails.
+Belief is earned in the chat when the human can understand the material scope and boundaries. Recovery detail is provided when it changes what the human needs to decide or understand.
 
 ## Humans should not have to speak Git
 
@@ -186,9 +192,11 @@ A rollback that humans cannot understand is not enough.
 
 A recovery path that does not restore the last known-good state is not enough.
 
-For small changes, a Git commit and a human-readable save name may be enough.
+For small changes, one sufficient rollback mechanism may be enough.
 
-For risky changes, recovery may require:
+Choose a recovery mechanism for the exact state and scope. Do not stack redundant rollback layers when one sufficient mechanism covers the restore unit.
+
+For changes with broader consequences, recovery may require:
 
 * a branch savepoint
 * a folder snapshot
