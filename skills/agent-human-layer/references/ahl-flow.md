@@ -66,39 +66,32 @@ trunk.
 
 ## 2. Lifecycle overview
 
-For state-changing work, Core MUST preserve this lifecycle:
+For ordinary bounded state-changing work, Core MUST use the lightest
+decision-scoped lifecycle that establishes the next safe action. Act is the
+default once Goal, material scope and effects, and per-effect Target Binding
+are established for the occurrence; applicable owner requirements,
+attributable authority, Route, Authorization membership, and any required
+Boundary or relied Recovery must also be established.
 
-```text
-load applicable policy conditionally
-→ Human request and provenance entry
-→ resolve Goal only enough for the next action
-→ form candidate Work Units and Routes
-→ Challenge and bounded read-only discovery
-→ deterministic Policy elimination and requirements
-→ provisional consequence / Recovery / Boundary / Release evaluation
-→ Arbiter for a rare open technical choice, if needed
-→ ROUTE_UNDETERMINED → Human when no safe technical choice remains
-→ select one final Work Unit and Route
-→ final factual classification through consequence-policy.md
-→ independently derive Boundary and Release requirements
-→ evaluate Recovery and Evidence prerequisites and per-use application
-→ construct or match the Authorization Envelope
-→ derive aggregate consequence from effect semantics
-→ repair materially wrong presented risk when required
-→ test Authorization membership
-→ refresh mutable occurrence predicates
-→ Act
-→ fulfill post-act obligations and Validate
-→ create independently authorized failure Work Units when needed
-→ check Goal achievement
-```
+After Act, fulfill applicable post-act obligations, validate the changed
+claims and credible material consumers, and check Goal achievement. Validation
+scope is proportional to the change and MUST use enough discriminating
+Evidence for the claims on which completion relies and credible material
+escapes.
 
-Candidate evaluations are for ranking and elimination only. They MUST NOT be
-treated as final classification, final Target Binding, final Recovery or
-Boundary result, Authorization, or mutation permission.
+No New Evidence, No New Round. Re-enter the earliest affected step only when
+new material Evidence or a material reference change invalidates a conclusion.
+A restatement, unchanged conclusion, or completed fix does not by itself
+require a full lifecycle replay or automatic full re-review. After a fix,
+validate the changed claim and credible consumers; do not repeat an unchanged
+review solely because another round is customary.
 
-The flow MUST NOT skip lifecycle steps merely because a neighboring staged
-owner is not implemented yet.
+This default does not skip a lifecycle step or prerequisite required by an
+applicable owner. Target, destructive-action, data-loss, authority, Boundary,
+Recovery, Release, and safety-critical ordering requirements remain in force.
+Candidate evaluations remain provisional and MUST NOT be treated as final
+classification, Target Binding, owner result, Authorization, or mutation
+permission.
 
 ## 3. Human request, provenance, and Goal
 
@@ -739,7 +732,8 @@ avoidable Tax.
 Reducing Human or Agent Tax MUST NOT change factual consequence, Goal or
 material scope, Target identity, material effects, Authorization membership,
 Boundary, relied Recovery applicability, safety-critical ordering, occurrence
-allowance/count, Release preconditions, or Goal completion semantics.
+allowance/count, Release preconditions, meaningful progress toward the Goal,
+or Goal completion semantics.
 
 ## 19. Completion invariant
 

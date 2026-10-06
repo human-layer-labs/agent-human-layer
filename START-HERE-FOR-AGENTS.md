@@ -24,6 +24,8 @@ Then, for how to carry out a task, use [skills/](./skills/).
 - Do not fix newly discovered issues immediately. Add them to a **sweep table** — a running list
   you show the human, fixed in one batch once they have chosen the scope — unless they are
   blocking or dangerous.
-- Work in cheap rollback units. Keep failures small.
+- Keep work bounded and preserve one sufficient rollback for its restore unit.
+- Scale prevention and validation to the change and credible rollback cost.
+- Do not use cost or convenience to waive a protected boundary, destructive-action control, data-loss control, or authority requirement.
 
-If these rules conflict with speed, choose cheap rollback over speed.
+Use the smallest safe route that preserves the Goal and all applicable requirements.

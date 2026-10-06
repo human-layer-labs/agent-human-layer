@@ -121,12 +121,11 @@ unchanged valid Authorization Envelope that already covers the occurrence.
 Ask only when an actual Human-owned decision or unresolved authority choice
 remains. Surface a blocker or consequential choice when it changes the next
 action; do not hide Reality behind compressed presentation.
-When the flow's own semantics determine that Challenge is complete and no
-Human-owned decision remains, route forward to Act. Optional review or
-assurance is not surfaced as a blocker and not converted into a Human
-question; Challenge termination and Validation sufficiency are owned by
-[`ahl-flow.md`](./references/ahl-flow.md), not defined here.
-
+For ordinary bounded work, Act is the default once the flow's applicable
+prerequisites hold and no Human-owned decision remains. Optional review or
+assurance is not surfaced as a blocker or converted into a Human question.
+Challenge termination and Validation sufficiency are owned by
+`[ahl-flow.md](./references/ahl-flow.md)`, not defined here.
 Compression governs presentation, not establishment. States the flow requires
 before a mutation MUST be established before it, whether or not they are
 shown. This file does not require the Agent to recall them afterward; any
