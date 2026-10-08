@@ -299,6 +299,10 @@ No universal durable authorization artifact is required for every ordinary
 edit. Durable carry is required only when authorization or occurrence state
 must survive a boundary that active context cannot safely preserve.
 
+An **AHL Snapshot** MAY carry this already-established authorization basis across an agent/session handoff. The snapshot is not a grant and creates no authority inheritance. It MUST preserve the attributable provenance, exact Envelope bounds/state, relevant occurrence/allowance state, and policy-basis identity needed for the receiving occurrence.
+
+A receiving agent/session MUST NOT require Human reapproval or full policy reread solely because of handoff when the carried basis remains valid. Each occurrence still independently tests membership against the same attributable Envelope. Missing carry fields, material Reality change, policy-basis change, or an actual membership uncertainty re-enters the flow normally.
+
 ## 10. Suspension and Envelope end
 
 Suspension and Envelope end are distinct states.

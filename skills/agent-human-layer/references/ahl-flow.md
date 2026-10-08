@@ -93,6 +93,18 @@ Candidate evaluations remain provisional and MUST NOT be treated as final
 classification, Target Binding, owner result, Authorization, or mutation
 permission.
 
+### 2.1 Zero-Tax Fast Path
+
+The router MAY enter a Zero-Tax Fast Path without loading this full flow when the bounded current context or a valid AHL Snapshot makes all material Goal, Target, scope/effect, authority, validation, and stop conditions clear and no real escalation trigger is present.
+
+Fast Path is a lifecycle shortcut only. It creates no new Operation, consequence class, Authorization rule, Recovery status, Boundary exception, or Release exception.
+
+A Fast Path occurrence MUST still be bounded by attributable authority and an exact Target/effect. It MUST stop and re-enter this flow at the earliest affected step when a material new fact, Target drift, scope/effect expansion, authority ambiguity, protected Boundary/Release concern, destructive or irreversible effect, meaningful external/financial accumulation, relied Recovery failure, or policy-basis change appears.
+
+A session, agent, subagent, or process handoff by itself is not a material new fact and MUST NOT force full-flow reload.
+
+When the cost of optional AHL ceremony would plausibly exceed the bounded work it protects, Core MUST first remove redundant policy loading, duplicated evidence gathering, redundant rollback layers, unnecessary delegation, and non-discriminating validation. Real owner-required work remains required.
+
 ## 3. Human request, provenance, and Goal
 
 Human language is input, not truth. Human shorthand MAY help form intent and
@@ -187,6 +199,29 @@ When finalizing Work Unit boundaries and classifying the selected Route, the
 flow MUST apply the anti-fragmentation rule defined in
 `consequence-policy.md`. This file defines no separate anti-fragmentation
 semantics.
+
+### 5.1 Delegation Snapshot
+
+A delegation boundary MAY carry an **AHL Snapshot** instead of forcing the receiving agent/session to reload the full policy graph.
+
+The snapshot is a compact representation of already established basis. It MUST NOT manufacture authority, broaden an Envelope, lower consequence, satisfy a Boundary, create Recovery, or legalize a new effect.
+
+Where applicable, the snapshot carries:
+
+- Goal / completion relation;
+- exact Target and material scope;
+- Operation and permitted material effects;
+- exclusions / denied effects;
+- attributable provenance;
+- applicable Authorization Envelope reference or exact carried bounds;
+- relied Recovery basis;
+- required validation;
+- stop / escalation conditions; and
+- policy-basis identity/version.
+
+The receiving agent independently applies the carried bounds to each occurrence. Agent/session handoff alone is not invalidation. Full policy reload is required only when a carried field is missing for the next action, a stop condition fires, a load-bearing fact materially changes, or the relevant policy basis changes.
+
+Authorization carry and membership remain owned by `authorization-policy.md`; this section owns only lifecycle use of the snapshot and its re-entry triggers.
 
 ## 6. Evidence
 
@@ -734,6 +769,30 @@ material scope, Target identity, material effects, Authorization membership,
 Boundary, relied Recovery applicability, safety-critical ordering, occurrence
 allowance/count, Release preconditions, meaningful progress toward the Goal,
 or Goal completion semantics.
+
+### 18.1 Agent startup and orchestration Tax
+
+A new agent/session MUST NOT trigger a full AHL reread when a valid AHL Snapshot can carry the unchanged basis. Startup cost, handoff cost, wait cost, review cost, and context-retention cost are all Agent Tax and MUST be counted when choosing parallelism.
+
+Core SHOULD NOT delegate a bounded task when the expected delegation and coordination cost is greater than simply executing the task, unless the delegation is justified by critical-path reduction, isolation, specialized capability, or materially independent review.
+
+A helper whose primary work is waiting for another helper, monitoring another helper, or restating unchanged status is presumptively Tax unless that work is load-bearing to a real requirement.
+
+### 18.2 AHL cost budget
+
+Optional AHL work MUST remain cheaper than the work it protects. If optional AHL overhead grows disproportionately, remove optional assurance first:
+
+1. eliminate repeated full-policy loading;
+2. reuse a valid AHL Snapshot;
+3. reuse still-valid Evidence and Authorization;
+4. remove redundant rollback/savepoint layers;
+5. remove non-discriminating checks;
+6. collapse unnecessary delegation and waiting; and
+7. retain only owner-required work that can materially change the next safe action or completion claim.
+
+Disproportionate overhead caused only by optional or redundant AHL work is an AHL design failure, not additional safety.
+
+Existing cheap rollback SHOULD be reused when sufficient for the exact restore unit and closure. Do not manufacture a second rollback mechanism merely to prove recoverability when no applicable owner requires it.
 
 ## 19. Completion invariant
 
