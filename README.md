@@ -92,6 +92,10 @@ Being able to restore an affected unit does not make the action permitted or pro
 
 A check establishes only what that check actually discriminates.
 
+**A PASS is scoped to the surface it exercised.**
+
+Synthetic, disposable-copy, development, and production evidence are not interchangeable merely because each says PASS. A large test count on the wrong surface does not prove the Human-visible or deployed Goal.
+
 These are orientation, not replacement definitions.
 
 Canonical lexical meanings live in
