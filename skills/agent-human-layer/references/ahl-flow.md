@@ -97,7 +97,7 @@ permission.
 
 ### 2.1 Zero-Tax Fast Path
 
-The router MAY enter a Zero-Tax Fast Path without loading this full flow when the bounded current context or a valid AHL Snapshot makes all material Goal, Target, scope/effect, authority, validation, and stop conditions clear and no real escalation trigger is present.
+The router MAY enter a Zero-Tax Fast Path without loading this full flow when the bounded current context or a valid Scope Card makes the exact Target, Goal, allowed/denied scope, completion condition, and stop conditions clear and no real escalation trigger is present.
 
 Fast Path is a lifecycle shortcut only. It creates no new Operation, consequence class, Authorization rule, Recovery status, Boundary exception, or Release exception.
 
@@ -202,28 +202,28 @@ flow MUST apply the anti-fragmentation rule defined in
 `consequence-policy.md`. This file defines no separate anti-fragmentation
 semantics.
 
-### 5.1 Delegation Snapshot
+### 5.1 Scope Card
 
-A delegation boundary MAY carry an **AHL Snapshot** instead of forcing the receiving agent/session to reload the full policy graph.
+A delegation boundary MAY carry a **Scope Card** instead of forcing the receiving agent/session to reload AHL.
 
-The snapshot is a compact representation of already established basis. It MUST NOT manufacture authority, broaden an Envelope, lower consequence, satisfy a Boundary, create Recovery, or legalize a new effect.
+The Scope Card has exactly six fields:
 
-Where applicable, the snapshot carries:
+- Target
+- Goal
+- Allowed
+- Denied
+- Done when
+- Stop if
 
-- Goal / completion relation;
-- exact Target and material scope;
-- Operation and permitted material effects;
-- exclusions / denied effects;
-- attributable provenance;
-- applicable Authorization Envelope reference or exact carried bounds;
-- relied Recovery basis;
-- required validation;
-- stop / escalation conditions; and
-- policy-basis identity/version.
+It is a compact execution handoff, not a new authority mechanism. It MUST NOT broaden attributable Human authority, legalize a new effect, waive a protected Boundary, or silently expand scope.
 
-The receiving agent independently applies the carried bounds to each occurrence. Agent/session handoff alone is not invalidation. Full policy reload is required only when a carried field is missing for the next action, a stop condition fires, a load-bearing fact materially changes, or the relevant policy basis changes.
+The delegating context is responsible for keeping `Allowed` and `Denied` within already-attributable authority. The receiving agent may act inside those bounds on the exact Target without reconstructing the full Authorization Envelope or policy graph on every handoff.
 
-Authorization carry and membership remain owned by `authorization-policy.md`; this section owns only lifecycle use of the snapshot and its re-entry triggers.
+Do not add extra mandatory Scope Card fields for provenance, recovery basis, policy version, operation name, review state, or evidence bookkeeping. If one of those details would materially change the next action, encode the practical constraint in `Allowed`, `Denied`, `Done when`, or `Stop if`, or consult the exact relevant reference section.
+
+Agent/session handoff alone is not invalidation. Re-enter deeper semantics only when a listed stop condition fires, Reality materially changes, the Target/scope changes, or the next action cannot be chosen safely from the six fields.
+
+Authorization semantics remain owned by `authorization-policy.md`; this section owns only lifecycle use of the Scope Card.
 
 ## 6. Evidence
 
@@ -799,7 +799,7 @@ or Goal completion semantics.
 
 ### 18.1 Agent startup and orchestration Tax
 
-A new agent/session MUST NOT trigger a full AHL reread when a valid AHL Snapshot can carry the unchanged basis. Startup cost, handoff cost, wait cost, review cost, and context-retention cost are all Agent Tax and MUST be counted when choosing parallelism.
+A new agent/session MUST NOT trigger a full AHL reread when a valid Scope Card already carries the unchanged execution bounds. Startup cost, handoff cost, wait cost, review cost, and context-retention cost are all Agent Tax and MUST be counted when choosing parallelism.
 
 Core SHOULD NOT delegate a bounded task when the expected delegation and coordination cost is greater than simply executing the task, unless the delegation is justified by critical-path reduction, isolation, specialized capability, or materially independent review.
 
@@ -810,7 +810,7 @@ A helper whose primary work is waiting for another helper, monitoring another he
 Optional AHL work MUST remain cheaper than the work it protects. If optional AHL overhead grows disproportionately, remove optional assurance first:
 
 1. eliminate repeated full-policy loading;
-2. reuse a valid AHL Snapshot;
+2. reuse a valid Scope Card;
 3. reuse still-valid Evidence and Authorization;
 4. remove redundant rollback/savepoint layers;
 5. remove non-discriminating checks;

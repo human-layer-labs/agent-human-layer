@@ -299,9 +299,13 @@ No universal durable authorization artifact is required for every ordinary
 edit. Durable carry is required only when authorization or occurrence state
 must survive a boundary that active context cannot safely preserve.
 
-An **AHL Snapshot** MAY carry this already-established authorization basis across an agent/session handoff. The snapshot is not a grant and creates no authority inheritance. It MUST preserve the attributable provenance, exact Envelope bounds/state, relevant occurrence/allowance state, and policy-basis identity needed for the receiving occurrence.
+A **Scope Card** MAY carry the already-established execution bounds across an agent/session handoff. The card is not a new grant and must not expand the Human's requested scope.
 
-A receiving agent/session MUST NOT require Human reapproval or full policy reread solely because of handoff when the carried basis remains valid. Each occurrence still independently tests membership against the same attributable Envelope. Missing carry fields, material Reality change, policy-basis change, or an actual membership uncertainty re-enters the flow normally.
+For ordinary delegated work, the receiving agent does not reconstruct the full Envelope or require Human reapproval merely because of handoff. It operates only within the card's exact Target, Allowed, and Denied bounds and obeys Stop if.
+
+The delegating context remains responsible for deriving those bounds from the attributable Human request and any applicable constraints. If material Reality, Target, scope, recipient/object, value/count, protected consequence, or an actual permission uncertainty changes, the card no longer silently carries the action forward; re-enter only the relevant authorization semantics.
+
+Do not expand the Scope Card schema to serialize the full Envelope, occurrence ledger, policy version, or provenance graph. Those details remain reference-level semantics for cases that truly need them.
 
 ## 10. Suspension and Envelope end
 
