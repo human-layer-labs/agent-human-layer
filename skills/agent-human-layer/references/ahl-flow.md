@@ -4,8 +4,8 @@ Status: `NEWBORN AHL — REFERENCE`
 
 > **Runtime note:** this file remains the detailed normative reference for lifecycle semantics, but it is **not** routine startup reading or a mandatory whole-file escalation step. Runtime agents use `../SKILL.md` (AHL Micro). When deeper semantics are actually needed, search and read only the relevant section / owner. Do not load this file wholesale merely because a task is state-changing, a new session started, or something unexpected happened.
 
-This file is the normative owner for newborn AHL lifecycle orchestration. It
-is live through the newborn AHL router.
+This file remains the normative owner for detailed newborn AHL lifecycle orchestration. It
+is consulted through AHL Micro only when deeper lifecycle semantics are materially needed.
 
 ## 1. Ownership and boundary
 
