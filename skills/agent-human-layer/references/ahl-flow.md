@@ -298,6 +298,31 @@ Human grant/provenance is not factual Evidence. Deterministic Policy
 derivation is not factual Evidence. Neither may be converted into factual
 Evidence merely to avoid observation.
 
+### 6.2 Evidence provenance and claim surface
+
+Evidence state and evidence provenance are different dimensions.
+
+- `DECLARED / OBSERVED / VERIFIED / UNEVALUATED` describe what has been established about a proposition.
+- `synthetic / disposable copy / development / production` describe where the evidence came from when that distinction is material.
+
+These provenance labels are descriptive, not a confidence ladder. A synthetic harness can strongly verify a synthetic proposition; a production observation can be weak or irrelevant. The question is whether the evidence actually discriminates the claim being made.
+
+A result MUST NOT be silently promoted across surfaces. Examples:
+
+- a synthetic harness PASS does not by itself establish that the deployed product behaves correctly;
+- a disposable workbook or database copy does not by itself establish that the live target has the same state or behavior;
+- development evidence does not by itself establish production delivery;
+- code inspection does not by itself establish Human-visible wording, layout, feel, or acceptance.
+
+When completion depends on a higher or different surface, either:
+
+1. observe that surface directly with the smallest discriminating check; or
+2. narrow the completion claim to the surface actually established.
+
+If the Agent relies on equivalence between two surfaces instead of direct observation, the material equivalence proposition itself must be supported by applicable evidence. Do not manufacture an equivalence proof when the Goal does not require cross-surface inference; direct observation is usually cheaper.
+
+A large number of checks on the wrong surface does not outweigh one discriminating observation on the surface that actually defines the Goal. Test count is not Evidence weight.
+
 ## 7. Load-bearing and Challenge
 
 A proposition is load-bearing when its truth may materially change the next
