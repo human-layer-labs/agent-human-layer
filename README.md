@@ -52,11 +52,11 @@ This repository currently ships no mechanical enforcement.
 
 **Agent**
 
-Start with [START-HERE-FOR-AGENTS.md](./START-HERE-FOR-AGENTS.md).
-
-For state-changing work, use
+For ordinary execution, go directly to
 [`skills/agent-human-layer/SKILL.md`](./skills/agent-human-layer/SKILL.md)
-as the live one-page runtime. Do **not** preload the reference graph. A child agent with a valid Scope Card does not reread AHL unless a real stop condition fires.
+or use the valid Scope Card already provided. Do **not** preload README, BELIEF, cases, the architecture target, or the reference graph.
+
+Use [START-HERE-FOR-AGENTS.md](./START-HERE-FOR-AGENTS.md) only when onboarding to AHL itself.
 
 ---
 
@@ -125,9 +125,9 @@ When a real Human-owned choice remains, a premise fails, or the route no longer 
 
 ## How AHL is shaped
 
-[`BELIEF.md`](./BELIEF.md) is the constitutional trunk.
+[`BELIEF.md`](./BELIEF.md) is the constitutional trunk for AHL design.
 
-If another AHL document conflicts with it, `BELIEF.md` wins.
+It is not routine runtime reading. When intentionally doing AHL design or audit, a real conflict with BELIEF must be resolved rather than silently ignored. Ordinary execution uses AHL Micro and does not load BELIEF merely to search for possible conflicts.
 
 The live runtime is provider-neutral:
 
