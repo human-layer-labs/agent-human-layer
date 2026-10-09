@@ -27,10 +27,10 @@ State-changing work: if a valid **Scope Card** already covers this exact target,
    Ordinary implementation failure, test failure, fixture gaps, tool/API mistakes, and facts that can be resolved from canonical sources are not Human stops. Correct them and continue. Separate unrelated scope instead of mixing it in.
 
 5. **Evidence — what is the smallest check that can actually distinguish success from failure?**  
-   Reuse still-valid evidence. Do not rerun checks merely because another round happened. Label evidence by where it came from when that matters: synthetic / disposable copy / development / production.
+   Reuse still-valid evidence. Do not rerun checks merely because another round happened. When provenance matters, say where the evidence came from: synthetic / disposable copy / development / production. **A PASS proves only the surface it exercised.** Do not silently promote synthetic or copy evidence into a claim about development, production, or the Human-visible product.
 
 6. **Goal — did we only make code, or did the intended result actually arrive?**  
-   Code complete != delivery complete != goal achieved. Use observable evidence appropriate to the goal; use Human visual acceptance when appearance, wording, feel, or product acceptance is the real criterion.
+   Code complete != delivery complete != goal achieved. Completion evidence must match the surface named by the Goal. If the Goal is UI/wording/feel, use direct Human-visible observation or Human acceptance. If the Goal is deployed behavior, observe the deployed target or explicitly narrow the claim.
 
 ## Stop rule
 
