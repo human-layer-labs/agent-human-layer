@@ -1,12 +1,13 @@
 # Start Here for Agents
 
-Before working, read:
+For ordinary execution, **do not preload the AHL repository**.
 
-1. [README.md](./README.md) — what this project is
-2. [BELIEF.md](./BELIEF.md) — the trunk, and what wins when anything conflicts
-3. [cases/README.md](./cases/README.md) — what has actually gone wrong, and what changed
+- Read-only work: load no AHL.
+- State-changing work: use [AHL Micro](./skills/agent-human-layer/SKILL.md) once, or use the exact Scope Card already handed to you.
+- Child agents with a valid Scope Card do not reread AHL.
+- README, BELIEF, cases, the canonical architecture, and `references/` are design/research material. Read them only when the task is specifically about AHL design, research, audit, or a concrete high-consequence semantic question.
 
-Then, for how to carry out a task, use [skills/](./skills/).
+The repository must not charge every Agent the cost of understanding how AHL was invented before it can do ordinary work.
 
 ## Operational rules
 
