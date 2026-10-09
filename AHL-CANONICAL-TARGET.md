@@ -1,28 +1,21 @@
-# AHL Canonical Target — Newborn Architecture Candidate
+# AHL Canonical Target — Historical Newborn Architecture
 
-Status: **NEWBORN BLUEPRINT FROZEN**  
-Purpose: **Single architecture target for newborn canonical implementation and atomic migration. Not live execution policy.**  
-Audit state: **Final narrow freeze audit completed; findings NONE.**  
-Legacy Core baseline: `4af6316b704fa5235778f92512f74dfc9f27ffa0`  
-Guard / Guard enforcement: **NOT VERIFIED for Public v0.1**
+Status: **HISTORICAL ARCHITECTURE REFERENCE — NOT LIVE RUNTIME**  
+Original status: **NEWBORN BLUEPRINT FROZEN**  
+Purpose: preserve the architecture that produced the earlier newborn policy graph. It is research/audit material, not an execution prerequisite.  
+Runtime supersession: **2026-10-09 AHL Micro** (`skills/agent-human-layer/SKILL.md`).  
+Legacy Core baseline: `4af6316b704fa5235778f92512f74dfc9f27ffa0`
 
-Canonical architecture metadata: `AHL-CANONICAL-TARGET.md` is the sole canonical architecture SSoT. Copies, notes, Obsidian files, audit excerpts, generated summaries, and Agent memory are non-canonical.
+This document is intentionally retained so earlier design decisions, vocabulary, and policy ownership can be inspected when relevant. It must **not** be used to force ordinary Agents to preload the old seven-owner graph or to restore retired startup ceremony.
 
-Architecture revision, 2026-08-24: §6 recognizes one non-policy lexical owner, `GLOSSARY.md`, alongside the seven policy owners. This is a narrow recognition of a Human-ratified architecture, not a redesign. Nothing else in this frozen target is reopened.
+For live execution:
 
-This document is the **single architecture target** for writing the newborn AHL.
+- use `skills/agent-human-layer/SKILL.md` or a valid Scope Card;
+- read-only work loads no AHL;
+- detailed files under `references/` are consulted just-in-time for concrete high-consequence questions;
+- this historical architecture does not override the AHL Micro runtime merely because it is more detailed.
 
-It is not a second runtime policy layer.  
-During implementation, each operational concept has exactly one normative runtime owner in the canonical file set defined below.  
-After atomic newborn cutover, live Agents load those runtime owners, not this architecture target as a parallel policy source.  
-This document remains a frozen architecture/migration/audit reference unless a later architecture revision explicitly supersedes it.
-
-Do not redesign this architecture during canonical writing.  
-Do not introduce a competing authority mechanism.  
-Do not reopen fixed Human decisions.  
-Do not preserve conflicting legacy semantics merely for compatibility.  
-Do not modernize legacy AHL merely to ease migration.  
-If current canonical text conflicts with this target, report the conflict and implement the target through the designated normative owner.
+The sections below describe the frozen architecture as it existed before AHL Micro. Read them for design history, audit, or migration analysis — not as a checklist for every task.
 
 ---
 
