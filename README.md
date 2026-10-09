@@ -54,10 +54,9 @@ This repository currently ships no mechanical enforcement.
 
 Start with [START-HERE-FOR-AGENTS.md](./START-HERE-FOR-AGENTS.md).
 
-Before state-changing work, load
+For state-changing work, use
 [`skills/agent-human-layer/SKILL.md`](./skills/agent-human-layer/SKILL.md)
-and the flow it routes into,
-[`skills/agent-human-layer/references/ahl-flow.md`](./skills/agent-human-layer/references/ahl-flow.md).
+as the live one-page runtime. Do **not** preload the reference graph. A child agent with a valid Scope Card does not reread AHL unless a real stop condition fires.
 
 ---
 
@@ -132,9 +131,9 @@ If another AHL document conflicts with it, `BELIEF.md` wins.
 
 The live runtime is provider-neutral:
 
-- `SKILL.md` routes the work;
-- seven policy owners carry the behavioral responsibilities, with `ahl-flow.md` among them owning lifecycle and coordination;
-- `GLOSSARY.md` is the non-policy lexical owner for its NORMATIVE base terms.
+- `SKILL.md` is the one-page AHL Micro runtime;
+- the files under `references/` preserve detailed policy/design semantics for concrete high-consequence questions;
+- reference files are consulted just-in-time, by relevant section, and are not routine startup reading.
 
 The Glossary does not decide outcomes.
 Policy owners do not silently redefine the base terms they rely on.
@@ -179,13 +178,11 @@ Keep AHL at:
 
 and place the repository instruction in the host's instruction surface, such as `AGENTS.md` for Codex:
 
-> Before any task that may change code, files, data, configuration, repository state, deployment state, or another real system state, directly read and follow both `skills/agent-human-layer/SKILL.md` and `skills/agent-human-layer/references/ahl-flow.md` before mutation.
->
-> Pure explanation or read-only investigation does not require AHL unless the task is moving toward a change.
+> For read-only work, do not load AHL. Before state-changing work, use a valid Scope Card for the exact target if one exists; otherwise read `skills/agent-human-layer/SKILL.md` once. Do not preload `ahl-flow.md` or other references. Consult only the relevant reference section if a concrete high-consequence question requires it.
 
 This repository's own [AGENTS.md](./AGENTS.md) carries that instruction.
 
-The Host still has to reach AHL before mutation, and the Agent still has to follow the flow.
+The Host still has to reach the runtime guard before mutation. The runtime must not become startup ceremony.
 
 **Installation is not conformance.**
 
